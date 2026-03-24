@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSpend — นโยบายความเป็นส่วนตัว</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3ED;
+    --cream-deep: #EFE9E0;
+    --sage: #7BAF76;
+    --sage-light: #93C48E;
+    --sage-muted: #A8CDA3;
+    --sage-wash: #E6F2E4;
+    --ember: #D4564E;
+    --ember-light: #E07A73;
+    --gold: #C9A050;
+    --text-primary: #1E1D1A;
+    --text-secondary: #4A4940;
+    --text-tertiary: #7A7870;
+    --border: #DDD7CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px;
+    min-height: 100vh;
+  }
+
+  /* Subtle grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .page-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(123, 175, 118, 0.25);
+  }
+
+  .brand-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px;
+    color: var(--sage);
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 5vw, 42px);
+    color: var(--text-primary);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text-tertiary);
+    font-weight: 400;
+  }
+
+  .effective-date {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--sage);
+    background: var(--sage-wash);
+    padding: 6px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Content */
+  .content { padding-bottom: 80px; }
+
+  .lang-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .lang-btn {
+    padding: 8px 20px;
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .lang-btn.active {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: var(--cream);
+  }
+
+  .lang-btn:hover:not(.active) {
+    border-color: var(--sage-muted);
+    color: var(--sage);
+  }
+
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  /* Principle card */
+  .principle-card {
+    background: linear-gradient(135deg, var(--sage), var(--sage-light));
+    border-radius: 16px;
+    padding: 28px 28px;
+    margin-bottom: 40px;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principle-card::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .principle-card p {
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 36px;
+  }
+
+  .section h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .section p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  /* Info rows */
+  .info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 16px 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--cream-deep);
+  }
+
+  .info-row .icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--sage);
+  }
+
+  .info-row .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .info-row .desc {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+  }
+
+  /* Negative list (things we don't do) */
+  .negative-list {
+    list-style: none;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .negative-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .negative-list li::before {
+    content: '—';
+    font-family: 'Space Mono', monospace;
+    color: var(--sage-muted);
+    font-weight: 700;
+  }
+
+  /* Divider */
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: var(--border);
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-tertiary);
+  }
+
+  .footer-link {
+    font-size: 13px;
+    color: var(--sage);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--ember); }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    header { padding: 32px 0 28px; margin-bottom: 32px; }
+    .principle-card { padding: 22px; }
+    .principle-card p { font-size: 18px; }
+    .info-row { padding: 12px 14px; }
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .fade-in:nth-child(2) { animation-delay: 0.08s; }
+  .fade-in:nth-child(3) { animation-delay: 0.16s; }
+  .fade-in:nth-child(4) { animation-delay: 0.24s; }
+  .fade-in:nth-child(5) { animation-delay: 0.32s; }
+  .fade-in:nth-child(6) { animation-delay: 0.40s; }
+  .fade-in:nth-child(7) { animation-delay: 0.48s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <header class="fade-in">
+    <div class="brand-row">
+      <img class="brand-mark" src="data:image/jpeg;base64,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" alt="MindSpend">
+      <div class="brand-name">MindSpend</div>
+    </div>
+    <h1>นโยบายความเป็นส่วนตัว</h1>
+    <div class="subtitle">Privacy Policy</div>
+    <span class="effective-date">มีผลตั้งแต่ 23 มีนาคม 2026</span>
+  </header>
+
+  <div class="content">
+
+    <div class="lang-toggle fade-in">
+      <button class="lang-btn active" onclick="switchLang('th')">ไทย</button>
+      <button class="lang-btn" onclick="switchLang('en')">English</button>
+    </div>
+
+    <!-- ==================== THAI ==================== -->
+    <div id="lang-th" class="lang-section active">
+
+      <div class="principle-card fade-in">
+        <p>ข้อมูลเป็นของคุณ — ปัจจุบันจัดเก็บในเครื่องคุณทั้งหมด<br>ไม่มีใครเข้าถึงได้นอกจากคุณ</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2>ข้อมูลที่แอปจัดเก็บ</h2>
+        <p>ในเวอร์ชันปัจจุบัน ข้อมูลทั้งหมดจัดเก็บในเครื่องของคุณเท่านั้น</p>
+        <div class="info-grid">
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <div>
+              <div class="label">รายการรายจ่าย</div>
+              <div class="desc">จำนวนเงิน ร้านค้า หมวดหมู่ แท็กวางแผน/ฉับพลัน — ในเครื่องเท่านั้น</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg>
+            <div>
+              <div class="label">กระเป๋าเงินและบัตรเครดิต</div>
+              <div class="desc">บัญชีและบัตรที่คุณเพิ่มเอง เก็บในเครื่องเท่านั้น</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div>
+              <div class="label">รายได้และค่าใช้จ่ายประจำ</div>
+              <div class="desc">ข้อมูลที่คุณตั้งค่าเองสำหรับ Guru allocation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section fade-in">
+        <h2>สิ่งที่เราไม่ทำ</h2>
+        <ul class="negative-list">
+          <li>ไม่มีบัญชีผู้ใช้ ไม่มีการลงทะเบียน</li>
+          <li>ปัจจุบันข้อมูลจัดเก็บในเครื่องเท่านั้น ไม่มีการส่งออกนอกเครื่อง</li>
+          <li>ไม่มีระบบวิเคราะห์พฤติกรรม (analytics) หรือ tracking</li>
+          <li>ไม่มีโฆษณา</li>
+          <li>ไม่แชร์ข้อมูลกับบุคคลที่สามใดๆ</li>
+          <li>ไม่ขอข้อมูลธนาคารหรือรหัสผ่านใดๆ</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section fade-in">
+        <h2>การเข้าถึงกล้องและคลังภาพ</h2>
+        <p>แอปขออนุญาตเข้าถึงกล้องและคลังภาพเพื่อสแกนสลิปการโอนเงินเท่านั้น ภาพถูกประมวลผลบนเครื่องด้วย Apple Vision framework แล้วลบทิ้งทันที — แอปไม่จัดเก็บรูปภาพใดๆ</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2>การแจ้งเตือน</h2>
+        <p>แอปขออนุญาตส่งการแจ้งเตือนเพื่อเตือนความจำรายวันและ Story Cards เท่านั้น</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2>Widget & Live Activity</h2>
+        <p>ข้อมูลที่แสดงบน Widget และ Live Activity ถูกเก็บใน App Group บนเครื่องของคุณ</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2>การลบข้อมูล</h2>
+        <p>ในเวอร์ชันปัจจุบัน ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ เนื่องจากยังไม่มีระบบ sync ข้อมูล</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section fade-in">
+        <h2>การเปลี่ยนแปลงนโยบาย</h2>
+        <p>หากมีการเปลี่ยนแปลงนโยบายนี้ เช่น การเพิ่มฟีเจอร์ sync ข้อมูลข้ามอุปกรณ์ เราจะอัปเดตที่หน้านี้พร้อมระบุวันที่มีผล และแจ้งผู้ใช้ผ่านการอัปเดตแอป</p>
+      </div>
+
+      <div class="section fade-in">
+        <h2>ติดต่อ</h2>
+        <p>หากมีคำถามเกี่ยวกับความเป็นส่วนตัว ติดต่อได้ที่ <a href="/cdn-cgi/l/email-protection#96e5e3e6e6f9e4e2d6fbfff8f2e5e6f3f8f2b8f7e6e6" class="footer-link"><span class="__cf_email__" data-cfemail="97e4e2e7e7f8e5e3d7fafef9f3e4e7f2f9f3b9f6e7e7">[email&#160;protected]</span></a></p>
+      </div>
+    </div>
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div id="lang-en" class="lang-section">
+
+      <div class="principle-card">
+        <p>Your data is yours — currently stored entirely on your device.<br>No one can access it but you.</p>
+      </div>
+
+      <div class="section">
+        <h2>Data We Store</h2>
+        <p>In the current version, all data is stored locally on your device only.</p>
+        <div class="info-grid">
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <div>
+              <div class="label">Expense records</div>
+              <div class="desc">Amounts, merchants, categories, planned/impulse tags — on-device only</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg>
+            <div>
+              <div class="label">Wallets & credit cards</div>
+              <div class="desc">Accounts and cards you add yourself, stored locally only</div>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div>
+              <div class="label">Income & fixed costs</div>
+              <div class="desc">Settings you configure yourself for Guru allocation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>What We Do NOT Do</h2>
+        <ul class="negative-list">
+          <li>No user accounts or registration required</li>
+          <li>Currently all data is stored on-device only — nothing is transmitted externally</li>
+          <li>No analytics or behavioral tracking</li>
+          <li>No advertisements</li>
+          <li>No data shared with any third parties</li>
+          <li>No banking credentials or passwords requested</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>Camera & Photo Library Access</h2>
+        <p>The app requests access to your camera and photo library solely to scan bank transfer slips. Images are processed on-device using Apple's Vision framework and immediately discarded — the app does not store any photos.</p>
+      </div>
+
+      <div class="section">
+        <h2>Notifications</h2>
+        <p>The app requests notification permission for daily reminders and Story Cards only.</p>
+      </div>
+
+      <div class="section">
+        <h2>Widgets & Live Activity</h2>
+        <p>Data shown on Widgets and Live Activity is stored in an on-device App Group.</p>
+      </div>
+
+      <div class="section">
+        <h2>Data Deletion</h2>
+        <p>In the current version, deleting the app deletes all data, as there is no cloud sync feature yet.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <h2>Changes to This Policy</h2>
+        <p>If this policy changes — for example, if we introduce cloud sync or cross-device features — we will update this page with the new effective date and notify users through an app update.</p>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p>For privacy-related questions, contact us at <a href="/cdn-cgi/l/email-protection#3f4c4a4f4f504d4b7f5256515b4c4f5a515b115e4f4f" class="footer-link"><span class="__cf_email__" data-cfemail="13606663637c6167537e7a7d776063767d773d726363">[email&#160;protected]</span></a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <span class="footer-copy">© 2026 MindSpend</span>
+      <a href="./support.html" class="footer-link">ศูนย์ช่วยเหลือ →</a>
+    </div>
+  </footer>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudfla

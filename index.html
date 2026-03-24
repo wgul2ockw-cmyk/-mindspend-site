@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSpend — เห็นตัวเองผ่านการใช้เงิน</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<meta name="description" content="บันทึกรายจ่ายได้ภายใน 3 วินาที สแกนสลิปอัตโนมัติ แยกวางแผนกับฉับพลัน เข้าใจพฤติกรรมการเงินของคุณ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F7F3ED;--cream-deep:#EFE9E0;--sage:#7BAF76;--sage-light:#93C48E;--sage-muted:#A8CDA3;--sage-wash:#E6F2E4;--sage-deep:#4E8849;--ember:#D4564E;--ember-light:#E07A73;--ember-wash:#F6E0DE;--gold:#C9A050;--gold-wash:#FBF3E2;--text-primary:#1E1D1A;--text-secondary:#4A4940;--text-tertiary:#7A7870;--border:#DDD7CC}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-primary);line-height:1.7;font-size:16px;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(247,243,237,0);backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0);transition:all .4s cubic-bezier(.4,0,.2,1)}
+nav.scrolled{background:rgba(247,243,237,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-mark{width:36px;height:36px;border-radius:10px;object-fit:cover;box-shadow:0 2px 8px rgba(123,175,118,.2);transition:transform .3s}
+.nav-brand:hover .nav-mark{transform:rotate(-8deg) scale(1.05)}
+.nav-name{font-family:'Instrument Serif',serif;font-size:20px;color:var(--sage)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--sage);border-radius:1px;transform:scaleX(0);transition:transform .3s;transform-origin:center}
+.nav-links a:not(.nav-cta):hover{color:var(--sage)}
+.nav-links a:not(.nav-cta):hover::after{transform:scaleX(1)}
+.nav-cta{padding:8px 22px!important;background:var(--sage)!important;color:var(--cream)!important;border-radius:100px!important;font-weight:600!important;transition:all .3s!important}
+.nav-cta:hover{background:var(--sage-deep)!important;transform:translateY(-1px)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.1}
+.hero-orb.a{width:500px;height:500px;background:var(--sage);top:-10%;left:-10%;animation:orbF 20s ease-in-out infinite}
+.hero-orb.b{width:400px;height:400px;background:var(--ember);bottom:-5%;right:-5%;animation:orbF 25s ease-in-out infinite reverse}
+.hero-orb.c{width:280px;height:280px;background:var(--gold);top:35%;right:15%;animation:orbF 18s ease-in-out infinite 4s}
+@keyframes orbF{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.95)}}
+.hero-content{position:relative;z-index:2;max-width:740px}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(38px,7vw,72px);font-weight:400;line-height:1.08;letter-spacing:-.03em;margin-bottom:24px;opacity:0;animation:heroUp .9s ease both .2s}
+.hero h1 em{font-style:italic;color:var(--ember)}
+.hero-sub{font-size:clamp(16px,2.5vw,20px);color:var(--text-secondary);max-width:520px;margin:0 auto 40px;line-height:1.6;opacity:0;animation:heroUp .9s ease both .4s}
+.hero-sub strong{color:var(--text-primary);font-weight:600}
+@keyframes heroUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-counter{display:flex;justify-content:center;gap:12px;margin-bottom:44px;opacity:0;animation:heroUp .9s ease both .55s}
+.counter-box{background:rgba(123,175,118,.06);border:1px solid rgba(123,175,118,.1);border-radius:14px;padding:16px 24px;min-width:100px;transition:transform .3s,box-shadow .3s;cursor:default}
+.counter-box:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.05)}
+.counter-num{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--sage);display:block;line-height:1.1}
+.counter-label{font-size:12px;color:var(--text-tertiary);margin-top:4px}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;opacity:0;animation:heroUp .9s ease both .7s}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--sage);color:var(--cream);border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .3s;box-shadow:0 4px 16px rgba(123,175,118,.3)}
+.btn-primary:hover{background:var(--sage-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(123,175,118,.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text-secondary);border:1.5px solid var(--border);border-radius:100px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;text-decoration:none;cursor:pointer;transition:all .3s}
+.btn-secondary:hover{border-color:var(--sage-muted);color:var(--sage);transform:translateY(-1px)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+section{padding:100px 24px}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--sage);margin-bottom:12px}
+.section-title{font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.12;letter-spacing:-.02em;color:var(--text-primary);margin-bottom:16px}
+.section-title em{font-style:italic;color:var(--sage)}
+.section-desc{font-size:17px;color:var(--text-secondary);max-width:540px;line-height:1.65}
+.problem{background:var(--text-primary);color:var(--cream);padding:120px 24px;position:relative}
+.problem .section-label{color:var(--sage-light)}.problem .section-title{color:var(--cream)}.problem .section-title em{color:var(--ember-light)}.problem .section-desc{color:rgba(247,243,237,.6)}
+.cascade{margin-top:56px}.cascade-track{display:flex;gap:0;align-items:stretch}
+.cascade-step{flex:1;padding:24px 20px;background:rgba(247,243,237,.03);border:1px solid rgba(247,243,237,.06);position:relative;transition:all .5s;cursor:default;min-height:120px;display:flex;flex-direction:column;justify-content:center}
+.cascade-step:first-child{border-radius:14px 0 0 14px}.cascade-step:last-child{border-radius:0 14px 14px 0}
+.cascade-step::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--sage-muted);font-size:16px;z-index:2;opacity:.4}.cascade-step:last-child::after{display:none}
+.cascade-step.active{background:var(--ember);border-color:var(--ember)}
+.cascade-step .step-num{font-family:'Space Mono',monospace;font-size:11px;color:rgba(247,243,237,.25);margin-bottom:8px;font-weight:700}
+.cascade-step.active .step-num{color:rgba(247,243,237,.6)}
+.cascade-step .step-text{font-size:14px;color:rgba(247,243,237,.55);font-weight:500;line-height:1.4}
+.cascade-step.active .step-text{color:var(--cream);font-weight:600}
+.cascade-step.lit{background:rgba(247,243,237,.06);border-color:rgba(247,243,237,.12)}
+.cascade-step.lit .step-text{color:rgba(247,243,237,.75)}.cascade-step.lit .step-num{color:rgba(247,243,237,.4)}
+.cascade-insight{margin-top:32px;padding:24px 28px;background:rgba(212,86,78,.1);border:1px solid rgba(212,86,78,.2);border-radius:14px;display:flex;align-items:flex-start;gap:14px}
+.cascade-insight-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.cascade-insight p{font-size:15px;color:rgba(247,243,237,.75);line-height:1.6}.cascade-insight strong{color:var(--cream);font-weight:600}
+.tag-demo{margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:28px}
+.tag-demo-card{background:var(--cream-deep);border-radius:20px;padding:28px 32px;max-width:400px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,.06);position:relative;overflow:hidden;transition:all .3s}
+.tag-demo-merchant{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.tag-demo-icon{width:40px;height:40px;background:var(--sage-wash);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.tag-demo-info h4{font-size:15px;font-weight:600}.tag-demo-info span{font-size:12px;color:var(--text-tertiary)}
+.tag-demo-amount{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;text-align:center;margin:16px 0 20px}.tag-demo-amount span{font-size:18px;color:var(--text-tertiary);font-weight:400}
+.tag-demo-buttons{display:flex;gap:10px}
+.tag-btn{flex:1;padding:14px;border-radius:14px;border:2px solid var(--border);background:transparent;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}
+.tag-btn.planned{color:var(--sage)}.tag-btn.impulse{color:var(--ember)}
+.tag-btn:hover{transform:translateY(-2px)}
+.tag-btn.planned:hover,.tag-btn.planned.selected{border-color:var(--sage);background:var(--sage-wash);box-shadow:0 4px 12px rgba(123,175,118,.15)}
+.tag-btn.impulse:hover,.tag-btn.impulse.selected{border-color:var(--ember);background:var(--ember-wash);box-shadow:0 4px 12px rgba(212,86,78,.15)}
+.tag-btn.selected{transform:scale(1.02)}
+.tag-demo-result{text-align:center;min-height:48px;display:flex;align-items:center;justify-content:center}
+.tag-demo-result p{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:var(--text-tertiary);transition:all .4s}
+.target{background:var(--sage-wash)}
+.target-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.target-card{background:white;border-radius:18px;padding:28px 22px;border:1.5px solid transparent;transition:all .4s;cursor:default;position:relative;overflow:hidden}
+.target-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.target-card:hover{border-color:var(--sage);transform:translateY(-4px);box-shadow:0 12px 32px rgba(123,175,118,.1)}
+.target-card:hover::before{transform:scaleX(1)}
+.target-card-emoji{font-size:36px;margin-bottom:14px;display:block}
+.target-card h3{font-size:16px;font-weight:600;margin-bottom:8px}.target-card p{font-size:14px;color:var(--text-tertiary);line-height:1.55}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.how-card{background:var(--cream-deep);border-radius:20px;padding:28px 22px;transition:all .4s;position:relative;cursor:default}
+.how-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,.06)}
+.how-card::before{content:attr(data-step);font-family:'Space Mono',monospace;font-size:56px;font-weight:700;color:var(--sage-wash);line-height:1;display:block;margin-bottom:10px;transition:color .3s}
+.how-card:hover::before{color:var(--sage-muted)}
+.how-icon{font-size:28px;margin-bottom:12px;display:block}
+.how-card h3{font-size:15px;font-weight:600;margin-bottom:8px}.how-card p{font-size:13px;color:var(--text-tertiary);line-height:1.55}
+.how-time{display:inline-block;margin-top:12px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--ember);background:var(--ember-wash);padding:4px 10px;border-radius:100px}
+.guru-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.guru-card{background:var(--cream-deep);border-radius:18px;padding:28px 22px;border:1.5px solid transparent;transition:all .4s;cursor:default}
+.guru-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 28px rgba(201,160,80,.1)}
+.guru-emoji{font-size:36px;margin-bottom:14px;display:block}
+.guru-card h3{font-family:'Instrument Serif',serif;font-size:19px;font-weight:400;margin-bottom:6px}
+.guru-rule{font-family:'Space Mono',monospace;font-size:12px;color:var(--gold);font-weight:700;margin-bottom:10px}
+.guru-card p{font-size:13px;color:var(--text-tertiary);line-height:1.5}
+.features-section{overflow:hidden;padding:80px 0}
+.marquee-track{display:flex;gap:16px;animation:marquee 40s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.feature-pill{display:flex;align-items:center;gap:10px;padding:14px 24px;background:var(--cream-deep);border-radius:100px;white-space:nowrap;border:1px solid var(--border);transition:all .3s;cursor:default;flex-shrink:0}
+.feature-pill:hover{border-color:var(--sage);background:var(--sage-wash);transform:scale(1.03)}
+.feature-pill-icon{font-size:20px}.feature-pill span{font-size:14px;font-weight:500}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.trust{background:var(--cream-deep)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.trust-item{background:var(--cream);border-radius:16px;padding:24px 20px;text-align:center;transition:transform .3s;cursor:default}
+.trust-item:hover{transform:translateY(-4px)}
+.trust-icon{width:48px;height:48px;background:var(--sage-wash);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;transition:transform .3s}
+.trust-item:hover .trust-icon{transform:scale(1.1) rotate(-5deg)}
+.trust-item h3{font-size:14px;font-weight:600;margin-bottom:4px}.trust-item p{font-size:12px;color:var(--text-tertiary);line-height:1.5}
+.uniqueness{background:var(--text-primary);color:var(--cream);overflow:hidden}
+.uniq-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:56px;max-width:800px}
+.uniq-col{padding:32px 28px}.uniq-col.others{background:rgba(247,243,237,.04);border-radius:18px 0 0 18px}.uniq-col.you{background:rgba(123,175,118,.15);border-radius:0 18px 18px 0}
+.uniq-divider{width:1px;background:rgba(247,243,237,.1);position:relative}
+.uniq-divider span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--text-primary);padding:8px;font-size:14px;color:var(--sage-light)}
+.uniq-col h3{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;opacity:.5}
+.uniq-col.you h3{color:var(--sage-light);opacity:1}
+.uniq-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.uniq-list li{font-size:15px;display:flex;align-items:center;gap:10px;color:rgba(247,243,237,.5)}
+.uniq-col.you .uniq-list li{color:var(--cream);font-weight:500}
+.uniq-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.uniq-col.others .uniq-dot{background:rgba(247,243,237,.15)}.uniq-col.you .uniq-dot{background:var(--sage-light)}
+.cta{text-align:center;padding:120px 24px;position:relative;overflow:hidden}
+.cta-orb{position:absolute;width:700px;height:700px;border-radius:50%;filter:blur(140px);opacity:.07;background:var(--sage);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-inner{position:relative;z-index:2}
+.cta h2{font-family:'Instrument Serif',serif;font-size:clamp(32px,5.5vw,56px);font-weight:400;line-height:1.12;letter-spacing:-.02em;margin-bottom:16px}
+.cta h2 em{color:var(--sage);font-style:italic}
+.cta-inner>p{font-size:17px;color:var(--text-secondary);max-width:440px;margin:0 auto 36px}
+footer{padding:32px 24px 40px;border-top:1px solid var(--border)}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-left{display:flex;align-items:center;gap:10px}
+.footer-logo{width:28px;height:28px;border-radius:8px;object-fit:cover}
+.footer-copy{font-size:13px;color:var(--text-tertiary)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:var(--text-secondary);text-decoration:none;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--sage)}
+@media(max-width:900px){.how-grid{grid-template-columns:1fr 1fr}.guru-grid{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:1fr 1fr}.target-cards{grid-template-columns:1fr}.uniq-compare{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}.uniq-col.others{border-radius:18px 18px 0 0}.uniq-col.you{border-radius:0 0 18px 18px}.uniq-divider{width:100%;height:1px}.uniq-divider span{display:none}.cascade-track{flex-wrap:wrap}.cascade-step{flex:none;width:calc(50% - 2px);border-radius:12px!important}.cascade-step::after{display:none}}
+@media(max-width:640px){nav{padding:12px 16px}.nav-links a:not(.nav-cta){display:none}.hero{padding:100px 20px 60px}.hero-counter{flex-direction:column;gap:8px;align-items:stretch;max-width:220px;margin-left:auto;margin-right:auto}.how-grid,.guru-grid{grid-template-columns:1fr}.trust-grid{grid-template-columns:1fr 1fr}.tag-demo-card{padding:24px 20px}.footer-inner{flex-direction:column;text-align:center}.cascade-step{width:100%}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="#" class="nav-brand"><img class="nav-mark" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/+EAjEV4aWYAAE1NACoAAAAIAAUBEgADAAAAAQABAAABGgAFAAAAAQAAAEoBGwAFAAAAAQAAAFIBKAADAAAAAQACAACHaQAEAAAAAQAAAFoAAAAAAAAASAAAAAEAAABIAAAAAQADoAEAAwAAAAH//wAAoAIABAAAAAEAAAKCoAMABAAAAAEAAAJWAAAAAP/iAihJQ0NfUFJPRklMRQABAQAAAhhhcHBsBAAAAG1udHJSR0IgWFlaIAfmAAEAAQAAAAAAAGFjc3BBUFBMAAAAAEFQUEwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmRlc2MAAAD8AAAAMGNwcnQAAAEsAAAAUHd0cHQAAAF8AAAAFHJYWVoAAAGQAAAAFGdYWVoAAAGkAAAAFGJYWVoAAAG4AAAAFHJUUkMAAAHMAAAAIGNoYWQAAAHsAAAALGJUUkMAAAHMAAAAIGdUUkMAAAHMAAAAIG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAFAAAABwARABpAHMAcABsAGEAeQAgAFAAM21sdWMAAAAAAAAAAQAAAAxlblVTAAAANAAAABwAQwBvAHAAeQByAGkAZwBoAHQAIABBAHAAcABsAGUAIABJAG4AYwAuACwAIAAyADAAMgAyWFlaIAAAAAAAAPbVAAEAAAAA0yxYWVogAAAAAAAAg98AAD2/////u1hZWiAAAAAAAABKvwAAsTcAAAq5WFlaIAAAAAAAACg4AAARCwAAyLlwYXJhAAAAAAADAAAAAmZmAADypwAADVkAABPQAAAKW3NmMzIAAAAAAAEMQgAABd7///MmAAAHkwAA/ZD///ui///9owAAA9wAAMBu/9sAQwADAgIDAgIDAwMDBAMDBAUIBQUEBAUKBwcGCAwKDAwLCgsLDQ4SEA0OEQ4LCxAWEBETFBUVFQwPFxgWFBgSFBUU/9sAQwEDBAQFBAUJBQUJFA0LDRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQU/8AAEQgASwBQAwEiAAIRAQMRAf/EABwAAAICAwEBAAAAAAAAAAAAAAAIBgcBBAUDAv/EADgQAAEDAwMCBAMHAQkBAAAAAAECAwQABREGBxIhMQgTUWEUIkEVMjdxdYGxQiMzNVJiY3SRobL/xAAbAQACAgMBAAAAAAAAAAAAAAAABQQGAQIDB//EACkRAAEDAgUCBwEBAAAAAAAAAAEAAgMEEQUSEyExQaEiMjRhcYGSwVH/2gAMAwEAAhEDEQA/ALDooory9eaIooooQiiiihCKKl2hdrb5uHHnv2lMfy4mEqMh3hzWRkIT0PXHrgdR1rGhtr75uA9cG7YhhswcB5UlzgOZJAQMA9TxPt0713bBK7Llad+Pdd2wSuy2ad+PdRKivSTGdhyXo7yC28ytTa0H+lQJBH/YrzrguPCKmWgtpr9uHHkyLamOzFYV5ZflOFCVLxninAJJwRn6DNQ2mo8Mn4bu/qD38IphQQNqJsj+LKfQQMqJsj+LJZb7Y5um7vKtlxZMebGXwcbJz7gg/UEYIPvWjTNeIzbr7csw1JBazPt6OMlKR1dj5zn3KO/5E+lLO02t5xDbaFOOLUEpQgZKiTgAe5rSrpjTSlnTotKumNNKWdOi72idC3bX11VAtLaCttHmOvPK4ttJzjKjg9z2A6msa20NddA3YQLs22la0eY06yvk24nOMg4HYjqD2pq9o9vkbfaUaiuJSbnJw9NcH+fHRAPokdPzyfrUB37gs3TcXQMKTj4d9zy3M9ikvIBH79v3pjJhwjpg93n27myYyYcI6YPd59u5su94ctJ3HTGkJMm4Nhg3J5Eplo/fS2EYBUPpnuB6d6nGk9DWbRS5qrRFXHMxwOvlTql81AnB+Y9PvHtXB321TfNGbV3+66aYS5emkNtRSpIKWStxKC6QemEBRV16dBmlK2k3K3M0VuHZpV/1g9qGwT5jca6R576lpZQ4oI81PIfLxJBynAxkEY7Oc8FIY4Xcjg/KcZ4KQxwu5HB+VKd3tCXHRmrJa5YS7FuDzsmNJbHyrBWSUn0UnIyPyP1qD01viUixV7bOOSVIRIZmMmNy6FSySFJT6/LyP5D2pUqrNfAKectbwd1Wq+AQTlreDuimn8Mn4bu/qD38IpWKafwyfhu7+oPfwipGE+o+ipGE+o+irKhXiBdpdzgsPtvvwHRHmMdy2pTaVgKHoULSfQ5PvVX6M2Hj6a3JnXhfBy0xyHbYyTkpcVnPIf7fYeuQfpVYa73Cc2a8Tty1G4tQ03dExYF9aGSG0+WkNScerZOD/pJpj9aa4tGg9HXDU91kpTaYccyC62c+aMfIlB/qKyQE475FWMaNSczuWE9lYho1JzO5YT2XQTfIK745ZkyEquTcZMxccdVJaUsoSo+mVJUB68T6Uvvi2+I+PsPwbxYliI+ph0d0OBaShX7KANePhPul01brTXOrb98t5vTTDy2c5TFZC1BlhPslOP3JrueIi1IvmudE21x3yES+TCnR/SFOoBP/ALUWql16QvZ1It+rKLVS69IXs/3b9WUo2U3vsG+GmPKWWGb+215N2sT5HmNr7Lwg/fbJzgjPfBwRWdT+GrQ+orbNh/ASLZ8S2psriSFDiFAjolWR9e2KqnxC+FPSsTSrmp9NmbYr9blNlyWw+pZeQVBJUsZGFDIPJJHv7V1sTqXczSO5mnYrmqJuqLJcJiIUy3zHnHeDa+nmpCySko+9kHsDnIrL5o87YapoLll8zA9sNU0Fy1NY7I6q2x1RCGo9VTtTWyO2tNnckOuKbSgjiocVKUELAwCkeoOcVr02HiOgsStspL7oHmxZLDjKvryKuJA/MKNKfSDEY9Kci+xCQ4jFpTkX2IRTT+GT8N3f1B7+EUrFd3Svicuuxxk257TS9Q2OXh+Oph7ylsv9lpJ4qBSQEnHQjrjPajDZGxT3edrLOGyNinu87WKkHiIjNTNzr/HfQHGXW2ULQrsoFlIIqjoG30lmREZnX6dcrLBX5kS2PuLU02R2+UqKRj2Aqcy9YXfX0t/UN8joh3G4LLqoreeLKOzaOvXogJ79Sa8qjzTHVkLDsSVGmmOrIWHYkq9PCl/jOpP+Mz/9qry8W4fVPsIiPGPL+EfLLw7ocC0lCv2UAaqHT28122TuabzCtH25bX0mPcIaVlC+PQoWlQBwQrPcEYV1x3o1BvNdt7Lmu9TbR9h21hIj2+GpZWvj1K1qUQMkqI7AABPTPUliJ2DD9MHxX/t0wE7Bh+mD4r/26aXZDdu374aEXMcihm4xz8Deba8jKWpHH509eikK6kexweoqS6d2z0zpO4Lm2mysw5awUh0clFIPcJ5E8Qfalk2h370VsmzfY2ozIhybgUT23I0ZToklCeBR8vZfQYJwCD36Vr7A75WvamVqM7haunvNXZSJ1tMsPyUsoSVlTKequKv7ROAAAePenENVFK2N0lsx7WTiGqilbG6S2Y3+rLob/wC9kXXmrm9H6ed+JtVjdW9dZqP7t2UAptDCD9QjKyo9uQAHaq3r55wZUqbPt8cx41xkuzglQ+c+asryr3wofxX1VWq5zUSl5VXqpzPKXlFAJHYkflRRUNQ0UUUUIQOnaiiihC059ng3QtGZEZlFpXJsuoCuJ9q+bpY7fekNpnxGpaW1ckB0Z4mt6is3I6ra5HVYSAkAAAADAA7Cs0UVhar/2Q==" alt="MindSpend"><div class="nav-name">MindSpend</div></a>
+  <div class="nav-links">
+    <a href="#how">วิธีใช้</a>
+    <a href="#guru">Guru</a>
+    <a href="./support.html">ช่วยเหลือ</a>
+    <a href="#download" class="nav-cta">ดาวน์โหลด</a>
+  </div>
+</nav>
+
+<!-- HERO — Brain Audit: Problem as headline -->
+<section class="hero">
+  <div class="hero-bg"><div class="hero-orb a"></div><div class="hero-orb b"></div><div class="hero-orb c"></div></div>
+  <div class="hero-content">
+    <h1>เงินหมดไป<br>แต่<em>ไม่รู้ไปไหน</em></h1>
+    <p class="hero-sub">ปัญหาไม่ใช่เงินไม่พอ แต่คือ <strong>จ่ายไปโดยไม่ทันคิด</strong><br>MindSpend ช่วยให้คุณเห็นพฤติกรรมจริงของตัวเอง — ผ่านทุกรายจ่าย</p>
+    <div class="hero-counter">
+      <div class="counter-box"><span class="counter-num">&lt;3</span><span class="counter-label">วินาทีต่อรายการ</span></div>
+      <div class="counter-box"><span class="counter-num">6+</span><span class="counter-label">ธนาคารที่รองรับ</span></div>
+      <div class="counter-box"><span class="counter-num">0</span><span class="counter-label">ข้อมูลที่ออกจากเครื่อง</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#download" class="btn-primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>ดาวน์โหลดฟรี</a>
+      <a href="#problem" class="btn-secondary">ทำไมต้อง MindSpend →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 1: PROBLEM — cascade -->
+<section class="problem" id="problem">
+  <div class="section-inner reveal">
+    <div class="section-label">ปัญหาที่แท้จริง</div>
+    <div class="section-title">ไม่ใช่เรื่องเงิน<br>แต่เป็นเรื่อง<em>ไม่รู้ตัว</em></div>
+    <div class="section-desc">จ่ายไปโดยอัตโนมัติ ทำซ้ำจนเป็นนิสัย แล้วก็สงสัยว่า "ทำไมเงินหมดทุกเดือน" — วนซ้ำไม่จบ</div>
+    <div class="cascade" id="cascade">
+      <div class="cascade-track">
+        <div class="cascade-step" data-idx="0"><div class="step-num">01</div><div class="step-text">จ่ายอัตโนมัติ<br>ไม่ทันคิด</div></div>
+        <div class="cascade-step" data-idx="1"><div class="step-num">02</div><div class="step-text">ไม่รู้ว่า<br>เงินไปไหน</div></div>
+        <div class="cascade-step" data-idx="2"><div class="step-num">03</div><div class="step-text">พฤติกรรมเดิม<br>ซ้ำแล้วซ้ำเล่า</div></div>
+        <div class="cascade-step" data-idx="3"><div class="step-num">04</div><div class="step-text">รู้สึกผิด<br>กับตัวเอง</div></div>
+        <div class="cascade-step active" data-idx="4"><div class="step-num">05</div><div class="step-text">เสียความเชื่อมั่น<br>ในตัวเอง</div></div>
+      </div>
+    </div>
+    <div class="cascade-insight">
+      <span class="cascade-insight-icon">💡</span>
+      <p>MindSpend ไม่ได้มาตัดสิน แต่มา<strong>ให้คุณเห็นตัวเอง</strong> — เพราะแค่เริ่มรู้ตัว พฤติกรรมก็เริ่มเปลี่ยน</p>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 2: SOLUTION — interactive tag demo -->
+<section id="solution">
+  <div class="section-inner reveal">
+    <div class="section-label">ทางออก</div>
+    <div class="section-title">แค่เลือก <em>"วางแผน"</em> หรือ <em style="color:var(--ember)">"ฉับพลัน"</em></div>
+    <div class="section-desc">ทุกรายจ่ายมีแค่ 2 ทาง — ไม่มีถูกผิด แค่กระจกสะท้อนตัวคุณ ลองแตะดู</div>
+    <div class="tag-demo">
+      <div class="tag-demo-card" id="demoCard">
+        <div class="tag-demo-merchant"><div class="tag-demo-icon">☕</div><div class="tag-demo-info"><h4>Café Amazon</h4><span>วันนี้ · PromptPay</span></div></div>
+        <div class="tag-demo-amount">฿75 <span>.00</span></div>
+        <div class="tag-demo-buttons">
+          <button class="tag-btn planned" onclick="selectTag('planned')">🎯 วางแผน</button>
+          <button class="tag-btn impulse" onclick="selectTag('impulse')">⚡ ฉับพลัน</button>
+        </div>
+      </div>
+      <div class="tag-demo-result"><p id="tagResult">← ลองแตะเลือกดู</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 3: TARGET PROFILE -->
+<section class="target">
+  <div class="section-inner reveal">
+    <div class="section-label">สำหรับคุณ ถ้า…</div>
+    <div class="section-title">เคยรู้สึกแบบนี้ไหม?</div>
+    <div class="section-desc">MindSpend ออกแบบมาสำหรับคนที่อยากเข้าใจตัวเอง ไม่ใช่แค่จดบัญชี</div>
+    <div class="target-cards">
+      <div class="target-card"><span class="target-card-emoji">💸</span><h3>"เงินเดือนเข้ามาแป๊บเดียวก็หมด"</h3><p>ไม่ได้ซื้ออะไรแพง แต่พอรวมกันแล้วเงินหาย ไม่รู้ไปทางไหน</p></div>
+      <div class="target-card"><span class="target-card-emoji">🔄</span><h3>"เคยลองจดบัญชี แต่ทำได้แค่ 3 วัน"</h3><p>แอปบัญชีทั่วไปยุ่งยากเกินไป กว่าจะจดเสร็จก็ลืมไปแล้ว</p></div>
+      <div class="target-card"><span class="target-card-emoji">😔</span><h3>"รู้ว่าไม่ควรซื้อ แต่ก็ซื้อทุกที"</h3><p>ไม่ใช่เรื่องวินัย แต่เป็นเรื่องไม่เคยหยุดมองตัวเองจริงๆ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 4: TRIGGER — How it works -->
+<section id="how">
+  <div class="section-inner reveal">
+    <div class="section-label">วิธีใช้งาน</div>
+    <div class="section-title">บันทึกได้ใน <em>3 วินาที</em></div>
+    <div class="section-desc">จ่ายเงินเสร็จ → แอปเปิด → สแกนสลิป → เลือกแท็ก → จบ ไม่มีอะไรต้องพิมพ์</div>
+    <div class="how-grid">
+      <div class="how-card" data-step="01"><span class="how-icon">📸</span><h3>สแกนสลิป</h3><p>OCR อ่านจำนวนเงิน ร้านค้า ธนาคารให้อัตโนมัติจากสลิป K PLUS, SCB, กสิกร, กรุงไทย และอีกหลายธนาคาร</p><span class="how-time">~1 วินาที</span></div>
+      <div class="how-card" data-step="02"><span class="how-icon">🏷️</span><h3>เลือกแท็ก</h3><p>แตะเลือก "วางแผน" หรือ "ฉับพลัน" — แค่บอกตัวเองตามจริง ไม่ตัดสิน</p></div>
+      <div class="how-card" data-step="03"><span class="how-icon">✓</span><h3>ยืนยัน</h3><p>ตรวจสอบข้อมูล เลือกหมวดหมู่ กดยืนยัน — กลับไปใช้ชีวิตต่อ</p><span class="how-time">1 แตะ</span></div>
+      <div class="how-card" data-step="04"><span class="how-icon">🔍</span><h3>เห็นตัวเอง</h3><p>Insights แสดงสัดส่วน วางแผน / ฉับพลัน, งบรายหมวด, Guru comparison — เห็นว่าเงินไปไหนจริงๆ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GURU -->
+<section id="guru" style="background:var(--sage-wash)">
+  <div class="section-inner reveal">
+    <div class="section-label">ระบบ Guru</div>
+    <div class="section-title">เลือกปรัชญาการเงินของคุณ</div>
+    <div class="section-desc" style="margin-bottom:48px">เลือก Guru แล้วดูว่าพฤติกรรมจริงห่างจากเป้าแค่ไหน — ช่องว่างนั้นคือ insight ที่ทรงพลังที่สุด</div>
+    <div class="guru-grid">
+      <div class="guru-card"><span class="guru-emoji">⚖️</span><h3>กฎ 50 / 30 / 20</h3><div class="guru-rule">50% จำเป็น · 30% ต้องการ · 20% ออม</div><p>สมดุลที่สุดสำหรับมือใหม่ ไม่รัดเกินไป ไม่หลวมเกินไป</p></div>
+      <div class="guru-card"><span class="guru-emoji">🏔️</span><h3>Warren Buffett</h3><div class="guru-rule">ออมก่อน ใช้ทีหลัง</div><p>เน้นออมหนักตั้งแต่ต้น ใช้จ่ายจากส่วนที่เหลือ สร้างความมั่งคั่งระยะยาว</p></div>
+      <div class="guru-card"><span class="guru-emoji">🌊</span><h3>Ray Dalio</h3><div class="guru-rule">กระจายความเสี่ยง</div><p>จัดสรรอย่างเป็นระบบ เตรียมรับมือทุกสถานการณ์ คิดแบบ all-weather</p></div>
+      <div class="guru-card"><span class="guru-emoji">🇹🇭</span><h3>Thai Gen-Z</h3><div class="guru-rule">ใช้ชีวิตด้วย ออมด้วย</div><p>สมดุลระหว่าง YOLO กับอนาคต ยืดหยุ่นที่สุด ออกแบบมาเพื่อคนรุ่นใหม่ไทย</p></div>
+      <div class="guru-card"><span class="guru-emoji">🪞</span><h3>Idol — ตัวคุณเอง</h3><div class="guru-rule">เรียนรู้จากพฤติกรรมจริง</div><p>ไม่ต้องเลือกใคร ให้แอปเรียนรู้จากการใช้จ่ายจริงแล้วสะท้อนกลับ</p></div>
+      <div class="guru-card" style="background:var(--gold-wash);border:1.5px dashed var(--gold)"><span class="guru-emoji">✦</span><h3>เปรียบเทียบ</h3><div class="guru-rule" style="color:var(--ember)">Guru vs ตัวจริง</div><p>เห็นช่องว่างระหว่าง "อยากเป็น" กับ "เป็นจริง" — จุดเริ่มต้นของการเปลี่ยนแปลง</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES MARQUEE -->
+<section class="features-section" id="features">
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px"><div class="reveal"><div class="section-label">ฟีเจอร์ทั้งหมด</div><div class="section-title">ทุกอย่างที่คุณต้องการ</div></div></div>
+  <div style="margin-top:40px">
+    <div class="marquee-track">
+      <div class="feature-pill"><span class="feature-pill-icon">📱</span><span>OCR สแกนสลิป 6+ ธนาคาร</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">⚡</span><span>Shortcuts อัตโนมัติ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🎯</span><span>งบรายวันอัจฉริยะ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🏪</span><span>จำร้านค้าได้</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">📊</span><span>Insights 7/30/ทั้งหมด</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔒</span><span>Widget & Lock Screen</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">💳</span><span>กระเป๋าเงิน & บัตรเครดิต</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔄</span><span>รายจ่ายประจำ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🏷️</span><span>หมวดหมู่ที่ปรับได้</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔔</span><span>Live Activity</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🧠</span><span>Guru ปรัชญาการเงิน</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">📝</span><span>Story Cards</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">📱</span><span>OCR สแกนสลิป 6+ ธนาคาร</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">⚡</span><span>Shortcuts อัตโนมัติ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🎯</span><span>งบรายวันอัจฉริยะ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🏪</span><span>จำร้านค้าได้</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">📊</span><span>Insights 7/30/ทั้งหมด</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔒</span><span>Widget & Lock Screen</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">💳</span><span>กระเป๋าเงิน & บัตรเครดิต</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔄</span><span>รายจ่ายประจำ</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🏷️</span><span>หมวดหมู่ที่ปรับได้</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🔔</span><span>Live Activity</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">🧠</span><span>Guru ปรัชญาการเงิน</span></div>
+      <div class="feature-pill"><span class="feature-pill-icon">📝</span><span>Story Cards</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 6: RISK REVERSAL -->
+<section class="trust">
+  <div class="section-inner reveal">
+    <div class="section-label">ไม่มีอะไรต้องเสี่ยง</div>
+    <div class="section-title">ดาวน์โหลดฟรี ลบเมื่อไหร่ก็ได้</div>
+    <div class="section-desc">ไม่ต้องสมัคร ไม่ต้องผูกบัญชี ไม่ต้องจ่ายเงิน</div>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-icon">🔐</div><h3>เก็บในเครื่อง</h3><p>ข้อมูลทั้งหมดอยู่ในเครื่องคุณ</p></div>
+      <div class="trust-item"><div class="trust-icon">👁️‍🗨️</div><h3>ไม่มี tracking</h3><p>ไม่มี analytics ไม่ติดตามพฤติกรรม</p></div>
+      <div class="trust-item"><div class="trust-icon">🚫</div><h3>ไม่มีโฆษณา</h3><p>ไม่มีแบนเนอร์ ไม่ขายข้อมูล</p></div>
+      <div class="trust-item"><div class="trust-icon">🗑️</div><h3>ลบแอป = จบ</h3><p>ไม่มีข้อมูลค้างที่ไหน</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAG 7: UNIQUENESS -->
+<section class="uniqueness">
+  <div class="section-inner reveal">
+    <div class="section-label" style="color:var(--sage-light)">ทำไมต้อง MindSpend</div>
+    <div class="section-title" style="color:var(--cream)">ไม่ใช่แอปบัญชี<br>แต่เป็น<em style="color:var(--sage-light)">กระจก</em></div>
+    <div class="uniq-compare">
+      <div class="uniq-col others"><h3>แอปทั่วไป</h3><ul class="uniq-list"><li><span class="uniq-dot"></span>จดตัวเลข</li><li><span class="uniq-dot"></span>โชว์กราฟ</li><li><span class="uniq-dot"></span>ตั้งงบ แล้วก็เกิน</li><li><span class="uniq-dot"></span>ต้องพิมพ์เอง</li><li><span class="uniq-dot"></span>ทำได้ 3 วันก็เลิก</li></ul></div>
+      <div class="uniq-divider"><span>vs</span></div>
+      <div class="uniq-col you"><h3>MindSpend</h3><ul class="uniq-list"><li><span class="uniq-dot"></span>เข้าใจพฤติกรรม</li><li><span class="uniq-dot"></span>เห็นรูปแบบที่ซ้ำ</li><li><span class="uniq-dot"></span>รู้ว่า "ฉับพลัน" ไปเท่าไหร่</li><li><span class="uniq-dot"></span>สแกนสลิป ไม่ต้องพิมพ์</li><li><span class="uniq-dot"></span>เร็วจนเป็นนิสัย</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="download">
+  <div class="cta-orb"></div>
+  <div class="cta-inner reveal">
+    <h2>เริ่ม<em>เห็นตัวเอง</em><br>ตั้งแต่วันนี้</h2>
+    <p>ดาวน์โหลดฟรี ไม่ต้องสมัคร เริ่มบันทึกรายจ่ายแรกได้ภายใน 30 วินาที</p>
+    <a href="#" class="btn-primary" style="font-size:18px;padding:16px 40px"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>ดาวน์โหลดบน App Store</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left"><img class="footer-logo" src="data:image/jpeg;base64,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" alt="MindSpend"><span class="footer-copy">© 2026 MindSpend</span></div>
+    <div class="footer-links"><a href="./support.html">ช่วยเหลือ</a><a href="./privacy.html">นโยบายความเป็นส่วนตัว</a></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const cObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const s=x.target.querySelectorAll('.cascade-step');s.forEach((st,i)=>{setTimeout(()=>{st.classList.add('lit');if(i===s.length-1)st.classList.add('active')},i*350)});cObs.unobserve(x.target)}})},{threshold:.3});
+cObs.observe(document.getElementById('cascade'));
+const tagMsgs={planned:['"ตั้งใจซื้ออยู่แล้ว — รู้ตัว"','"วางแผนไว้ เป็นส่วนหนึ่งของงบวันนี้"','"คิดก่อนจ่าย — นี่คือการรู้ตัว"'],impulse:['"ไม่ได้วางแผน แต่ซื้อ — เห็นแล้ว ไม่ตัดสิน"','"ฉับพลัน แต่ก็ไม่เป็นไร แค่รู้ไว้"','"รู้ตัวว่าฉับพลัน = ก้าวแรกของการเปลี่ยน"']};
+function selectTag(t){document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('selected'));document.querySelector('.tag-btn.'+(t==='planned'?'planned':'impulse')).classList.add('selected');const m=tagMsgs[t],msg=m[Math.floor(Math.random()*m.length)],el=document.getElementById('tagResult');el.style.opacity='0';el.style.transform='translateY(8px)';setTimeout(()=>{el.textContent=msg;el.style.color=t==='planned'?'var(--sage)':'var(--ember)';el.style.opacity='1';el.style.transform='translateY(0)'},200);const c=document.getElementById('demoCard');c.style.transform='scale(0.98)';setTimeout(()=>c.style.transform='scale(1)',150)}
+const merchants=[{icon:'☕',name:'Café Amazon',amount:'75',method:'PromptPay'},{icon:'🍜',name:'ข้าวมันไก่ประตูน้ำ',amount:'50',method:'เงินสด'},{icon:'🛒',name:'7-Eleven สุขุมวิท',amount:'128',method:'K PLUS'},{icon:'🚕',name:'Grab',amount:'89',method:'บัตรเครดิต'},{icon:'👕',name:'Uniqlo สยาม',amount:'590',method:'SCB'},{icon:'🎬',name:'SF Cinema',amount:'220',method:'TrueMoney'}];
+let mIdx=0;setInterval(()=>{mIdx=(mIdx+1)%merchants.length;const m=merchants[mIdx],c=document.getElementById('demoCard');c.style.opacity='.3';c.style.transform='translateY(4px)';setTimeout(()=>{c.querySelector('.tag-demo-icon').textContent=m.icon;c.querySelector('.tag-demo-info h4').textContent=m.name;c.querySelector('.tag-demo-info span').textContent='วันนี้ · '+m.method;c.querySelector('.tag-demo-amount').innerHTML='฿'+m.amount+' <span>.00</span>';document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('selected'));document.getElementById('tagResult').textContent='← ลองแตะเลือกดู';document.getElementById('tagResult').style.color='var(--text-tertiary)';c.style.opacity='1';c.style.transform='translateY(0)'},300)},5000);
+</script>
+</body>
+</html>
