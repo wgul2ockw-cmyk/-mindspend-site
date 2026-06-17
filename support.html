@@ -4,48 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MindSpend — ศูนย์ช่วยเหลือ</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
 <style>
+  /* page-only custom vars (not in styles.css) — alias to shared tokens */
   :root {
-    --cream: #F7F3ED;
-    --cream-deep: #EFE9E0;
-    --sage: #5EA355;
-    --sage-light: #93C48E;
-    --sage-muted: #A8CDA3;
-    --sage-wash: #E6F2E4;
-    --ember: #D4564E;
-    --ember-light: #E07A73;
-    --ember-wash: #F6E0DE;
-    --gold: #C9A050;
-    --gold-wash: #FBF3E2;
-    --text-primary: #1E1D1A;
-    --text-secondary: #4A4940;
-    --text-tertiary: #6A6860;
-    --border: #DDD7CC;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text-primary);
-    line-height: 1.7;
-    font-size: 16px;
-    min-height: 100vh;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
+    --sage-muted: var(--sage-light);
+    --ember-light: var(--ember-mid);
+    --ember-wash: var(--ember-pale);
+    --gold-wash: var(--gold-pale);
+    --text-primary: var(--ink);
+    --text-secondary: var(--ink-soft);
+    --text-tertiary: var(--stone);
   }
 
   .page-wrapper {
@@ -56,7 +28,7 @@
 
   /* Header */
   header {
-    padding: 48px 0 40px;
+    padding: 104px 0 40px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 48px;
   }
@@ -77,14 +49,14 @@
   }
 
   .brand-name {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: 24px;
     color: var(--sage);
     letter-spacing: -0.02em;
   }
 
   h1 {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: clamp(32px, 5vw, 42px);
     color: var(--text-primary);
     font-weight: 400;
@@ -94,7 +66,7 @@
   }
 
   .subtitle {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 15px;
     color: var(--text-tertiary);
     font-weight: 400;
@@ -133,7 +105,7 @@
 
   /* Section titles */
   .section-title {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: 26px;
     font-weight: 400;
     color: var(--text-primary);
@@ -163,7 +135,7 @@
     flex-shrink: 0;
     background: var(--sage);
     color: var(--cream);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 14px;
     font-weight: 700;
     display: flex;
@@ -174,7 +146,7 @@
   }
 
   .step-content h3 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 15px;
     font-weight: 600;
     color: var(--text-primary);
@@ -210,7 +182,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-ui);
     font-size: 15px;
     font-weight: 500;
     color: var(--text-primary);
@@ -274,7 +246,7 @@
   }
 
   .concept-tag {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -296,7 +268,7 @@
   }
 
   .concept-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 8px;
@@ -340,7 +312,7 @@
   }
 
   .guru-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -377,7 +349,7 @@
   }
 
   .contact-box h2 {
-    font-family: 'Fraunces', serif;
+    font-family: var(--font-display);
     font-size: 24px;
     font-weight: 400;
     margin-bottom: 8px;
@@ -400,7 +372,7 @@
     border-radius: 100px;
     color: var(--cream);
     text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 14px;
     font-weight: 400;
     transition: all 0.25s ease;
@@ -433,7 +405,7 @@
 
   .app-info-label {
     font-size: 11px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-tertiary);
@@ -460,6 +432,20 @@
     gap: 12px;
   }
 
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(123, 175, 118, 0.25);
+  }
+
   .footer-copy {
     font-size: 13px;
     color: var(--text-tertiary);
@@ -477,7 +463,7 @@
 
   /* Mobile */
   @media (max-width: 600px) {
-    header { padding: 32px 0 28px; margin-bottom: 32px; }
+    header { padding: 84px 0 28px; margin-bottom: 32px; }
     .hero-tips { grid-template-columns: 1fr; gap: 8px; }
     .hero-tip { padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left; }
     .hero-tip .tip-icon { margin-bottom: 0; font-size: 24px; }
@@ -502,11 +488,30 @@
 </style>
 </head>
 <body>
+<nav id="nav">
+  <a href="./index.html" class="nav-brand"><img class="nav-logo" src="./assets/logo.jpg" alt="MindSpend"><span class="nav-name">MindSpend</span></a>
+  <div class="nav-links">
+    <a href="./index.html#how">ฟีเจอร์</a>
+    <a href="./index.html#premium">สติ+</a>
+    <a href="./blog/index.html">บทความ</a>
+    <a href="./about.html">เกี่ยวกับเรา</a>
+    <div class="nav-drop">
+      <span class="nav-drop-trigger">ช่วยเหลือ</span>
+      <div class="nav-drop-menu">
+        <a href="./faq.html">คำถามที่พบบ่อย</a>
+        <a href="./changelog.html">อัปเดต</a>
+        <a href="./support.html" class="active">ติดต่อเรา</a>
+        <a href="./privacy.html">ความเป็นส่วนตัว</a>
+      </div>
+    </div>
+    <a href="./index.html#dl" class="nav-cta">ดาวน์โหลด</a>
+  </div>
+</nav>
 <div class="page-wrapper">
 
   <header class="fade-in">
     <div class="brand-row">
-      <img class="brand-mark" src="data:image/jpeg;base64,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" alt="MindSpend">
+      <img class="brand-mark" src="./assets/logo.jpg" alt="MindSpend">
       <div class="brand-name">MindSpend</div>
     </div>
     <h1>ศูนย์ช่วยเหลือ</h1>
@@ -539,7 +544,7 @@
         <div class="step-num">1</div>
         <div class="step-content">
           <h3>ตั้งค่ารายได้และค่าใช้จ่ายประจำ</h3>
-          <p>เปิดแอปครั้งแรก ระบบจะพาคุณตั้งค่ารายได้ ค่าใช้จ่ายประจำ และเลือก Guru — แอปจะคำนวณงบรายวันให้อัตโนมัติ</p>
+          <p>เปิดแอปครั้งแรก ระบบจะพาเธอตั้งค่ารายได้ ค่าใช้จ่ายประจำ และเลือก Guru — แอปจะคำนวณงบรายวันให้อัตโนมัติ</p>
         </div>
       </div>
       <div class="step">
@@ -580,12 +585,12 @@
         <p>รายจ่ายที่เกิดขึ้นโดยไม่ได้วางแผน เช่น ของที่ซื้อเพราะเห็นแล้วอยากได้</p>
       </div>
     </div>
-    <p class="concept-note">ไม่มีถูกผิด — เป็นกระจกให้คุณเห็นตัวเอง</p>
+    <p class="concept-note">ไม่มีถูกผิด — เป็นกระจกให้เธอเห็นตัวเอง</p>
 
     <!-- Guru -->
     <div class="guru-card fade-in">
       <h3>Guru คืออะไร?</h3>
-      <p>Guru คือแนวทางจัดสรรเงินที่คุณเลือกตอน onboarding เช่น กฎ 50/30/20, แนว Warren Buffett, Ray Dalio หรือสไตล์ Gen-Z ไทย แอปจะใช้แนวทางนี้คำนวณงบรายวัน แล้วแสดงให้เห็นว่าพฤติกรรมจริงของคุณห่างจากเป้าแค่ไหน เปลี่ยน Guru ได้ตลอดในตั้งค่า</p>
+      <p>Guru คือแนวทางจัดสรรเงินที่เธอเลือกตอน onboarding เช่น กฎ 50/30/20, แนว Warren Buffett, Ray Dalio หรือสไตล์ Gen-Z ไทย แอปจะใช้แนวทางนี้คำนวณงบรายวัน แล้วแสดงให้เห็นว่าพฤติกรรมจริงของเธอห่างจากเป้าแค่ไหน เปลี่ยน Guru ได้ตลอดในตั้งค่า</p>
     </div>
 
     <!-- FAQ -->
@@ -600,7 +605,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            ตรวจสอบว่าภาพสลิปชัดและไม่เบลอ แอปรองรับสลิปจาก K PLUS, SCB, กสิกร, กรุงไทย, กรุงเทพ, ทหารไทยธนชาต และ TrueMoney หากจำนวนเงินไม่ถูกต้อง สามารถแก้ไขได้ก่อนกดยืนยัน — ระบบจะเรียนรู้จากการแก้ไขของคุณ
+            ตรวจสอบว่าภาพสลิปชัดและไม่เบลอ แอปรองรับสลิปจาก K PLUS, SCB, กสิกร, กรุงไทย, กรุงเทพ, ทหารไทยธนชาต และ TrueMoney หากจำนวนเงินไม่ถูกต้อง สามารถแก้ไขได้ก่อนกดยืนยัน — ระบบจะเรียนรู้จากการแก้ไขของเธอ
           </div>
         </div>
       </div>
@@ -612,7 +617,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            ปลอดภัยที่สุด เพราะในเวอร์ชันปัจจุบัน ข้อมูลทั้งหมดจัดเก็บในเครื่องคุณเท่านั้น ไม่มีการส่งข้อมูลออกนอกเครื่อง ดูรายละเอียดเพิ่มเติมที่ <a href="./privacy.html" class="footer-link">นโยบายความเป็นส่วนตัว</a>
+            ปลอดภัยที่สุด เพราะในเวอร์ชันปัจจุบัน ข้อมูลทั้งหมดจัดเก็บในเครื่องเธอเท่านั้น ไม่มีการส่งข้อมูลออกนอกเครื่อง ดูรายละเอียดเพิ่มเติมที่ <a href="./privacy.html" class="footer-link">นโยบายความเป็นส่วนตัว</a>
           </div>
         </div>
       </div>
@@ -636,7 +641,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            เข้า ตั้งค่า → จัดสรรเงิน → ปรับรายได้หรือค่าใช้จ่ายประจำ → งบรายวันจะคำนวณใหม่อัตโนมัติตาม Guru ที่คุณเลือกไว้
+            เข้า ตั้งค่า → จัดสรรเงิน → ปรับรายได้หรือค่าใช้จ่ายประจำ → งบรายวันจะคำนวณใหม่อัตโนมัติตาม Guru ที่เธอเลือกไว้
           </div>
         </div>
       </div>
@@ -707,13 +712,30 @@
 
   <footer>
     <div class="footer-content">
-      <span class="footer-copy">© 2026 MindSpend</span>
-      <a href="./blog/index.html" class="footer-link">บทความ</a> · <a href="./faq.html" class="footer-link">FAQ</a> · <a href="./privacy.html" class="footer-link">ความเป็นส่วนตัว</a>
+      <div class="footer-brand">
+        <img class="footer-logo" src="./assets/logo.jpg" alt="MindSpend">
+        <span class="footer-copy">© 2026 MindSpend</span>
+      </div>
+      <a href="./index.html#premium" class="footer-link">สติ+</a> · <a href="./blog/index.html" class="footer-link">บทความ</a> · <a href="./faq.html" class="footer-link">FAQ</a> · <a href="./privacy.html" class="footer-link">ความเป็นส่วนตัว</a>
     </div>
   </footer>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+const nav = document.getElementById('nav');
+if (nav) {
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 30);
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+}
 function toggleFaq(btn) {
-  const item = btn.closest('.faq-it
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

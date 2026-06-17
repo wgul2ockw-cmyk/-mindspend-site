@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Chonburi&family=Space+Mono:wght@400;700&family=Itim&display=swap');
+
+/* =========================================================================
+   MindSpend — shared design foundation (single source of truth)
+   Tokens mirror MindSpend/Core/Theme.swift (light mode). Fonts are the four
+   brand families: Bai Jamjuree (UI) · Chonburi (display) · Space Mono
+   (numbers) · Itim (น้องมายด์ speech only). Do not hardcode hex in pages —
+   use var(--token). Do not apply italic to the display font (Chonburi has
+   no italic cut); italic is allowed only on the UI font (Bai Jamjuree).
+   ========================================================================= */
+
+:root{
+  /* fonts ------------------------------------------------------------- */
+  --font-ui:'Bai Jamjuree',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-display:'Chonburi',Georgia,serif;
+  --font-mono:'Space Mono',ui-monospace,'SFMono-Regular',monospace;
+  --font-mascot:'Itim',var(--font-ui);
+
+  /* surfaces ---------------------------------------------------------- */
+  --cream:#F5F0E4;        /* Color.cream — app canvas */
+  --cream-deep:#EFE7DA;   /* Color.creamDeep — wells, subtle bg */
+  --cream-dark:#E6DECF;
+  --surface:#FFFFFF;      /* Color.surface — cards on cream */
+  --warm-bg:#FBF7EE;      /* warmer card tint */
+
+  /* sage — planned / neutral-positive (NOT green-as-good) -------------- */
+  --sage:#7BAF76;         /* Color.sage */
+  --sage-mid:#6BA365;     /* hover border / mid tint */
+  --sage-light:#A6CBA1;   /* lighter tint for use on dark bg */
+  --sage-pale:#D4EACF;    /* very light tint */
+  --sage-wash:#E6F2E4;    /* Color.sageLight — pill / chip bg */
+  --sage-deep:#4E8849;    /* Color.sageDark — emphasis / text on light */
+
+  /* ember — impulse / warm attention (NEVER red-as-wrong) -------------- */
+  --ember:#D4564E;        /* Color.ember */
+  --ember-mid:#E07A73;
+  --ember-pale:#F6E0DE;   /* Color.emberLight */
+  --ember-deep:#B83D36;   /* ember text on light */
+
+  /* gold — premium / achievement (NOT warning-yellow) ----------------- */
+  --gold:#C9A050;         /* Color.gold */
+  --gold-pale:#FBF3E2;    /* Color.goldLight */
+  --gold-deep:#8B6E28;    /* Color.goldDark */
+
+  /* mint — income / saving -------------------------------------------- */
+  --mint:#4EADA3;         /* Color.mint */
+  --mint-pale:#E0F5F2;    /* Color.mintLight */
+  --mint-deep:#3A8A82;    /* Color.mintDark */
+
+  /* violet — investment ----------------------------------------------- */
+  --violet:#8A6BBF;       /* Color.violet */
+  --violet-pale:#EDE5F7;  /* Color.violetLight */
+  --violet-deep:#523D80;  /* Color.violetDark */
+
+  /* clay — mascot curled mood accent ---------------------------------- */
+  --clay:#C4907A;
+  --clay-pale:#F0DDD5;
+
+  /* สติ+ premium — purple primary, gold secondary (distinct from violet) */
+  --sati:#9B51C4;         /* Color.satiPurple */
+  --sati-pale:#F2E7FA;    /* Color.satiPurpleLight */
+  --sati-deep:#6A3494;    /* Color.satiPurpleDark */
+
+  /* text & lines ------------------------------------------------------ */
+  --ink:#1E1D1A;          /* Color.ink — titles / primary */
+  --ink-soft:#2E2D28;
+  --stone:#7A7870;        /* Color.stone — secondary / captions */
+  --stone-light:#9A9890;  /* faint metadata */
+  --border:#D8D2C7;       /* Color.stoneLight — hairlines */
+
+  /* mascot น้องมายด์ body (green, sampled from shipped art) ----------- */
+  --mind-body:#98C185; --mind-shade:#7FA96C; --mind-belly:#F9EDD0;
+  --mind-outline:#422D00; --mind-cheek:#E8A39C;
+
+  /* dark-mode showcase swatches (warm twilight, R155) ----------------- */
+  --dk-bg:#0B0B0D; --dk-surface:#1B1C21; --dk-well:#202024;
+  --dk-ink:#F3F1EC; --dk-stone:#9B9A9E; --dk-rim:#2A2A2F;
+  --dk-sage:#87C07F; --dk-ember:#E27C73; --dk-gold:#D8B86A; --dk-sati:#B873E0;
+
+  --radius:16px;
+}
+
+/* reset & base -------------------------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-ui);background:var(--cream);color:var(--ink);line-height:1.7;font-size:16px;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sage-pale);color:var(--sage-deep)}
+img{max-width:100%}
+
+/* type system --------------------------------------------------------- */
+.serif{font-family:var(--font-display);font-weight:400;font-style:normal}
+.mono{font-family:var(--font-mono)}
+.mind-voice{font-family:var(--font-mascot)}
+
+/* shared layout & components ------------------------------------------ */
+section{padding:110px 24px}
+.inner{max-width:1100px;margin:0 auto}
+.label{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--sage-deep);margin-bottom:14px}
+.title{font-family:var(--font-display);font-size:clamp(28px,4.4vw,46px);font-weight:400;line-height:1.18;letter-spacing:0;margin-bottom:18px}
+.title em{font-style:normal;font-weight:400;color:var(--sage-deep)}
+.desc{font-size:17px;color:var(--stone);max-width:540px;line-height:1.65}
+
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,var(--sage),var(--sage-deep));color:#fff;border:none;border-radius:16px;font-family:var(--font-ui);font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 16px rgba(123,175,118,.3)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(123,175,118,.38)}
+.btn-s{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--surface);color:var(--ink);border:1.5px solid var(--border);border-radius:16px;font-family:var(--font-ui);font-size:16px;font-weight:500;text-decoration:none;cursor:pointer;transition:all .25s}
+.btn-s:hover{border-color:var(--sage);color:var(--sage-deep);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.05)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* nav ----------------------------------------------------------------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s}
+nav.scrolled{background:rgba(245,240,228,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border),0 4px 20px rgba(0,0,0,.04)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{width:38px;height:38px;border-radius:11px;object-fit:cover;box-shadow:0 2px 10px rgba(123,175,118,.25);transition:transform .3s}
+.nav-brand:hover .nav-logo{transform:rotate(-6deg) scale(1.08)}
+.nav-name{font-family:var(--font-display);font-size:21px;font-weight:400;color:var(--sage-deep);letter-spacing:0}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-family:var(--font-ui);font-size:14px;font-weight:500;color:var(--stone);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--sage-deep)}
+.nav-drop{position:relative}
+.nav-drop-trigger{cursor:pointer;display:flex;align-items:center;gap:4px;font-size:14px;font-weight:500;color:var(--stone)}
+.nav-drop-trigger::after{content:"▾";font-size:10px;opacity:.5}
+.nav-drop-menu{position:absolute;top:calc(100% + 8px);right:0;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:6px;min-width:184px;opacity:0;pointer-events:none;transform:translateY(-4px);transition:all .2s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.nav-drop:hover .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateY(0)}
+.nav-drop-menu a{display:block;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--ink)!important;transition:background .15s}
+.nav-drop-menu a:hover{background:var(--sage-wash);color:var(--sage-deep)!important}
+.nav-cta{padding:9px 22px!important;background:linear-gradient(135deg,var(--sage),var(--sage-deep))!important;color:#fff!important;border-radius:100px!important;font-weight:600!important;box-shadow:0 2px 8px rgba(123,175,118,.3)!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(123,175,118,.36)!important}
+
+/* footer -------------------------------------------------------------- */
+footer{padding:40px 24px 48px;border-top:1.5px solid var(--border);background:var(--cream)}
+.f-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px}
+.f-left{display:flex;align-items:center;gap:10px}
+.f-logo{width:28px;height:28px;border-radius:8px;object-fit:cover}
+.f-copy{font-size:13px;color:var(--stone-light)}
+.f-links{display:flex;gap:24px;flex-wrap:wrap}
+.f-links a{font-size:13px;color:var(--stone);text-decoration:none;font-weight:500;transition:color .2s}
+.f-links a:hover{color:var(--sage-deep)}
+.f-cols{display:flex;gap:48px;flex-wrap:wrap}
+.f-col h4{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--stone-light);margin-bottom:10px}
+.f-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;font-weight:500;margin-bottom:6px;transition:color .2s}
+.f-col a:hover{color:var(--sage-deep)}
+
+/* marquee pill -------------------------------------------------------- */
+.pill{display:flex;align-items:center;gap:10px;padding:13px 22px;background:var(--surface);border-radius:100px;white-space:nowrap;border:1.5px solid var(--border);transition:all .25s;cursor:default;flex-shrink:0;font-size:14px;font-weight:500;color:var(--ink)}
+.pill:hover{border-color:var(--sage);background:var(--sage-wash);transform:scale(1.04)}
+
+/* น้องมายด์ mascot ---------------------------------------------------- */
+/* The circle is a BASE LAYER, not a container — the mascot overflows it. */
+.mind{display:block}
+.mind-slot{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;overflow:visible}
+.mind-slot .mind{position:absolute;width:134%;left:-17%;top:-22%;filter:drop-shadow(0 8px 14px rgba(66,45,0,.14))}
+.mind-float{animation:mind-bob 4.5s ease-in-out infinite}
+@keyframes mind-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* speech bubble (น้องมายด์ voice — Itim, never a 2-way chat input) ----- */
+.mind-bubble{position:relative;background:var(--surface);border:1.5px solid var(--border);border-radius:4px 18px 18px 18px;padding:16px 20px;font-family:var(--font-mascot);font-size:16px;color:var(--ink-soft);line-height:1.55;box-shadow:0 4px 16px rgba(0,0,0,.05)}
+.mind-name{font-family:var(--font-mascot);font-size:13px;color:var(--sage-deep);margin-bottom:2px}
+
+/* motion safety ------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* shared responsive --------------------------------------------------- */
+@media(max-width:640px){
+  nav{padding:10px 16px}
+  .nav-links a:not(.nav-cta):not(.nav-drop-trigger),.nav-links .nav-drop{display:none}
+  .f-inner{flex-direction:column}
+  .f-cols{gap:32px}
+}

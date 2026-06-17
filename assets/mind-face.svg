@@ -1,0 +1,30 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#422D00" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Head (round, green, filling frame) -->
+    <path d="M60 14 C92 14 108 38 108 62 C108 90 86 108 60 108 C34 108 12 90 12 62 C12 38 28 14 60 14 Z" fill="#98C185"/>
+
+    <!-- Hint of scales at top of head -->
+    <path d="M30 30 C30 22 42 16 60 16 C78 16 90 22 90 30 C90 40 78 44 60 44 C42 44 30 40 30 30 Z" fill="#7FA96C"/>
+    <path d="M40 28 C43 23 51 23 54 28" stroke-width="2.4"/>
+    <path d="M66 28 C69 23 77 23 80 28" stroke-width="2.4"/>
+
+    <!-- Face highlight (warm pale snout) -->
+    <path d="M60 50 C84 50 96 68 94 84 C92 100 78 110 60 110 C42 110 28 100 26 84 C24 68 36 50 60 50 Z" fill="#F9EDD0"/>
+
+    <!-- Eyes -->
+    <circle cx="42" cy="60" r="9" fill="#F7F7F7"/>
+    <circle cx="78" cy="60" r="9" fill="#F7F7F7"/>
+    <circle cx="43" cy="61" r="4.8" fill="#422D00" stroke="none"/>
+    <circle cx="79" cy="61" r="4.8" fill="#422D00" stroke="none"/>
+    <circle cx="45" cy="59" r="1.8" fill="#F7F7F7" stroke="none"/>
+    <circle cx="81" cy="59" r="1.8" fill="#F7F7F7" stroke="none"/>
+
+    <!-- Cheek blush -->
+    <ellipse cx="30" cy="78" rx="8" ry="5" fill="#E8A39C" stroke="none"/>
+    <ellipse cx="90" cy="78" rx="8" ry="5" fill="#E8A39C" stroke="none"/>
+
+    <!-- Nose + smile -->
+    <ellipse cx="60" cy="78" rx="5" ry="3.8" fill="#422D00" stroke="none"/>
+    <path d="M46 88 C53 97 67 97 74 88" stroke-width="3.2"/>
+  </g>
+</svg>
