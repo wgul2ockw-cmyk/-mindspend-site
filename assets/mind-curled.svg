@@ -1,0 +1,48 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="#422D00" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Outer curled body (big rounded ball) -->
+    <path d="M120 44 C176 44 206 84 206 132 C206 184 168 208 120 208 C72 208 34 184 34 132 C34 84 64 44 120 44 Z" fill="#98C185"/>
+
+    <!-- Scaled back wrapping around the curl (outer ring of plates) -->
+    <path d="M120 44 C176 44 206 84 206 132 C206 168 188 190 160 200 C176 184 184 160 184 134 C184 92 158 62 120 62 C112 62 106 54 120 44 Z" fill="#7FA96C"/>
+    <!-- Scale separators along the curl -->
+    <path d="M150 50 C168 60 180 78 184 100" stroke-width="2.6"/>
+    <path d="M168 70 C180 84 186 102 186 124" stroke-width="2.6"/>
+    <path d="M180 98 C188 116 190 138 184 160" stroke-width="2.6"/>
+    <path d="M158 60 C150 66 144 70 140 78" stroke-width="2.4"/>
+    <path d="M176 84 C168 90 162 96 158 104" stroke-width="2.4"/>
+
+    <!-- Tail tip tucked over the curl (scaled, pointing inward) -->
+    <path d="M150 196 C166 188 178 174 178 156 C178 146 170 142 162 148 C156 152 156 164 152 178 C150 186 148 192 150 196 Z" fill="#7FA96C"/>
+    <path d="M168 158 C170 168 166 178 158 184" stroke-width="2.4"/>
+
+    <!-- Inner belly curl (warm pale, the cozy tucked underside) -->
+    <path d="M104 92 C70 96 52 124 56 156 C60 186 86 200 116 196 C100 184 92 164 96 142 C100 120 110 104 130 98 C122 92 112 91 104 92 Z" fill="#F9EDD0"/>
+
+    <!-- Tucked feet peeking at bottom -->
+    <path d="M86 192 C82 200 86 206 92 205 C96 204 96 198 94 192 Z" fill="#7FA96C"/>
+    <path d="M104 196 C100 204 104 210 110 208 C114 206 113 200 111 195 Z" fill="#7FA96C"/>
+    <path d="M88 203 L86 207 M91 204 L90 208" stroke-width="2"/>
+
+    <!-- Little paw tucked over (rounded) -->
+    <path d="M92 150 C82 152 78 162 84 170 C90 176 100 174 104 166 C107 160 102 150 92 150 Z" fill="#98C185"/>
+
+    <!-- Head tucked into curl (lower-left, resting) -->
+    <path d="M92 100 C118 100 134 120 134 144 C134 170 114 186 88 186 C62 186 44 168 44 144 C44 120 64 100 92 100 Z" fill="#98C185"/>
+
+    <!-- Face highlight on head -->
+    <path d="M88 124 C108 124 118 138 116 152 C114 166 102 174 88 174 C74 174 62 166 60 152 C58 138 68 124 88 124 Z" fill="#F9EDD0"/>
+
+    <!-- Closed peaceful eyes (soft curves) -->
+    <path d="M70 142 C74 148 80 148 84 142" stroke-width="3"/>
+    <path d="M94 142 C98 148 104 148 108 142" stroke-width="3"/>
+
+    <!-- Cheek blush -->
+    <ellipse cx="64" cy="156" rx="6.5" ry="4.5" fill="#E8A39C" stroke="none"/>
+    <ellipse cx="112" cy="156" rx="6.5" ry="4.5" fill="#E8A39C" stroke="none"/>
+
+    <!-- Nose + content smile -->
+    <ellipse cx="88" cy="154" rx="4" ry="3" fill="#422D00" stroke="none"/>
+    <path d="M78 162 C83 168 93 168 98 162" stroke-width="3"/>
+  </g>
+</svg>
