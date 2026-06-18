@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ms-theme');if(!t)t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <title>MindSpend — เข้าใจการใช้เงิน ได้อย่างไม่ตัดสิน</title>
 <meta name="description" content="MindSpend คือกระจกที่ช่วยให้คุณเข้าใจพฤติกรรมการใช้เงิน — บันทึกใน 3 วินาที สแกนสลิปอัตโนมัติ แยกวางแผนกับฉับพลัน ไม่ตัดสิน">
 <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
@@ -19,6 +20,15 @@
   --d-gold:#E0C57F; --d-gold-deep:#C9A050;
   --d-sati:#B873E0; --d-sati-glow:rgba(155,81,196,.20);
   --d-ember:#E78B82;
+}
+/* LIGHT theme token overrides (สติ+ section stays dark in both) */
+[data-theme="light"]{
+  --d-bg:#F6F1E7; --d-bg2:#EFE7DA; --d-surface:#FFFFFF;
+  --d-card:#FFFFFF; --d-card-h:#FFFDF8; --d-rim:#E6DECF;
+  --d-ink:#1E1D1A; --d-stone:#7A7870; --d-faint:#A8A498;
+  --d-sage:#7BAF76; --d-sage-deep:#4E8849; --d-sage-glow:rgba(123,175,118,.16);
+  --d-gold:#C9A050; --d-gold-deep:#8B6E28;
+  --d-ember:#C2554D;
 }
 body{background:var(--d-bg);color:var(--d-ink);overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:-2;background:
@@ -220,6 +230,32 @@ footer{background:var(--d-bg2);border-top:1px solid var(--d-rim);padding:54px 0 
   .hero-visual{height:430px;transform:scale(.92)}
   .foot-grid{grid-template-columns:1fr}
 }
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--d-rim);background:transparent;color:var(--d-ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0}
+.theme-toggle:hover{border-color:var(--d-sage);color:var(--d-sage-deep)}
+[data-theme="dark"] .theme-toggle .ic-moon{display:none}
+[data-theme="light"] .theme-toggle .ic-sun{display:none}
+
+/* ===== LIGHT THEME structural overrides ===== */
+[data-theme="light"] body::before{background:
+  radial-gradient(900px 600px at 85% -6%,rgba(201,160,80,.13),transparent 60%),
+  radial-gradient(820px 600px at 6% 4%,rgba(123,175,118,.13),transparent 60%),
+  linear-gradient(180deg,#FBF7EE,#F6F1E7 45%,#F3ECDE)}
+[data-theme="light"] nav.scrolled{background:rgba(246,241,231,.86);box-shadow:0 1px 0 var(--d-rim),0 4px 20px rgba(0,0,0,.05)}
+[data-theme="light"] .hero h1{color:#1E1D1A}
+[data-theme="light"] .btn-ghost{background:#fff}
+[data-theme="light"] .phone{background:#fff;border-color:#E6DECF;box-shadow:0 30px 60px rgba(96,84,58,.16),0 0 0 1px rgba(0,0,0,.03)}
+[data-theme="light"] .scr{background:linear-gradient(180deg,#FFFFFF,#FBF7EF)}
+[data-theme="light"] .ph-amt{color:var(--d-ink)}
+[data-theme="light"] .ph-chip,[data-theme="light"] .ph-split>div{background:#F7F3EA;border-color:#ECE4D5}
+[data-theme="light"] .ph-row{border-top-color:#EFE8DB}
+[data-theme="light"] .ph-nav{border-top-color:#EFE8DB}
+[data-theme="light"] .trust-card,[data-theme="light"] .how-card,[data-theme="light"] .feat-card,[data-theme="light"] .rel-card{box-shadow:0 6px 24px rgba(96,84,58,.07)}
+[data-theme="light"] .final{background:linear-gradient(135deg,#E7F1E4,#F1F5EB 60%,#FBF7EE);border-color:rgba(123,175,118,.32)}
+[data-theme="light"] .final h2{color:#1E1D1A}
+[data-theme="light"] .final p{color:var(--d-stone)}
+[data-theme="light"] .badge{background:#111;border-color:#111}
 </style>
 </head>
 <body>
@@ -229,6 +265,10 @@ footer{background:var(--d-bg2);border-top:1px solid var(--d-rim);padding:54px 0 
   <div class="nav-links">
     <a href="#feat">ฟีเจอร์</a><a href="#sati">สติ+</a><a href="./about.html">เกี่ยวกับเรา</a><a href="./blog/index.html">บล็อก</a>
     <div class="nav-drop"><span class="nav-drop-trigger">ช่วยเหลือ</span><div class="nav-drop-menu"><a href="./faq.html">คำถามที่พบบ่อย</a><a href="./changelog.html">อัปเดต</a><a href="./support.html">ติดต่อเรา</a><a href="./privacy.html">ความเป็นส่วนตัว</a></div></div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="สลับธีมสว่าง/มืด">
+      <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
     <a href="#dl" class="nav-cta">ดาวน์โหลดแอป</a>
   </div>
 </nav>
@@ -436,6 +476,7 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
 </script>
 </body>
 </html>
