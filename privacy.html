@@ -3,296 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MindSpend — นโยบายความเป็นส่วนตัว · Privacy Policy</title>
-<link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="./styles.css">
+<title>Privacy Policy — MindSpend</title>
 <style>
-  /* page-specific (privacy doc) — shared chrome lives in styles.css */
-  body { min-height: 100vh; }
-  .page-wrapper { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  header { padding: 48px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
-  .brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
-  .brand-mark { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; box-shadow: 0 2px 8px rgba(123, 175, 118, 0.25); }
-  .brand-name { font-family: var(--font-display); font-size: 24px; color: var(--sage-deep); }
-  h1 { font-family: var(--font-display); font-size: clamp(30px, 5vw, 40px); color: var(--ink); font-weight: 400; line-height: 1.2; margin-bottom: 12px; }
-  .subtitle { font-family: var(--font-ui); font-size: 15px; color: var(--stone); font-weight: 400; }
-  .effective-date { display: inline-block; margin-top: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--sage-deep); background: var(--sage-wash); padding: 6px 14px; border-radius: 100px; letter-spacing: 0.02em; }
+  body {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
 
-  .content { padding-bottom: 80px; }
-  .lang-toggle { display: flex; gap: 8px; margin-bottom: 40px; }
-  .lang-btn { padding: 8px 20px; border: 1.5px solid var(--border); border-radius: 100px; background: transparent; font-family: var(--font-ui); font-size: 14px; font-weight: 500; color: var(--ink-soft); cursor: pointer; transition: all 0.25s ease; }
-  .lang-btn.active { background: var(--sage); border-color: var(--sage); color: #fff; }
-  .lang-btn:hover:not(.active) { border-color: var(--sage); color: var(--sage-deep); }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .meta {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 4px;
+  }
+
+  .meta strong { color: #1a1a1a; font-weight: 600; }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 28px 0;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 34px 0 10px;
+  }
+
+  p { margin: 0 0 12px; }
+
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  a { color: #0a58ca; text-decoration: underline; }
+  a:hover { color: #084298; }
+
+  strong { font-weight: 600; }
+
+  .lang-toggle {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0 8px;
+  }
+
+  .lang-btn {
+    padding: 6px 16px;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    background: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+  }
+
+  .lang-btn.active {
+    background: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+  }
+
   .lang-section { display: none; }
   .lang-section.active { display: block; }
 
-  .principle-card { background: linear-gradient(135deg, var(--sage), var(--sage-deep)); border-radius: 16px; padding: 28px; margin-bottom: 40px; color: #fff; position: relative; overflow: hidden; }
-  .principle-card::after { content: ''; position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.08); }
-  .principle-card p { font-family: var(--font-display); font-size: 20px; line-height: 1.5; position: relative; z-index: 1; }
-
-  .section { margin-bottom: 36px; scroll-margin-top: 90px; }
-  .section h2 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 14px; }
-  .section p { color: var(--ink-soft); font-size: 15px; margin-bottom: 12px; line-height: 1.7; }
-  .section p a, .inline-link { color: var(--sage-deep); font-weight: 500; text-decoration: none; }
-  .section p a:hover { text-decoration: underline; }
-
-  .info-grid { display: flex; flex-direction: column; gap: 2px; margin: 16px 0; border-radius: 12px; overflow: hidden; }
-  .info-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; background: var(--cream-deep); }
-  .info-row .icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; color: var(--sage-deep); }
-  .info-row .label { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
-  .info-row .desc { font-size: 13px; color: var(--stone); line-height: 1.55; }
-
-  .negative-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; gap: 10px; }
-  .negative-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
-  .negative-list li::before { content: '—'; font-family: var(--font-mono); color: var(--sage); font-weight: 700; flex-shrink: 0; }
-
-  .divider { width: 40px; height: 2px; background: var(--border); margin: 40px 0; border-radius: 2px; }
-
-  footer { padding: 32px 0 48px; border-top: 1px solid var(--border); }
-  .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-copy { font-size: 13px; color: var(--stone); }
-  .footer-link { font-size: 13px; color: var(--sage-deep); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .footer-link:hover { color: var(--ember-deep); }
-
-  @media (max-width: 600px) {
-    header { padding: 32px 0 28px; margin-bottom: 32px; }
-    .principle-card { padding: 22px; } .principle-card p { font-size: 18px; }
-    .info-row { padding: 12px 14px; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #555555;
   }
+  footer a { color: #0a58ca; }
 </style>
 </head>
 <body>
-<div class="page-wrapper">
+<div class="wrap">
 
-  <header>
-    <div class="brand-row">
-      <img class="brand-mark" src="./assets/logo.jpg" alt="MindSpend">
-      <div class="brand-name">MindSpend</div>
-    </div>
-    <h1>นโยบายความเป็นส่วนตัว</h1>
-    <div class="subtitle">Privacy Policy · MindSpend</div>
-    <span class="effective-date">มีผลตั้งแต่ 18 มิถุนายน 2026 · v1.0</span>
-  </header>
+  <h1>Privacy Policy — MindSpend</h1>
+  <div class="meta">Effective date: <strong>28 June 2026</strong></div>
+  <div class="meta">Developer: <strong>Thitipong Nonnoi</strong> (sole proprietor), operating as <strong>Jovey.co</strong> · Contact: <a href="mailto:support@mindspend.app">support@mindspend.app</a></div>
 
-  <div class="content">
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="switchLang('th',event)">ไทย</button>
+    <button class="lang-btn" onclick="switchLang('en',event)">English</button>
+  </div>
 
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="switchLang('th',event)">ไทย</button>
-      <button class="lang-btn" onclick="switchLang('en',event)">English</button>
-    </div>
+  <hr>
 
-    <!-- ==================== THAI ==================== -->
-    <div id="lang-th" class="lang-section active">
+  <!-- ==================== THAI ==================== -->
+  <div id="lang-th" class="lang-section active">
 
-      <div class="principle-card">
-        <p>ข้อมูลของเธอเป็นของเธอ — เก็บไว้ในเครื่องเธอเป็นหลัก<br>MindSpend ออกแบบมาให้เธอเห็นตัวเอง ไม่ใช่ให้เราเห็นเธอ</p>
-      </div>
+    <h2>1. ภาพรวม</h2>
+    <p>MindSpend (“แอป”) พัฒนาและดำเนินการโดย Thitipong Nonnoi ในฐานะผู้ประกอบการรายบุคคล ภายใต้ชื่อ Jovey.co (“เรา”) นโยบายนี้อธิบายว่าแอปจัดการข้อมูลของคุณอย่างไร</p>
+    <p>MindSpend เป็นแอปการเงินส่วนบุคคลแบบ local-first — ข้อมูลการเงินของคุณถูกจัดเก็บไว้ในเครื่องของคุณเอง (ผ่าน SwiftData) ไม่มีระบบบัญชีผู้ใช้ ไม่มีการลงทะเบียน และเราไม่มีเซิร์ฟเวอร์ที่จัดเก็บข้อมูลของคุณ มีเพียงบางฟีเจอร์ที่จำเป็นต้องเชื่อมต่อบริการภายนอกเพื่อให้ทำงานได้ ซึ่งระบุไว้ครบถ้วนในข้อ 3</p>
 
-      <div class="section">
-        <h2>ภาพรวม</h2>
-        <p>MindSpend เป็นแอปการเงินแบบ local-first — ข้อมูลการเงินของเธอถูกเก็บไว้ในเครื่องของเธอ (ผ่าน SwiftData) ไม่มีระบบบัญชีผู้ใช้ ไม่มีการลงทะเบียน และเราไม่มีเซิร์ฟเวอร์ที่เก็บข้อมูลของเธอ</p>
-        <p>มีเพียงบางฟีเจอร์เท่านั้นที่จำเป็นต้องเชื่อมต่อบริการภายนอกเพื่อให้ทำงานได้ (เช่น AI ช่วยอ่านใบเสร็จ และการดึงราคาหุ้น/กองทุน/คริปโต) เราระบุไว้ครบถ้วนในหัวข้อ “ข้อมูลที่ออกจากเครื่อง และเหตุผล” ด้านล่าง</p>
-      </div>
+    <h2>2. ข้อมูลที่จัดเก็บในเครื่องของคุณ</h2>
+    <p>ข้อมูลต่อไปนี้อยู่ในเครื่องของคุณเท่านั้น คุณเป็นผู้ป้อนและควบคุมเองทั้งหมด:</p>
+    <ul>
+      <li>รายการรายจ่าย/รายรับ — จำนวนเงิน ร้านค้า หมวดหมู่ โน้ต และแท็กวางแผน/ฉับพลัน</li>
+      <li>กระเป๋าเงิน บัตรเครดิต และหนี้สิน — บัญชี บัตร และยอดที่คุณเพิ่มเอง</li>
+      <li>การลงทุนและมูลค่าสุทธิ — รายการหุ้น/กองทุน/คริปโตที่คุณถือ และจำนวนหน่วย</li>
+      <li>รายได้และรายจ่ายประจำ — ข้อมูลที่คุณตั้งค่าเองสำหรับงบและการวางแผนล่วงหน้า</li>
+      <li>การตั้งค่าและความชอบ — หมวดหมู่ ธีม ชุดไอคอน และตัวเลือกต่างๆ (เก็บใน UserDefaults/App Group บนเครื่อง)</li>
+    </ul>
 
-      <div class="section">
-        <h2>ข้อมูลที่จัดเก็บในเครื่อง</h2>
-        <p>ข้อมูลต่อไปนี้อยู่ในเครื่องของเธอเท่านั้น เธอเป็นผู้ป้อนและควบคุมเองทั้งหมด</p>
-        <div class="info-grid">
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><div><div class="label">รายการรายจ่าย/รายรับ</div><div class="desc">จำนวนเงิน ร้านค้า หมวดหมู่ โน้ต และแท็กวางแผน/ฉับพลัน</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg><div><div class="label">กระเป๋าเงิน บัตรเครดิต และหนี้สิน</div><div class="desc">บัญชี บัตร และยอดที่เธอเพิ่มเอง</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg><div><div class="label">การลงทุนและมูลค่าสุทธิ</div><div class="desc">รายการหุ้น/กองทุน/คริปโตที่เธอถือ และจำนวนหน่วย</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><div class="label">รายได้และรายจ่ายประจำ</div><div class="desc">ข้อมูลที่เธอตั้งค่าเองสำหรับงบและการวางแผนล่วงหน้า</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82M4.6 9a1.65 1.65 0 01-.33-1.82"/></svg><div><div class="label">การตั้งค่าและความชอบ</div><div class="desc">หมวดหมู่ ธีม ชุดไอคอน และตัวเลือกต่างๆ (เก็บใน UserDefaults/App Group บนเครื่อง)</div></div></div>
-        </div>
-      </div>
+    <h2>3. ข้อมูลที่ออกจากเครื่อง และบริการภายนอก</h2>
+    <p>เพื่อความโปร่งใส นี่คือทุกกรณีที่ข้อมูลออกจากเครื่องของคุณ — เกิดขึ้นเฉพาะเมื่อคุณใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น ทั้งหมดส่งผ่านการเชื่อมต่อแบบเข้ารหัส (HTTPS) ไม่ผูกกับบัญชีหรือตัวตนของคุณ และไม่ใช้เพื่อโฆษณาหรือติดตามพฤติกรรม:</p>
+    <ul>
+      <li><strong>AI ช่วยอ่านใบเสร็จ (ตัวเลือก):</strong> เมื่อเปิดใช้ แอปส่งเฉพาะ “ข้อความ” ที่อ่านได้จากใบเสร็จร้านค้า (ชื่อร้าน รายการสินค้า ราคา) ไปยัง Typhoon AI (โดย SCB 10X ผ่าน api.opentyphoon.ai) เพื่อจัดให้เป็นรายการ — ไม่ส่งรูปภาพ (การอ่านตัวอักษรทำในเครื่องด้วย Apple Vision) ต้องยินยอมก่อนใช้ครั้งแรก และปิดได้ที่ ตั้งค่า → AI สแกนใบเสร็จ</li>
+      <li><strong>ราคาตลาด หุ้น/กองทุน/คริปโต:</strong> เมื่อคุณเพิ่มการลงทุน แอปส่งเฉพาะ “สัญลักษณ์/รหัส” ของสินทรัพย์ ไปยัง Yahoo Finance, CoinGecko และสำนักงาน ก.ล.ต. (SEC) เพื่อดึงราคาล่าสุด — ไม่ส่งจำนวนเงิน จำนวนหน่วย หรือข้อมูลระบุตัวตน</li>
+      <li><strong>โลโก้ร้านค้า/แบรนด์:</strong> เพื่อแสดงไอคอนร้านค้า แอปอาจร้องขอรูปโลโก้โดยอ้างอิงชื่อหรือโดเมนของร้าน — ไม่มีข้อมูลการเงินแนบไปด้วย</li>
+    </ul>
+    <p>บริการเหล่านี้เป็นผู้ให้บริการภายนอกที่มีนโยบายความเป็นส่วนตัวของตนเอง เราส่งข้อมูลให้น้อยที่สุดเท่าที่จำเป็นต่อการทำงานของฟีเจอร์เท่านั้น</p>
 
-      <div class="divider"></div>
+    <h2>4. การเข้าถึงกล้องและคลังภาพ</h2>
+    <p>แอปขอเข้าถึงกล้องและคลังภาพเพื่อสแกนสลิป/ใบเสร็จเท่านั้น ภาพถูกประมวลผลในเครื่องด้วย Apple Vision แล้วลบทิ้ง — แอปไม่จัดเก็บรูปภาพ และไม่อัปโหลดรูปภาพออกนอกเครื่อง</p>
 
-      <div class="section">
-        <h2>ข้อมูลที่ออกจากเครื่อง และเหตุผล</h2>
-        <p>เพื่อความโปร่งใส นี่คือ <strong>ทุกกรณี</strong> ที่ข้อมูลออกจากเครื่องของเธอ — เฉพาะเมื่อเธอใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น ทั้งหมดส่งผ่านการเชื่อมต่อแบบเข้ารหัส (HTTPS) ไม่ผูกกับบัญชีหรือตัวตนของเธอ และไม่ใช้เพื่อโฆษณาหรือติดตามพฤติกรรม</p>
-        <div class="info-grid">
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><div><div class="label">AI ช่วยอ่านใบเสร็จ (ตัวเลือก)</div><div class="desc">เมื่อเปิดใช้ แอปส่งเฉพาะ “ข้อความ” ที่อ่านได้จากใบเสร็จร้านค้า (ชื่อร้าน รายการสินค้า ราคา) ไปยัง Typhoon AI (โดย SCB 10X, api.opentyphoon.ai) เพื่อจัดให้เป็นรายการ — <strong>ไม่ส่งรูปภาพ</strong> (การอ่านตัวอักษรทำในเครื่องด้วย Apple Vision) ต้องยินยอมก่อนใช้ครั้งแรก และปิดได้ที่ ตั้งค่า → AI สแกนใบเสร็จ</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg><div><div class="label">ราคาตลาด หุ้น/กองทุน/คริปโต</div><div class="desc">เมื่อเธอเพิ่มการลงทุน แอปส่งเฉพาะ “สัญลักษณ์/รหัส” ของสินทรัพย์ที่เธอถือ ไปยัง Yahoo Finance, CoinGecko และสำนักงาน ก.ล.ต. (SEC) เพื่อดึงราคาล่าสุด — <strong>ไม่ส่งจำนวนเงิน จำนวนหน่วย หรือข้อมูลระบุตัวตน</strong></div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg><div><div class="label">โลโก้ร้านค้า/แบรนด์</div><div class="desc">เพื่อแสดงไอคอนร้านค้าให้สวยงาม แอปอาจร้องขอรูปโลโก้โดยอ้างอิงชื่อหรือโดเมนของร้าน — ไม่มีข้อมูลการเงินแนบไปด้วย</div></div></div>
-        </div>
-        <p style="font-size:13px;color:var(--stone)">บริการเหล่านี้เป็นผู้ให้บริการภายนอกที่มีนโยบายความเป็นส่วนตัวของตนเอง เราส่งข้อมูลให้น้อยที่สุดเท่าที่จำเป็นต่อการทำงานของฟีเจอร์เท่านั้น</p>
-      </div>
+    <h2>5. การแจ้งเตือน · Widget · Live Activity</h2>
+    <p>แอปขอสิทธิ์แจ้งเตือนเพื่อเตือนความจำรายวันและ Story Cards เท่านั้น ข้อมูลที่แสดงบน Widget และ Live Activity ถูกเก็บใน App Group บนเครื่องของคุณ ไม่ส่งออกนอกเครื่อง</p>
 
-      <div class="section">
-        <h2>สิ่งที่เราไม่ทำ</h2>
-        <ul class="negative-list">
-          <li>ไม่มีบัญชีผู้ใช้ ไม่มีการลงทะเบียน ไม่มีเซิร์ฟเวอร์ของเราที่เก็บข้อมูลเธอ</li>
-          <li>ไม่มีระบบวิเคราะห์พฤติกรรม (analytics) ไม่มี tracking ไม่มี IDFA และไม่มี SDK โฆษณา/ติดตามของบุคคลที่สาม</li>
-          <li>ไม่มีโฆษณา</li>
-          <li>ไม่ขายข้อมูลของเธอ และไม่แชร์เพื่อการตลาด</li>
-          <li>ไม่เคลื่อนย้าย โอน หรือถอนเงินของเธอ และไม่ใช่คำแนะนำการลงทุน</li>
-          <li>ไม่เก็บรูปภาพใบเสร็จ/สลิป (ประมวลผลในเครื่องแล้วทิ้ง)</li>
-        </ul>
-      </div>
+    <h2>6. วิธีที่เราใช้ข้อมูล</h2>
+    <p>ข้อมูลในเครื่องถูกใช้เพื่อให้แอปทำงานตามที่คุณตั้งใจเท่านั้น ได้แก่ การบันทึกและแสดงรายการ การคำนวณงบ มูลค่าสุทธิ และข้อมูลเชิงสะท้อนพฤติกรรม การส่งการแจ้งเตือนที่คุณเปิดไว้ และการเรียกใช้ฟีเจอร์ที่ต้องเชื่อมต่อภายนอกตามข้อ 3 เราไม่ใช้ข้อมูลของคุณเพื่อโฆษณา การตลาด หรือการขายต่อ</p>
 
-      <div class="divider"></div>
+    <h2>7. สิ่งที่เราไม่ทำ</h2>
+    <ul>
+      <li>ไม่มีบัญชีผู้ใช้ ไม่มีการลงทะเบียน ไม่มีเซิร์ฟเวอร์ของเราที่เก็บข้อมูลคุณ</li>
+      <li>ไม่มีระบบวิเคราะห์พฤติกรรม (analytics) ไม่มี tracking ไม่มี IDFA และไม่มี SDK โฆษณา/ติดตามของบุคคลที่สาม</li>
+      <li>ไม่มีโฆษณา</li>
+      <li>ไม่ขายข้อมูลของคุณ และไม่แชร์เพื่อการตลาด</li>
+      <li>ไม่เคลื่อนย้าย โอน หรือถอนเงินของคุณ และไม่ใช่คำแนะนำการลงทุน</li>
+      <li>ไม่เก็บรูปภาพใบเสร็จ/สลิป (ประมวลผลในเครื่องแล้วทิ้ง)</li>
+    </ul>
 
-      <div class="section">
-        <h2>กล้องและคลังภาพ</h2>
-        <p>แอปขอเข้าถึงกล้องและคลังภาพเพื่อสแกนสลิป/ใบเสร็จเท่านั้น ภาพถูกประมวลผลในเครื่องด้วย Apple Vision แล้วลบทิ้ง — แอปไม่จัดเก็บรูปภาพ และไม่อัปโหลดรูปภาพออกนอกเครื่อง</p>
-      </div>
+    <h2>8. ความปลอดภัยของข้อมูล</h2>
+    <p>การเชื่อมต่อทั้งหมดเข้ารหัสด้วย HTTPS (App Transport Security) ข้อมูลที่อ่อนไหวซึ่งคุณกรอกเอง (หากมี เช่น รหัสผ่าน) จะถูกเก็บไว้ใน iOS Keychain บนเครื่องเท่านั้น (เข้าถึงได้เมื่อปลดล็อกเครื่อง) ไม่ถูกส่งออกและไม่ซิงค์ไปที่ใด</p>
 
-      <div class="section">
-        <h2>การแจ้งเตือน · Widget · Live Activity</h2>
-        <p>แอปขอสิทธิ์แจ้งเตือนเพื่อเตือนความจำรายวันและ Story Cards เท่านั้น ข้อมูลที่แสดงบน Widget และ Live Activity ถูกเก็บใน App Group บนเครื่องของเธอ ไม่ส่งออกนอกเครื่อง</p>
-      </div>
+    <h2>9. การเก็บรักษาและการลบข้อมูล</h2>
+    <p>ข้อมูลถูกเก็บในเครื่องจนกว่าคุณจะลบเอง — ลบรายการในแอป หรือ ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ (ปัจจุบันยังไม่มีระบบ sync ข้ามอุปกรณ์) บริการภายนอก (Typhoon, ราคาตลาด) ใช้ข้อมูลเพื่อตอบกลับคำขอเท่านั้นและไม่จัดเก็บไว้</p>
 
-      <div class="section">
-        <h2>ความปลอดภัยของข้อมูล</h2>
-        <p>การเชื่อมต่อทั้งหมดเข้ารหัสด้วย HTTPS (App Transport Security) ข้อมูลที่อ่อนไหวซึ่งเธอกรอกเอง (หากมี เช่น รหัสผ่าน) จะถูกเก็บไว้ใน iOS Keychain บนเครื่องเท่านั้น (เข้าถึงได้เมื่อปลดล็อกเครื่อง) ไม่ถูกส่งออกและไม่ซิงค์ไปที่ใด</p>
-      </div>
+    <h2>10. สิทธิ์ของคุณ (PDPA)</h2>
+    <p>เนื่องจากข้อมูลอยู่ในเครื่องของคุณเอง คุณจึงเข้าถึง แก้ไข และลบข้อมูลทั้งหมดได้เองตลอดเวลาในแอป คุณถอนความยินยอมการส่งข้อมูลใบเสร็จได้โดยปิดฟีเจอร์ AI สแกนใบเสร็จ การออกแบบนี้สอดคล้องกับ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA) ของประเทศไทย หากมีคำถามหรือคำขอเกี่ยวกับสิทธิ์ของคุณ ติดต่อ <a href="mailto:support@mindspend.app">support@mindspend.app</a> เราจะตอบกลับภายใน 30 วัน</p>
 
-      <div class="section">
-        <h2>การเก็บรักษาและการลบข้อมูล</h2>
-        <p>ข้อมูลถูกเก็บในเครื่องจนกว่าเธอจะลบเอง — ลบรายการในแอป หรือ <strong>ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ</strong> (ปัจจุบันยังไม่มีระบบ sync ข้ามอุปกรณ์) บริการภายนอก (Typhoon, ราคาตลาด) ใช้ข้อมูลเพื่อตอบกลับคำขอเท่านั้นและไม่จัดเก็บไว้</p>
-      </div>
+    <h2>11. ความเป็นส่วนตัวของเด็ก</h2>
+    <p>MindSpend ไม่ได้มุ่งเป้าไปที่เด็กอายุต่ำกว่า 13 ปี และเราไม่เก็บข้อมูลจากเด็กโดยเจตนา (เรตอายุ 4+)</p>
 
-      <div class="section">
-        <h2>สิทธิ์ของเธอ (PDPA)</h2>
-        <p>เนื่องจากข้อมูลอยู่ในเครื่องของเธอเอง เธอจึงเข้าถึง แก้ไข และลบข้อมูลทั้งหมดได้เองตลอดเวลาในแอป เธอถอนความยินยอมการส่งข้อมูลใบเสร็จได้โดยปิดฟีเจอร์ AI สแกนใบเสร็จ การออกแบบนี้สอดคล้องกับเจตนารมณ์ของ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA) ของไทย</p>
-      </div>
+    <h2>12. การเปลี่ยนแปลงนโยบาย</h2>
+    <p>หากนโยบายนี้เปลี่ยนแปลง (เช่น เพิ่มฟีเจอร์ sync ข้ามอุปกรณ์) เราจะอัปเดตหน้านี้พร้อมระบุวันที่มีผลใหม่ และแจ้งผ่านการอัปเดตแอป</p>
 
-      <div class="section">
-        <h2>เด็กและเยาวชน</h2>
-        <p>MindSpend ไม่ได้มุ่งเป้าไปที่เด็กอายุต่ำกว่า 13 ปี และเราไม่เก็บข้อมูลจากเด็กโดยเจตนา (เรตอายุ 4+)</p>
-      </div>
+    <h2>13. ติดต่อ</h2>
+    <p>คำถามเรื่องความเป็นส่วนตัว ติดต่อ Thitipong Nonnoi (Jovey.co) ที่ <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
 
-      <div class="section">
-        <h2>การเปลี่ยนแปลงนโยบาย</h2>
-        <p>หากนโยบายนี้เปลี่ยนแปลง (เช่น เพิ่มฟีเจอร์ sync ข้ามอุปกรณ์) เราจะอัปเดตหน้านี้พร้อมระบุวันที่มีผลใหม่ และแจ้งผ่านการอัปเดตแอป</p>
-      </div>
+    <h2>14. ข้อกำหนดการใช้งาน</h2>
+    <p>MindSpend ให้บริการ “ตามสภาพ” (as is) ในฐานะเครื่องมือบันทึกและสะท้อนพฤติกรรมการใช้เงินส่วนบุคคล ไม่ใช่คำแนะนำทางการเงิน การลงทุน หรือบริการธนาคาร และแอปไม่เคลื่อนย้ายเงินของคุณ</p>
+    <p>คุณเป็นผู้รับผิดชอบความถูกต้องของข้อมูลที่บันทึกและการตัดสินใจทางการเงินของตนเอง เครื่องหมายการค้า ชื่อแบรนด์ และทรัพย์สินทางปัญญาอื่นๆ เป็นของเจ้าของแต่ละราย การใช้งานแอปอยู่ภายใต้กฎหมายของประเทศไทย</p>
+  </div>
 
-      <div class="section">
-        <h2>ติดต่อ</h2>
-        <p>คำถามเรื่องความเป็นส่วนตัว ติดต่อ <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
-      </div>
+  <!-- ==================== ENGLISH ==================== -->
+  <div id="lang-en" class="lang-section">
 
-      <div class="divider"></div>
+    <h2>1. Overview</h2>
+    <p>MindSpend (the “App”) is developed and operated by Thitipong Nonnoi, a sole proprietor, operating as Jovey.co (“we”, “us”). This policy explains how the App handles your information.</p>
+    <p>MindSpend is a local-first personal finance app — your financial data is stored on your own device (via SwiftData). There are no user accounts, no registration, and we run no server that holds your data. Only a few features connect to external services to function; all of them are listed in Section 3.</p>
 
-      <div class="section" id="terms">
-        <h2>ข้อกำหนดการใช้งาน</h2>
-        <p>MindSpend ให้บริการ “ตามสภาพ” (as is) ในฐานะเครื่องมือบันทึกและสะท้อนพฤติกรรมการใช้เงินส่วนบุคคล <strong>ไม่ใช่คำแนะนำทางการเงิน การลงทุน หรือบริการธนาคาร</strong> และแอปไม่เคลื่อนย้ายเงินของเธอ</p>
-        <p>เธอเป็นผู้รับผิดชอบความถูกต้องของข้อมูลที่บันทึกและการตัดสินใจทางการเงินของตนเอง เครื่องหมายการค้า ชื่อแบรนด์ และทรัพย์สินทางปัญญาอื่นๆ เป็นของเจ้าของแต่ละราย การใช้งานแอปอยู่ภายใต้กฎหมายของประเทศไทย</p>
-      </div>
-    </div>
+    <h2>2. Information Stored On Your Device</h2>
+    <p>The following stays on your device only; you enter and control all of it:</p>
+    <ul>
+      <li>Expense and income records — amounts, merchants, categories, notes, and planned/impulse tags</li>
+      <li>Wallets, credit cards, and debts — accounts, cards, and balances you add yourself</li>
+      <li>Investments and net worth — the securities/funds/crypto you hold and their quantities</li>
+      <li>Income and recurring items — settings you configure for budgets and forward planning</li>
+      <li>Settings and preferences — categories, theme, icon packs, and options (in on-device UserDefaults/App Group)</li>
+    </ul>
 
-    <!-- ==================== ENGLISH ==================== -->
-    <div id="lang-en" class="lang-section">
+    <h2>3. Data That Leaves Your Device, and Third-Party Services</h2>
+    <p>For transparency, here is every case in which data leaves your device — only when you use the related feature. All of it is sent over an encrypted connection (HTTPS), is not linked to any account or your identity, and is never used for advertising or tracking:</p>
+    <ul>
+      <li><strong>AI receipt reading (optional):</strong> When enabled, the App sends only the OCR text read from a paper receipt (store name, items, prices) to Typhoon AI (by SCB 10X, via api.opentyphoon.ai) to structure it — no images are sent (text recognition runs on-device via Apple Vision). Requires consent on first use; can be turned off in Settings → AI Receipt Scanning.</li>
+      <li><strong>Stock/fund/crypto prices:</strong> When you add an investment, the App sends only the asset’s symbol/identifier to Yahoo Finance, CoinGecko, and Thailand’s SEC to fetch the latest price — never the amount, quantity, or any identity data.</li>
+      <li><strong>Merchant/brand logos:</strong> To display merchant icons, the App may request a logo image by the merchant’s name or domain — no financial data is attached.</li>
+    </ul>
+    <p>These are third-party providers with their own privacy policies. We send only the minimum needed for the feature to work.</p>
 
-      <div class="principle-card">
-        <p>Your data is yours — stored primarily on your device.<br>MindSpend is built to help you see yourself, not for us to see you.</p>
-      </div>
+    <h2>4. Camera and Photo Library Access</h2>
+    <p>The App requests camera and photo access only to scan slips/receipts. Images are processed on-device with Apple Vision and then discarded — the App stores no photos and uploads no images.</p>
 
-      <div class="section">
-        <h2>Overview</h2>
-        <p>MindSpend is a local-first finance app — your financial data is stored on your device (via SwiftData). There are no user accounts, no registration, and we run no server that holds your data.</p>
-        <p>Only a few features connect to external services to function (AI receipt reading, and stock/fund/crypto price lookups). Every such case is listed in “Data That Leaves Your Device, and Why” below.</p>
-      </div>
+    <h2>5. Notifications · Widgets · Live Activity</h2>
+    <p>Notification permission is used only for daily reminders and Story Cards. Data shown on Widgets and Live Activity lives in an on-device App Group and never leaves the device.</p>
 
-      <div class="section">
-        <h2>Data Stored On Your Device</h2>
-        <p>The following stays on your device only; you enter and control all of it.</p>
-        <div class="info-grid">
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><div><div class="label">Expense & income records</div><div class="desc">Amounts, merchants, categories, notes, and planned/impulse tags</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg><div><div class="label">Wallets, cards & debts</div><div class="desc">Accounts, cards, and balances you add yourself</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg><div><div class="label">Investments & net worth</div><div class="desc">The securities/funds/crypto you hold and their quantities</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><div class="label">Income & recurring items</div><div class="desc">Settings you configure for budgets and forward planning</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82M4.6 9a1.65 1.65 0 01-.33-1.82"/></svg><div><div class="label">Settings & preferences</div><div class="desc">Categories, theme, icon packs, options (in on-device UserDefaults/App Group)</div></div></div>
-        </div>
-      </div>
+    <h2>6. How We Use Your Information</h2>
+    <p>On-device data is used only to make the App work as you intend: recording and displaying entries, computing budgets, net worth, and behavioral reflections, sending the notifications you enable, and running the features that require external connections described in Section 3. We do not use your data for advertising, marketing, or resale.</p>
 
-      <div class="divider"></div>
+    <h2>7. What We Do NOT Do</h2>
+    <ul>
+      <li>No user accounts, no registration, no server of ours holding your data</li>
+      <li>No analytics, no behavioral tracking, no IDFA, no third-party ad/attribution SDKs</li>
+      <li>No advertisements</li>
+      <li>We never sell your data or share it for marketing</li>
+      <li>We never move, transfer, or withdraw your money — and this is not investment advice</li>
+      <li>We do not store receipt/slip images (processed on-device, then discarded)</li>
+    </ul>
 
-      <div class="section">
-        <h2>Data That Leaves Your Device, and Why</h2>
-        <p>For transparency, here is <strong>every case</strong> in which data leaves your device — only when you use the related feature. All of it is sent over an encrypted connection (HTTPS), is not linked to any account or your identity, and is never used for advertising or tracking.</p>
-        <div class="info-grid">
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><div><div class="label">AI receipt reading (optional)</div><div class="desc">When enabled, the app sends only the OCR <strong>text</strong> read from a paper receipt (store name, items, prices) to Typhoon AI (by SCB 10X, api.opentyphoon.ai) to structure it — <strong>no images are sent</strong> (text recognition runs on-device via Apple Vision). Requires consent on first use; can be turned off in Settings → AI Receipt Scanning.</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg><div><div class="label">Stock/fund/crypto prices</div><div class="desc">When you add an investment, the app sends only the asset’s <strong>symbol/identifier</strong> to Yahoo Finance, CoinGecko, and Thailand’s SEC to fetch the latest price — <strong>never the amount, quantity, or any identity data</strong>.</div></div></div>
-          <div class="info-row"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg><div><div class="label">Merchant/brand logos</div><div class="desc">To display merchant icons, the app may request a logo image by the merchant’s name or domain — no financial data is attached.</div></div></div>
-        </div>
-        <p style="font-size:13px;color:var(--stone)">These are third-party providers with their own privacy policies. We send only the minimum needed for the feature to work.</p>
-      </div>
+    <h2>8. Data Security</h2>
+    <p>All connections are encrypted with HTTPS (App Transport Security). Any sensitive credentials you might enter are stored only in the iOS Keychain on your device (accessible when the device is unlocked) — never transmitted or synced.</p>
 
-      <div class="section">
-        <h2>What We Do NOT Do</h2>
-        <ul class="negative-list">
-          <li>No user accounts, no registration, no server of ours holding your data</li>
-          <li>No analytics, no behavioral tracking, no IDFA, no third-party ad/attribution SDKs</li>
-          <li>No advertisements</li>
-          <li>We never sell your data or share it for marketing</li>
-          <li>We never move, transfer, or withdraw your money — and this is not investment advice</li>
-          <li>We do not store receipt/slip images (processed on-device, then discarded)</li>
-        </ul>
-      </div>
+    <h2>9. Data Retention and Deletion</h2>
+    <p>Data stays on your device until you delete it — delete items in the App, or delete the App and all data is gone (there is no cross-device sync yet). External services (Typhoon, price lookups) use the request only to respond and do not retain it.</p>
 
-      <div class="divider"></div>
+    <h2>10. Your Rights (PDPA)</h2>
+    <p>Because the data lives on your own device, you can access, edit, and delete all of it at any time inside the App. You can withdraw consent for receipt data by disabling AI Receipt Scanning. This design aligns with Thailand’s Personal Data Protection Act (PDPA). For any question or request about your rights, contact <a href="mailto:support@mindspend.app">support@mindspend.app</a>; we will respond within 30 days.</p>
 
-      <div class="section">
-        <h2>Camera & Photo Library</h2>
-        <p>The app requests camera and photo access only to scan slips/receipts. Images are processed on-device with Apple Vision and then discarded — the app stores no photos and uploads no images.</p>
-      </div>
+    <h2>11. Children’s Privacy</h2>
+    <p>MindSpend is not directed at children under 13, and we do not knowingly collect data from children (age rating 4+).</p>
 
-      <div class="section">
-        <h2>Notifications · Widgets · Live Activity</h2>
-        <p>Notification permission is used only for daily reminders and Story Cards. Data shown on Widgets and Live Activity lives in an on-device App Group and never leaves the device.</p>
-      </div>
+    <h2>12. Changes to This Policy</h2>
+    <p>If this policy changes (e.g., introducing cross-device sync), we will update this page with a new effective date and notify users through an app update.</p>
 
-      <div class="section">
-        <h2>Data Security</h2>
-        <p>All connections are encrypted with HTTPS (App Transport Security). Any sensitive credentials you might enter are stored only in the iOS Keychain on your device (accessible when the device is unlocked) — never transmitted or synced.</p>
-      </div>
+    <h2>13. Contact</h2>
+    <p>For privacy questions, contact Thitipong Nonnoi (Jovey.co) at <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
 
-      <div class="section">
-        <h2>Retention & Deletion</h2>
-        <p>Data stays on your device until you delete it — delete items in the app, or <strong>delete the app and all data is gone</strong> (there is no cross-device sync yet). External services (Typhoon, price lookups) use the request only to respond and do not retain it.</p>
-      </div>
-
-      <div class="section">
-        <h2>Your Rights (PDPA)</h2>
-        <p>Because the data lives on your own device, you can access, edit, and delete all of it at any time inside the app. You can withdraw consent for receipt data by disabling AI Receipt Scanning. This design aligns with Thailand’s Personal Data Protection Act (PDPA).</p>
-      </div>
-
-      <div class="section">
-        <h2>Children</h2>
-        <p>MindSpend is not directed at children under 13, and we do not knowingly collect data from children (age rating 4+).</p>
-      </div>
-
-      <div class="section">
-        <h2>Changes to This Policy</h2>
-        <p>If this policy changes (e.g., introducing cross-device sync), we will update this page with a new effective date and notify users through an app update.</p>
-      </div>
-
-      <div class="section">
-        <h2>Contact</h2>
-        <p>For privacy questions, contact <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="section">
-        <h2>Terms of Use</h2>
-        <p>MindSpend is provided “as is” as a tool to record and reflect on personal spending behavior. It is <strong>not financial, investment, or banking advice</strong>, and the app does not move your money.</p>
-        <p>You are responsible for the accuracy of the data you record and for your own financial decisions. Trademarks, brand names, and other intellectual property belong to their respective owners. Use of the app is governed by the laws of Thailand.</p>
-      </div>
-    </div>
-
+    <h2>14. Terms of Use</h2>
+    <p>MindSpend is provided “as is” as a tool to record and reflect on personal spending behavior. It is not financial, investment, or banking advice, and the App does not move your money.</p>
+    <p>You are responsible for the accuracy of the data you record and for your own financial decisions. Trademarks, brand names, and other intellectual property belong to their respective owners. Use of the App is governed by the laws of Thailand.</p>
   </div>
 
   <footer>
-    <div class="footer-content">
-      <span class="footer-copy">© 2026 MindSpend</span>
-      <span><a href="./index.html" class="footer-link">หน้าแรก</a> · <a href="./faq.html" class="footer-link">FAQ</a> · <a href="./support.html" class="footer-link">ช่วยเหลือ</a></span>
-    </div>
+    © 2026 MindSpend · Thitipong Nonnoi (Jovey.co) · <a href="mailto:support@mindspend.app">support@mindspend.app</a>
   </footer>
 
 </div>
