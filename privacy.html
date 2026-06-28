@@ -128,7 +128,7 @@
     <h2>3. ข้อมูลที่ออกจากเครื่อง และบริการภายนอก</h2>
     <p>เพื่อความโปร่งใส นี่คือทุกกรณีที่ข้อมูลออกจากเครื่องของคุณ — เกิดขึ้นเฉพาะเมื่อคุณใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น ทั้งหมดส่งผ่านการเชื่อมต่อแบบเข้ารหัส (HTTPS) ไม่ผูกกับบัญชีหรือตัวตนของคุณ และไม่ใช้เพื่อโฆษณาหรือติดตามพฤติกรรม:</p>
     <ul>
-      <li><strong>AI ช่วยอ่านใบเสร็จ (ตัวเลือก):</strong> เมื่อเปิดใช้ แอปส่งเฉพาะ “ข้อความ” ที่อ่านได้จากใบเสร็จร้านค้า (ชื่อร้าน รายการสินค้า ราคา) ไปยัง Typhoon AI (โดย SCB 10X ผ่าน api.opentyphoon.ai) เพื่อจัดให้เป็นรายการ — ไม่ส่งรูปภาพ (การอ่านตัวอักษรทำในเครื่องด้วย Apple Vision) ต้องยินยอมก่อนใช้ครั้งแรก และปิดได้ที่ ตั้งค่า → AI สแกนใบเสร็จ</li>
+      <li><strong>AI ช่วยอ่านใบเสร็จ (ตัวเลือก — ต้องยินยอมในแอปก่อน):</strong> เมื่อเธอเปิดใช้และกดยินยอม แอปจะอ่านตัวอักษรจากรูปใบเสร็จในเครื่องด้วย Apple Vision แล้วส่งเฉพาะ “ข้อความ” ที่อ่านได้ (ชื่อร้าน รายการสินค้า ราคา) ไปยัง Typhoon AI (โดย SCB 10X ผ่าน api.opentyphoon.ai) เพื่อจัดให้เป็นรายการ — <strong>ไม่ส่งรูปภาพ</strong> ตาม<a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">ข้อกำหนดของ Typhoon</a> ผู้ให้บริการ <strong>อาจจัดเก็บข้อความที่ส่งและนำไปใช้เพื่อปรับปรุงและฝึกโมเดล AI ของตน</strong> ดังนั้นโปรดหลีกเลี่ยงการสแกนใบเสร็จที่มีข้อมูลอ่อนไหว แอปจะขอความยินยอมจากเธอก่อนส่งครั้งแรก และเธอปิดฟีเจอร์นี้ได้ตลอดเวลาที่ ตั้งค่า → AI สแกนใบเสร็จ (เมื่อปิด จะใช้ตัวอ่านในเครื่องเท่านั้น)</li>
       <li><strong>ราคาตลาด หุ้น/กองทุน/คริปโต:</strong> เมื่อคุณเพิ่มการลงทุน แอปส่งเฉพาะ “สัญลักษณ์/รหัส” ของสินทรัพย์ ไปยัง Yahoo Finance, CoinGecko และสำนักงาน ก.ล.ต. (SEC) เพื่อดึงราคาล่าสุด — ไม่ส่งจำนวนเงิน จำนวนหน่วย หรือข้อมูลระบุตัวตน</li>
       <li><strong>โลโก้ร้านค้า/แบรนด์:</strong> เพื่อแสดงไอคอนร้านค้า แอปอาจร้องขอรูปโลโก้โดยอ้างอิงชื่อหรือโดเมนของร้าน — ไม่มีข้อมูลการเงินแนบไปด้วย</li>
     </ul>
@@ -157,7 +157,7 @@
     <p>การเชื่อมต่อทั้งหมดเข้ารหัสด้วย HTTPS (App Transport Security) ข้อมูลที่อ่อนไหวซึ่งคุณกรอกเอง (หากมี เช่น รหัสผ่าน) จะถูกเก็บไว้ใน iOS Keychain บนเครื่องเท่านั้น (เข้าถึงได้เมื่อปลดล็อกเครื่อง) ไม่ถูกส่งออกและไม่ซิงค์ไปที่ใด</p>
 
     <h2>9. การเก็บรักษาและการลบข้อมูล</h2>
-    <p>ข้อมูลถูกเก็บในเครื่องจนกว่าคุณจะลบเอง — ลบรายการในแอป หรือ ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ (ปัจจุบันยังไม่มีระบบ sync ข้ามอุปกรณ์) บริการภายนอก (Typhoon, ราคาตลาด) ใช้ข้อมูลเพื่อตอบกลับคำขอเท่านั้นและไม่จัดเก็บไว้</p>
+    <p>ข้อมูลถูกเก็บในเครื่องจนกว่าคุณจะลบเอง — ลบรายการในแอป หรือ ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ (ปัจจุบันยังไม่มีระบบ sync ข้ามอุปกรณ์) บริการดึงราคาตลาด (Yahoo Finance, CoinGecko, ก.ล.ต.) ใช้คำขอเพื่อตอบกลับเท่านั้น ส่วน Typhoon AI อาจจัดเก็บข้อความใบเสร็จที่ส่งและนำไปใช้ปรับปรุง/ฝึกโมเดลตามนโยบายของผู้ให้บริการ (ดู <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">opentyphoon.ai</a>) — เธอควบคุมได้โดยเปิด/ปิดฟีเจอร์ AI สแกนใบเสร็จในแอป</p>
 
     <h2>10. สิทธิ์ของคุณ (PDPA)</h2>
     <p>เนื่องจากข้อมูลอยู่ในเครื่องของคุณเอง คุณจึงเข้าถึง แก้ไข และลบข้อมูลทั้งหมดได้เองตลอดเวลาในแอป คุณถอนความยินยอมการส่งข้อมูลใบเสร็จได้โดยปิดฟีเจอร์ AI สแกนใบเสร็จ การออกแบบนี้สอดคล้องกับ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA) ของประเทศไทย หากมีคำถามหรือคำขอเกี่ยวกับสิทธิ์ของคุณ ติดต่อ <a href="mailto:support@mindspend.app">support@mindspend.app</a> เราจะตอบกลับภายใน 30 วัน</p>
@@ -196,7 +196,7 @@
     <h2>3. Data That Leaves Your Device, and Third-Party Services</h2>
     <p>For transparency, here is every case in which data leaves your device — only when you use the related feature. All of it is sent over an encrypted connection (HTTPS), is not linked to any account or your identity, and is never used for advertising or tracking:</p>
     <ul>
-      <li><strong>AI receipt reading (optional):</strong> When enabled, the App sends only the OCR text read from a paper receipt (store name, items, prices) to Typhoon AI (by SCB 10X, via api.opentyphoon.ai) to structure it — no images are sent (text recognition runs on-device via Apple Vision). Requires consent on first use; can be turned off in Settings → AI Receipt Scanning.</li>
+      <li><strong>AI receipt reading (optional — requires in-app consent):</strong> When you enable it and tap agree, the App reads the text from a receipt photo on-device with Apple Vision, then sends only that <strong>text</strong> (store name, items, prices) to Typhoon AI (by SCB 10X, via api.opentyphoon.ai) to structure it — <strong>no images are sent</strong>. Under <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">Typhoon's terms</a>, the provider <strong>may retain the submitted text and use it to improve and train its AI models</strong>, so avoid scanning receipts that contain sensitive information. The App asks for your permission before the first send, and you can turn the feature off at any time in Settings → AI Receipt Scanning (on-device parsing is used when it's off).</li>
       <li><strong>Stock/fund/crypto prices:</strong> When you add an investment, the App sends only the asset’s symbol/identifier to Yahoo Finance, CoinGecko, and Thailand’s SEC to fetch the latest price — never the amount, quantity, or any identity data.</li>
       <li><strong>Merchant/brand logos:</strong> To display merchant icons, the App may request a logo image by the merchant’s name or domain — no financial data is attached.</li>
     </ul>
@@ -225,7 +225,7 @@
     <p>All connections are encrypted with HTTPS (App Transport Security). Any sensitive credentials you might enter are stored only in the iOS Keychain on your device (accessible when the device is unlocked) — never transmitted or synced.</p>
 
     <h2>9. Data Retention and Deletion</h2>
-    <p>Data stays on your device until you delete it — delete items in the App, or delete the App and all data is gone (there is no cross-device sync yet). External services (Typhoon, price lookups) use the request only to respond and do not retain it.</p>
+    <p>Data stays on your device until you delete it — delete items in the App, or delete the App and all data is gone (there is no cross-device sync yet). The price-lookup services (Yahoo Finance, CoinGecko, SEC) use a request only to respond. Typhoon AI, however, may retain the submitted receipt text and use it to improve/train its models per its own terms (see <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">opentyphoon.ai</a>) — you control this by enabling/disabling AI Receipt Scanning in the App.</p>
 
     <h2>10. Your Rights (PDPA)</h2>
     <p>Because the data lives on your own device, you can access, edit, and delete all of it at any time inside the App. You can withdraw consent for receipt data by disabling AI Receipt Scanning. This design aligns with Thailand’s Personal Data Protection Act (PDPA). For any question or request about your rights, contact <a href="mailto:support@mindspend.app">support@mindspend.app</a>; we will respond within 30 days.</p>
