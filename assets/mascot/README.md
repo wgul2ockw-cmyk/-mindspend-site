@@ -1,9 +1,10 @@
 # น้องมายด์ mascot art — drop PNGs here
 
-The dark home (`index.html`) references these files. Until a PNG exists, the page
-auto-falls back to a flat placeholder SVG (`assets/mind-*.svg`), so the site never
-breaks. Drop the real transparent PNGs at these exact paths and they appear with no
-code change.
+The dark home (`index.html`) — and, since the 2026-07 sub-page redesign, also
+`about.html`, `support.html`, `faq.html`, and the `blog/` pages — reference these
+files. Until a PNG exists, every page auto-falls back to a flat placeholder SVG
+(`assets/mind-*.svg`), so the site never breaks. Drop the real transparent PNGs at
+these exact paths and they appear everywhere with no code change.
 
 **Specs:** transparent background · PNG · ~600–900px on the long edge · green-bodied
 น้องมายด์ with glasses (per the home mockup) · espresso outline `#422D00` · flat/clean.
