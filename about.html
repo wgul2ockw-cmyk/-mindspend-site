@@ -3,141 +3,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ms-theme');if(!t)t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <title>เกี่ยวกับเรา — MindSpend</title>
-<meta name="description" content="MindSpend คือระบบที่ช่วยให้เธอเข้าใจตัวเองผ่านพฤติกรรมการใช้เงิน">
+<meta name="description" content="เรื่องราวของ MindSpend และน้องมายด์ — เพื่อนคู่ใจที่อยู่ข้างเธอทุกการใช้จ่าย ไม่ตัดสิน ไม่ให้คะแนน">
 <meta property="og:title" content="เกี่ยวกับเรา — MindSpend">
-<meta property="og:description" content="MindSpend คือระบบที่ช่วยให้เธอเข้าใจตัวเองผ่านพฤติกรรมการใช้เงิน">
+<meta property="og:description" content="เรื่องราวของ MindSpend และน้องมายด์ — เพื่อนคู่ใจที่อยู่ข้างเธอทุกการใช้จ่าย ไม่ตัดสิน ไม่ให้คะแนน">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./theme.css">
 <style>
 /* ===== about page-specific ===== */
-.page-top{padding-top:80px}
-.inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.about-hero{padding:148px 0 60px}
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.about-mascot-slot{position:relative;text-align:center}
+.about-mascot{width:min(300px,80%);filter:drop-shadow(0 18px 26px rgba(0,0,0,.45))}
+[data-theme="light"] .about-mascot{filter:drop-shadow(0 14px 22px rgba(96,84,58,.25))}
 
-.about-hero{padding:120px 24px 60px}
-.about-hero .inner{max-width:720px}
-.about-quote{font-family:var(--font-display);font-size:clamp(20px,3vw,28px);color:var(--sage-deep);line-height:1.4;margin:40px 0;padding:28px 32px;background:var(--sage-wash);border-radius:20px;border-left:4px solid var(--sage);position:relative}
-.about-section{max-width:720px;margin:0 auto;padding:0 24px 32px}
-.about-section h2{font-family:var(--font-display);font-size:24px;font-weight:400;margin-bottom:16px;letter-spacing:0}
-.about-section p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:18px}
-.about-values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0}
-.about-val{background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:24px 20px;transition:all .3s}
-.about-val:hover{border-color:var(--sage-mid);transform:translateY(-3px)}
-.about-val h3{font-size:15px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.about-val p{font-size:13px;color:var(--stone);line-height:1.55;margin:0}
-.about-tech{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.about-chip{padding:6px 14px;background:var(--cream-deep);border:1px solid var(--border);border-radius:100px;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--stone)}
-@media(max-width:640px){.about-values{grid-template-columns:1fr}.about-hero{padding:90px 24px 40px}}
+.story{max-width:720px;margin:0 auto;padding:0 24px}
+.story h2{font-family:var(--font-display);font-size:26px;color:var(--d-ink);margin:52px 0 18px}
+.story p{font-size:16px;line-height:1.85;color:var(--d-stone);margin-bottom:18px}
+[data-theme="light"] .story p{color:var(--ink-soft)}
+.story strong{color:var(--d-ink)}
+
+.q-moment{margin:44px 0;padding:44px 32px;text-align:center;border-radius:26px;background:var(--d-card);border:1px solid var(--d-rim);position:relative;overflow:hidden}
+[data-theme="light"] .q-moment{background:#fff;box-shadow:0 6px 24px rgba(96,84,58,.07)}
+.q-moment::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;left:50%;top:-60%;transform:translateX(-50%);background:radial-gradient(circle,var(--d-sage-glow),transparent 62%)}
+.q-moment .eyebrow{position:relative}
+.q-moment .q{position:relative;font-family:var(--font-display);font-size:clamp(24px,3.6vw,34px);color:var(--d-ink);line-height:1.3;margin-top:12px}
+.q-moment .q em{font-style:normal;color:var(--d-sage-deep)}
+
+.bubble-row{display:flex;align-items:flex-end;gap:14px;margin:40px 0;max-width:540px}
+.bubble-avatar{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(143,201,138,.35),rgba(143,201,138,.08));flex-shrink:0;position:relative;overflow:visible}
+.bubble-avatar img{position:absolute;width:135%;left:-18%;top:-24%;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
+
+.values{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0 8px}
+.val{padding:24px 22px;border-radius:20px}
+.val .v-ic{width:42px;height:42px;border-radius:12px;background:rgba(143,201,138,.12);color:var(--d-sage-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.val h3{font-size:15px;font-weight:700;color:var(--d-ink);margin-bottom:6px}
+.val p{font-size:13px;color:var(--d-stone);line-height:1.6;margin:0}
+
+.tech-chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px}
+.tech-chip{padding:6px 14px;background:rgba(255,255,255,.04);border:1px solid var(--d-rim);border-radius:100px;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--d-stone)}
+[data-theme="light"] .tech-chip{background:var(--cream-deep)}
+
+.contact-card{margin:56px 0 80px;padding:40px 36px;border-radius:24px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#13261a,#0d1a12 60%,#0b150f);border:1px solid rgba(143,201,138,.22)}
+[data-theme="light"] .contact-card{background:linear-gradient(135deg,#E7F1E4,#F1F5EB 60%,#FBF7EE);border-color:rgba(123,175,118,.32)}
+.contact-card h2{font-family:var(--font-display);font-size:24px;color:#F2F6F0;margin-bottom:10px}
+[data-theme="light"] .contact-card h2{color:#1E1D1A}
+.contact-card p{font-size:14px;color:#B9C6BB;margin-bottom:22px;line-height:1.7}
+[data-theme="light"] .contact-card p{color:var(--d-stone)}
+.contact-card .mail{font-family:var(--font-mono);font-size:16px}
+
+@media(max-width:980px){
+  .about-grid{grid-template-columns:1fr;text-align:center}
+  .about-hero .lead{margin:0 auto}
+  .about-mascot-slot{order:-1}
+  .about-mascot{width:min(230px,60%)}
+  .bubble-row{margin-left:auto;margin-right:auto}
+}
+@media(max-width:640px){.values{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav>
+
+<nav id="nav">
   <a href="./index.html" class="nav-brand"><img class="nav-logo" src="./assets/logo.jpg" alt="MindSpend"><span class="nav-name">MindSpend</span></a>
   <div class="nav-links">
-    <a href="./index.html#how" >ฟีเจอร์</a>
-    <a href="./index.html#premium">สติ+</a>
-    <a href="./blog/index.html" >บทความ</a>
-    <a href="./about.html" class='active'>เกี่ยวกับเรา</a>
-    <div class="nav-drop">
-      <span class="nav-drop-trigger" >ช่วยเหลือ</span>
-      <div class="nav-drop-menu">
-        <a href="./faq.html">คำถามที่พบบ่อย</a>
-        <a href="./changelog.html">อัปเดต</a>
-        <a href="./support.html">ติดต่อเรา</a>
-        <a href="./privacy.html">ความเป็นส่วนตัว</a>
-      </div>
-    </div>
-    <a href="./index.html#dl" class="nav-cta">ดาวน์โหลด</a>
+    <a href="./index.html#feat">ฟีเจอร์</a><a href="./index.html#sati">สติ+</a><a href="./about.html" class="active">เกี่ยวกับเรา</a><a href="./blog/index.html">บทความ</a>
+    <div class="nav-drop"><span class="nav-drop-trigger">ช่วยเหลือ</span><div class="nav-drop-menu"><a href="./support.html">ศูนย์ช่วยเหลือ</a><a href="./faq.html">คำถามที่พบบ่อย</a><a href="./changelog.html">อัปเดต</a><a href="./privacy.html">ความเป็นส่วนตัว</a></div></div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="สลับธีมสว่าง/มืด">
+      <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a href="./index.html#dl" class="nav-cta">ดาวน์โหลดแอป</a>
   </div>
 </nav>
-<div class="about-hero page-top">
-  <div class="inner">
-    <div class="label">เกี่ยวกับเรา</div>
-    <div class="title">เงินคือ<em>อินเทอร์เฟซ</em><br>ตัวตนคือผลลัพธ์</div>
-    <div class="desc">MindSpend ไม่ใช่แอปบัญชี แต่เป็นระบบที่ช่วยให้เธอเข้าใจตัวเองผ่านพฤติกรรมการใช้เงิน</div>
-  </div>
-</div>
-<div class="about-section reveal">
-  <div class="about-quote">
-    "คนส่วนใหญ่ไม่ได้มีปัญหาเรื่องเงินไม่พอ แต่มีปัญหาเรื่องไม่เคยหยุดมองตัวเองจริงๆ"
-  </div>
 
+<!-- HERO -->
+<header class="about-hero">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">เกี่ยวกับเรา</div>
+      <h1 class="page-hero-h" style="font-family:var(--font-display);font-size:clamp(32px,4.8vw,52px);line-height:1.16;color:var(--d-ink);margin:12px 0 16px">เราสร้าง<em style="font-style:normal;color:var(--d-sage-deep)">เพื่อนคู่ใจ</em><br>ไม่ใช่แอปบัญชี</h1>
+      <p class="lead" style="font-size:17px;color:var(--d-stone);line-height:1.7;max-width:560px">MindSpend เกิดจากความเชื่อง่ายๆ ว่า คนเราไม่ได้เปลี่ยนเพราะถูกสอน แต่เปลี่ยนเพราะได้เห็นตัวเองชัดขึ้น — น้องมายด์เลยอยู่ตรงนี้ ข้างเธอ ทุกการใช้จ่าย</p>
+    </div>
+    <div class="about-mascot-slot reveal">
+      <img class="about-mascot float" src="./assets/mascot/mind-heart.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="น้องมายด์ มาสคอตของ MindSpend">
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<div class="story reveal">
   <h2>ทำไมถึงสร้าง MindSpend</h2>
   <p>เริ่มต้นจากคำถามง่ายๆ: ทำไมเงินเดือนเข้ามาแป๊บเดียวก็หมด ทั้งที่ไม่ได้ซื้ออะไรแพง?</p>
   <p>เคยลองจดบัญชี ลองแอปต่างๆ แต่ทำได้ไม่เกิน 3 วันก็เลิก เพราะมันยุ่งยากเกินไป กว่าจะกรอกเสร็จก็ลืมไปแล้วว่าซื้ออะไร</p>
-  <p>จนวันหนึ่งลองถามตัวเองแค่คำถามเดียว: <strong>"ตั้งใจซื้อหรือเปล่า?"</strong> ทุกครั้งที่จ่ายเงิน แค่คำถามนี้คำถามเดียวก็เปลี่ยนทุกอย่าง — เพราะมันสร้างช่วงเวลาของการรู้ตัว</p>
-  <p>MindSpend เกิดจากความเชื่อที่ว่า: <strong>แค่เริ่มรู้ตัว พฤติกรรมก็เริ่มเปลี่ยน</strong></p>
+  <p>จนวันหนึ่งลองถามตัวเองแค่คำถามเดียว ทุกครั้งที่จ่ายเงิน — แค่คำถามนี้คำถามเดียวก็เปลี่ยนทุกอย่าง เพราะมันสร้างช่วงเวลาของการรู้ตัว</p>
+
+  <div class="q-moment reveal">
+    <div class="eyebrow">คำถามเดียวที่เปลี่ยนทุกอย่าง</div>
+    <div class="q">“ตั้งใจซื้อ<em>หรือเปล่า?</em>”</div>
+  </div>
+
+  <p>MindSpend เกิดจากความเชื่อที่ว่า: <strong>แค่เริ่มรู้ตัว พฤติกรรมก็เริ่มเปลี่ยน</strong> ไม่ต้องมีใครมาดุ ไม่ต้องมีคะแนน ไม่ต้องมีคำว่า “เกินงบ”</p>
+
+  <div class="bubble-row reveal">
+    <div class="bubble-avatar"><img src="./assets/mascot/mind-hero.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="น้องมายด์"></div>
+    <div>
+      <div class="mind-name">น้องมายด์</div>
+      <div class="mind-bubble">เธอไม่ต้องเปลี่ยนอะไรเลยนะ แค่มาดูด้วยกัน 🌱</div>
+    </div>
+  </div>
 
   <h2>สิ่งที่เราเชื่อ</h2>
-  <div class="about-values">
-    <div class="about-val">
-      <h3>👁️ รู้ตัว ไม่ตัดสิน</h3>
-      <p>ไม่มี "ใช้เงินผิด" มีแค่ "รู้" กับ "ไม่รู้" ว่าตัวเองทำอะไร</p>
+  <div class="values reveal">
+    <div class="val t-card lift">
+      <div class="v-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>รู้ตัว ไม่ตัดสิน</h3>
+      <p>ไม่มี “ใช้เงินผิด” มีแค่ “รู้” กับ “ไม่รู้” ว่าตัวเองทำอะไร</p>
     </div>
-    <div class="about-val">
-      <h3>⚡ เร็วจนเป็นนิสัย</h3>
+    <div class="val t-card lift">
+      <div class="v-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+      <h3>เร็วจนเป็นนิสัย</h3>
       <p>ถ้าบันทึกรายจ่ายใช้เวลามากกว่า 3 วินาที คนจะเลิกทำ เราออกแบบให้เร็วกว่านั้น</p>
     </div>
-    <div class="about-val">
-      <h3>🪞 กระจก ไม่ใช่ผู้พิพากษา</h3>
+    <div class="val t-card lift">
+      <div class="v-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v3"/></svg></div>
+      <h3>กระจก ไม่ใช่ผู้พิพากษา</h3>
       <p>แอปแค่สะท้อนพฤติกรรมของเธอ ไม่บอกว่าควรทำอะไร</p>
     </div>
-    <div class="about-val">
-      <h3>🔐 ข้อมูลเป็นของเธอ</h3>
+    <div class="val t-card lift">
+      <div class="v-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+      <h3>ข้อมูลเป็นของเธอ</h3>
       <p>ข้อมูลทั้งหมดอยู่ในเครื่องเธอ ไม่มี server ไม่มีใครเห็นนอกจากเธอ</p>
     </div>
   </div>
 
   <h2>เทคโนโลยีที่ใช้</h2>
-  <p>MindSpend สร้างด้วย Swift และ SwiftUI ทั้งหมด ใช้เทคโนโลยี Apple native เต็มรูปแบบ</p>
-  <div class="about-tech">
-    <span class="about-chip">Swift 6</span>
-    <span class="about-chip">SwiftUI</span>
-    <span class="about-chip">SwiftData</span>
-    <span class="about-chip">Vision OCR</span>
-    <span class="about-chip">WidgetKit</span>
-    <span class="about-chip">ActivityKit</span>
-    <span class="about-chip">App Intents</span>
+  <p>MindSpend สร้างด้วย Swift และ SwiftUI ทั้งหมด ใช้เทคโนโลยี Apple native เต็มรูปแบบ — เร็ว เบา และข้อมูลอยู่ในเครื่องเธอ</p>
+  <div class="tech-chips reveal">
+    <span class="tech-chip">Swift 6</span>
+    <span class="tech-chip">SwiftUI</span>
+    <span class="tech-chip">SwiftData</span>
+    <span class="tech-chip">Vision OCR</span>
+    <span class="tech-chip">WidgetKit</span>
+    <span class="tech-chip">ActivityKit</span>
+    <span class="tech-chip">App Intents</span>
   </div>
 
-  <h2>ติดต่อ</h2>
-  <p>มีคำถาม ข้อเสนอแนะ หรืออยากเล่าว่า MindSpend ช่วยเธอยังไง? ส่งมาได้ที่ <a href="mailto:support@mindspend.app" style="color:var(--sage);font-weight:600">support@mindspend.app</a></p>
+  <div class="contact-card reveal">
+    <h2>อยากเล่าอะไรให้ฟังไหม?</h2>
+    <p>มีคำถาม ข้อเสนอแนะ หรืออยากเล่าว่า MindSpend อยู่ในชีวิตเธอยังไง — เราอ่านทุกฉบับ</p>
+    <a class="btn-g mail" href="mailto:support@mindspend.app">support@mindspend.app</a>
+  </div>
 </div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="f-inner">
-    <div>
-      <div class="f-left"><img class="f-logo" src="./assets/logo.jpg" alt="MS"><span class="f-copy">© 2026 MindSpend</span></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="./index.html" class="nav-brand"><img class="nav-logo" src="./assets/logo.jpg" alt="MindSpend"><span class="nav-name">MindSpend</span></a>
+        <p>แอปการเงินที่เป็นกระจกสะท้อนพฤติกรรม ช่วยให้คุณเข้าใจตัวเอง ไม่ตัดสิน และมีความสัมพันธ์ที่ดีกับเงิน</p>
+        <div class="foot-soc">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14v-1.5c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L2 3h6l4 5z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.7 4 4 4.3V11c-1.6 0-3-.5-4-1.2V16a6 6 0 1 1-6-6v3.3a2.7 2.7 0 1 0 2 2.6V3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>ฟีเจอร์</h4><a href="./index.html#how">ภาพรวม</a><a href="./index.html#feat">สรุปเชิงลึก</a><a href="./index.html#feat">อารมณ์ &amp; การเงิน</a><a href="./index.html#feat">เป้าหมายการเงิน</a><a href="./index.html#feat">รายงาน &amp; กราฟ</a></div>
+      <div class="foot-col"><h4>สติ+</h4><a href="./index.html#sati">สิทธิประโยชน์</a><a href="./index.html#sati">ราคา</a><a href="./faq.html">คำถามที่พบบ่อย</a></div>
+      <div class="foot-col"><h4>เกี่ยวกับเรา</h4><a href="./about.html">เรื่องราวของเรา</a><a href="./privacy.html">ความเป็นส่วนตัว</a><a href="./blog/index.html">บทความ</a></div>
+      <div class="foot-col"><h4>ช่วยเหลือ</h4><a href="./support.html">ศูนย์ช่วยเหลือ</a><a href="./support.html#contact">ติดต่อเรา</a><a href="./changelog.html">อัปเดต</a></div>
     </div>
-    <div class="f-cols">
-      <div class="f-col">
-        <h4>แอป</h4>
-        <a href="./index.html#how">ฟีเจอร์</a>
-        <a href="./index.html#guru">Guru</a>
-        <a href="./index.html#dl">ดาวน์โหลด</a>
-      </div>
-      <div class="f-col">
-        <h4>เรียนรู้</h4>
-        <a href="./blog/index.html">บทความ</a>
-        <a href="./about.html">เกี่ยวกับเรา</a>
-        <a href="./changelog.html">อัปเดต</a>
-      </div>
-      <div class="f-col">
-        <h4>ช่วยเหลือ</h4>
-        <a href="./faq.html">คำถามที่พบบ่อย</a>
-        <a href="./support.html">ติดต่อเรา</a>
-        <a href="./privacy.html">ความเป็นส่วนตัว</a>
-      </div>
+    <div class="foot-bot">
+      <span>© 2026 MindSpend Co., Ltd. สงวนลิขสิทธิ์</span>
+      <span><a href="./privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="./privacy.html">ข้อกำหนดการใช้งาน</a></span>
     </div>
   </div>
+  <img class="foot-mascot" src="./assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="">
 </footer>
-<script>
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible')}})},{threshold:.1}).observe(el)
-});
-</script>
 
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+nav.classList.toggle('scrolled',scrollY>30);
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
+</script>
 </body>
 </html>
