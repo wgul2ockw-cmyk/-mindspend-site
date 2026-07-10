@@ -88,6 +88,9 @@
 
   <p>ไม่ต้องจดบัญชีละเอียด ไม่ต้องตั้งงบ ไม่ต้องเปลี่ยนอะไรมาก แค่ทุกครั้งที่จ่ายเงิน ถามตัวเองว่า “ตั้งใจซื้อ หรือ ฉับพลัน?” แค่นั้นก็เริ่มเปลี่ยนได้แล้ว</p>
 
+  <div style="text-align:center;margin:44px 0 4px">
+    <img class="mind-float" data-mind data-say="เธอเป็นแบบไหนน้า 👀" src="../assets/mascot/mind-track.png" alt="น้องมายด์กับเครื่องคิดเลขและสายฟ้า — วางแผนกับฉับพลัน" width="132" loading="lazy" decoding="async" style="display:inline-block;filter:drop-shadow(0 10px 18px rgba(66,45,0,.16))">
+  </div>
   <div class="post-cta">
     <h3>ลอง MindSpend ฟรี</h3>
     <p>สแกนสลิป เลือกแท็ก เห็นตัวเอง — ภายใน 3 วินาที</p>
@@ -130,11 +133,6 @@
   <img class="foot-mascot" src="../assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='../assets/mind-face.svg'" alt="">
 </footer>
 
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-nav.classList.toggle('scrolled',scrollY>30);
-function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
-</script>
+<script src="../assets/mind.js" defer></script>
 </body>
 </html>
