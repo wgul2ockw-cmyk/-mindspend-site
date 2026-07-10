@@ -106,7 +106,7 @@
       <p class="lead" style="font-size:17px;color:var(--d-stone);line-height:1.7;max-width:520px">เลือกหัวข้อที่อยากรู้ หรือเริ่มจากขั้นตอนแรกของการใช้งาน — ถ้ายังไม่เจอคำตอบ เขียนมาหาเราได้เสมอ</p>
     </div>
     <div class="help-mascot-slot reveal">
-      <img class="help-mascot float" src="./assets/mascot/mind-think.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="น้องมายด์">
+      <img class="help-mascot float" data-mind data-say="อยู่ตรงนี้เสมอน้า ทักมาได้เลย 💌" src="./assets/mascot/mind-think.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="น้องมายด์">
     </div>
   </div>
 </header>
@@ -250,13 +250,6 @@
   <img class="foot-mascot" src="./assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="">
 </footer>
 
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-nav.classList.toggle('scrolled',scrollY>30);
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
-</script>
+<script src="./assets/mind.js" defer></script>
 </body>
 </html>

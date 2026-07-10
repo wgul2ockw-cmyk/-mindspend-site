@@ -18,6 +18,8 @@
 /* ===== blog index page-specific ===== */
 .blog-hero{padding:148px 0 52px;text-align:center}
 .blog-hero .lead{margin:0 auto}
+.blog-hero .wrap{position:relative}
+.blog-hero .page-mascot{top:-8px;right:0}
 .blog-wrap{max-width:1020px;margin:0 auto;padding:0 24px}
 
 /* featured card */
@@ -86,6 +88,7 @@
     <div class="eyebrow">บทความ</div>
     <h1 style="font-family:var(--font-display);font-size:clamp(32px,4.8vw,52px);line-height:1.16;color:var(--d-ink);margin:12px 0 16px">เรื่องเงิน เรื่อง<em style="font-style:normal;color:var(--d-sage-deep)">เข้าใจตัวเอง</em></h1>
     <p class="lead" style="font-size:17px;color:var(--d-stone);line-height:1.7;max-width:520px;margin:0 auto">พฤติกรรมการเงิน และวิธีคิดที่ช่วยให้เธอใช้เงินอย่างรู้ตัวมากขึ้น — อ่านจบใน 5 นาที ไม่มีศัพท์การเงินยากๆ</p>
+    <img class="page-mascot mind-float" data-mind data-say="มีเรื่องเล่าให้อ่านด้วยน้า 📖" src="../assets/mascot/mind-stand.png" alt="น้องมายด์" loading="lazy" decoding="async">
   </div>
 </header>
 
@@ -192,13 +195,6 @@
   <img class="foot-mascot" src="../assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='../assets/mind-face.svg'" alt="">
 </footer>
 
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-nav.classList.toggle('scrolled',scrollY>30);
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
-</script>
+<script src="../assets/mind.js" defer></script>
 </body>
 </html>

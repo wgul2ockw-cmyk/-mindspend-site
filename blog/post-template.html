@@ -77,6 +77,9 @@
        - ชวน "ดู" ไม่ชวน "แก้" · เรียกผู้อ่านว่า เธอ
        - ห้ามอ้างสถิติผู้ใช้ที่ไม่มีจริง -->
 
+  <div style="text-align:center;margin:44px 0 4px">
+    <img class="mind-float" data-mind src="../assets/mascot/mind-stand.png" alt="น้องมายด์" width="120" loading="lazy" decoding="async" style="display:inline-block;filter:drop-shadow(0 10px 18px rgba(66,45,0,.16))">
+  </div>
   <div class="post-cta">
     <h3>TODO: หัว CTA</h3>
     <p>TODO: ประโยครอง CTA</p>
@@ -119,11 +122,6 @@
   <img class="foot-mascot" src="../assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='../assets/mind-face.svg'" alt="">
 </footer>
 
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-nav.classList.toggle('scrolled',scrollY>30);
-function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
-</script>
+<script src="../assets/mind.js" defer></script>
 </body>
 </html>
