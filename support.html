@@ -3,737 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MindSpend — ศูนย์ช่วยเหลือ</title>
+<script>(function(){try{var t=localStorage.getItem('ms-theme');if(!t)t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<title>ศูนย์ช่วยเหลือ — MindSpend</title>
+<meta name="description" content="ศูนย์ช่วยเหลือ MindSpend — เริ่มต้นใช้งาน 4 ขั้นตอน หัวข้อช่วยเหลือ คำถามยอดนิยม และช่องทางติดต่อเรา">
+<meta property="og:title" content="ศูนย์ช่วยเหลือ — MindSpend">
+<meta property="og:description" content="ศูนย์ช่วยเหลือ MindSpend — เริ่มต้นใช้งาน 4 ขั้นตอน หัวข้อช่วยเหลือ คำถามยอดนิยม และช่องทางติดต่อเรา">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/jpeg" href="./assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./theme.css">
 <style>
-  /* page-only custom vars (not in styles.css) — alias to shared tokens */
-  :root {
-    --sage-muted: var(--sage-light);
-    --ember-light: var(--ember-mid);
-    --ember-wash: var(--ember-pale);
-    --gold-wash: var(--gold-pale);
-    --text-primary: var(--ink);
-    --text-secondary: var(--ink-soft);
-    --text-tertiary: var(--stone);
-  }
+/* ===== help-centre hub page-specific ===== */
+.help-hero{padding:148px 0 52px}
+.help-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.help-mascot{width:min(220px,70%);filter:drop-shadow(0 18px 26px rgba(0,0,0,.45))}
+[data-theme="light"] .help-mascot{filter:drop-shadow(0 14px 22px rgba(96,84,58,.25))}
+.help-mascot-slot{text-align:center}
 
-  .page-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+.hub{max-width:980px;margin:0 auto;padding:0 24px}
+.hub-label{font-family:var(--font-mono);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--d-sage);margin:44px 0 16px}
 
-  /* Header */
-  header {
-    padding: 104px 0 40px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 48px;
-    position: relative;
-  }
-  header .page-mascot { top: 96px; right: 0; }
+.topics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.topic{display:block;text-decoration:none;padding:22px 20px;border-radius:20px}
+.topic-ic{width:42px;height:42px;border-radius:12px;background:rgba(143,201,138,.12);color:var(--d-sage-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.topic h3{font-size:15px;font-weight:700;color:var(--d-ink);margin-bottom:5px}
+.topic p{font-size:12.5px;color:var(--d-stone);line-height:1.55}
+.topic .go{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:12px;font-weight:600;color:var(--d-sage-deep)}
 
-  .brand-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 32px;
-  }
+.steps-card{padding:30px 28px;border-radius:22px}
+.steps{display:flex;flex-direction:column;gap:18px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{width:32px;height:32px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,#9BD193,#6FB867);color:#0B140B;font-family:var(--font-mono);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.step h3{font-size:15px;font-weight:600;color:var(--d-ink);margin-bottom:4px}
+.step p{font-size:14px;color:var(--d-stone);line-height:1.65}
 
-  .brand-mark {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(123, 175, 118, 0.25);
-  }
+.concepts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.concept{padding:24px 22px;border-radius:20px;border:1px solid var(--d-rim)}
+.concept.planned{background:rgba(143,201,138,.07);border-color:rgba(143,201,138,.3)}
+.concept.impulse{background:rgba(231,139,130,.06);border-color:rgba(231,139,130,.28)}
+.concept .chip{margin-bottom:12px}
+.concept h3{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--d-faint);margin-bottom:8px;text-transform:uppercase;letter-spacing:.08em}
+.concept p{font-size:14px;color:var(--d-stone);line-height:1.65}
+[data-theme="light"] .concept.planned{background:#EFF7ED}
+[data-theme="light"] .concept.impulse{background:#FAEEEC}
+.concept-note{text-align:center;font-family:var(--font-mascot);font-size:15px;color:var(--d-stone);margin-top:14px}
 
-  .brand-name {
-    font-family: var(--font-display);
-    font-size: 24px;
-    color: var(--sage);
-    letter-spacing: -0.02em;
-  }
+.pop-list{display:flex;flex-direction:column;gap:8px}
+.pop{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border-radius:16px;text-decoration:none}
+.pop span{font-size:15px;font-weight:600;color:var(--d-ink)}
+.pop svg{flex-shrink:0;color:var(--d-faint)}
+.pop:hover svg{color:var(--d-sage-deep)}
 
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 5vw, 42px);
-    color: var(--text-primary);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
+.contact-band{margin:52px 0 20px;padding:44px 40px;border-radius:26px;position:relative;overflow:hidden;background:linear-gradient(135deg,#13261a,#0d1a12 60%,#0b150f);border:1px solid rgba(143,201,138,.22);display:grid;grid-template-columns:96px 1fr auto;gap:26px;align-items:center;scroll-margin-top:96px}
+[data-theme="light"] .contact-band{background:linear-gradient(135deg,#E7F1E4,#F1F5EB 60%,#FBF7EE);border-color:rgba(123,175,118,.32)}
+.contact-band .cb-mascot{width:110px;margin-bottom:-46px}
+.contact-band h2{font-family:var(--font-display);font-size:clamp(22px,2.6vw,30px);color:#F2F6F0;margin-bottom:6px}
+[data-theme="light"] .contact-band h2{color:#1E1D1A}
+.contact-band p{font-size:14px;color:#B9C6BB;line-height:1.65}
+[data-theme="light"] .contact-band p{color:var(--d-stone)}
+.contact-band .cb-r{text-align:right}
+.contact-band .note{display:block;font-size:12px;color:var(--d-faint);margin-top:10px}
 
-  .subtitle {
-    font-family: var(--font-ui);
-    font-size: 15px;
-    color: var(--text-tertiary);
-    font-weight: 400;
-  }
+.meta-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:8px 0 80px}
+.meta-chip{padding:7px 16px;border-radius:100px;border:1px solid var(--d-rim);font-family:var(--font-mono);font-size:12px;color:var(--d-stone);background:rgba(255,255,255,.02)}
+[data-theme="light"] .meta-chip{background:#fff}
 
-  /* Hero tips */
-  .hero-tips {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 48px;
-  }
-
-  .hero-tip {
-    background: var(--cream-deep);
-    border-radius: 14px;
-    padding: 20px 16px;
-    text-align: center;
-    transition: transform 0.2s ease;
-  }
-
-  .hero-tip:hover { transform: translateY(-2px); }
-
-  .hero-tip .tip-icon {
-    font-size: 28px;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .hero-tip .tip-label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    line-height: 1.4;
-  }
-
-  /* Section titles */
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* Getting started steps */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-
-  .step {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    background: var(--sage);
-    color: var(--cream);
-    font-family: var(--font-mono);
-    font-size: 14px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    margin-top: 2px;
-  }
-
-  .step-content h3 {
-    font-family: var(--font-ui);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .step-content p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* FAQ */
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 48px;
-  }
-
-  .faq-item {
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--cream-deep);
-  }
-
-  .faq-question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: var(--font-ui);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-primary);
-    text-align: left;
-    gap: 12px;
-    transition: background 0.2s;
-  }
-
-  .faq-question:hover { background: rgba(123, 175, 118, 0.06); }
-
-  .faq-chevron {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: var(--sage-muted);
-    transition: transform 0.3s ease;
-  }
-
-  .faq-item.open .faq-chevron { transform: rotate(180deg); }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 400px;
-  }
-
-  .faq-answer-inner {
-    padding: 0 20px 18px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* Concept cards */
-  .concept-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 48px;
-  }
-
-  .concept-card {
-    border-radius: 14px;
-    padding: 22px 18px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .concept-card.planned {
-    background: var(--sage-wash);
-    border: 1.5px solid rgba(123, 175, 118, 0.15);
-  }
-
-  .concept-card.impulse {
-    background: var(--ember-wash);
-    border: 1.5px solid rgba(212, 86, 78, 0.15);
-  }
-
-  .concept-tag {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-
-  .concept-card.planned .concept-tag {
-    color: var(--sage);
-    background: rgba(123, 175, 118, 0.12);
-  }
-
-  .concept-card.impulse .concept-tag {
-    color: var(--ember);
-    background: rgba(212, 86, 78, 0.12);
-  }
-
-  .concept-card h3 {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-  }
-
-  .concept-card p {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
-
-  .concept-note {
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-tertiary);
-    font-style: italic;
-    margin-top: -36px;
-    margin-bottom: 48px;
-  }
-
-  /* Guru card */
-  .guru-card {
-    background: linear-gradient(135deg, var(--gold-wash), var(--cream-deep));
-    border: 1.5px solid rgba(201, 160, 80, 0.2);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .guru-card::after {
-    content: '✦';
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 20px;
-    color: var(--gold);
-    opacity: 0.4;
-  }
-
-  .guru-card h3 {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 10px;
-    color: var(--text-primary);
-  }
-
-  .guru-card p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  /* Contact */
-  .contact-box {
-    background: linear-gradient(135deg, var(--sage), var(--sage-light));
-    border-radius: 16px;
-    padding: 32px 28px;
-    text-align: center;
-    color: var(--cream);
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact-box::before {
-    content: '';
-    position: absolute;
-    bottom: -40px;
-    left: -40px;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .contact-box h2 {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 8px;
-    position: relative;
-  }
-
-  .contact-box p {
-    font-size: 14px;
-    opacity: 0.85;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .contact-email {
-    display: inline-block;
-    padding: 10px 28px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 100px;
-    color: var(--cream);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    font-weight: 400;
-    transition: all 0.25s ease;
-    position: relative;
-  }
-
-  .contact-email:hover {
-    background: rgba(255,255,255,0.25);
-    transform: translateY(-1px);
-  }
-
-  .response-note {
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-tertiary);
-    margin-bottom: 48px;
-  }
-
-  /* App info */
-  .app-info {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-
-  .app-info-item {
-    text-align: center;
-  }
-
-  .app-info-label {
-    font-size: 11px;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-tertiary);
-    margin-bottom: 4px;
-  }
-
-  .app-info-value {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-primary);
-  }
-
-  /* Footer */
-  footer {
-    padding: 32px 0 48px;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .footer-logo {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(123, 175, 118, 0.25);
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--text-tertiary);
-  }
-
-  .footer-link {
-    font-size: 13px;
-    color: var(--sage);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-
-  .footer-link:hover { color: var(--ember); }
-
-  /* Mobile */
-  @media (max-width: 600px) {
-    header { padding: 84px 0 28px; margin-bottom: 32px; }
-    .hero-tips { grid-template-columns: 1fr; gap: 8px; }
-    .hero-tip { padding: 14px 16px; display: flex; align-items: center; gap: 12px; text-align: left; }
-    .hero-tip .tip-icon { margin-bottom: 0; font-size: 24px; }
-    .concept-cards { grid-template-columns: 1fr; }
-    .app-info { flex-direction: column; gap: 12px; }
-  }
-
-  /* Fade-in */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(12px);
-    animation: fadeUp 0.6s ease forwards;
-  }
-  .fade-in:nth-child(2) { animation-delay: 0.08s; }
-  .fade-in:nth-child(3) { animation-delay: 0.16s; }
-  .fade-in:nth-child(4) { animation-delay: 0.24s; }
-  .fade-in:nth-child(5) { animation-delay: 0.32s; }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
+@media(max-width:980px){
+  .help-grid{grid-template-columns:1fr;text-align:center}
+  .help-hero .lead{margin:0 auto}
+  .help-mascot-slot{order:-1}
+  .topics{grid-template-columns:1fr 1fr}
+  .contact-band{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .contact-band .cb-mascot{margin-bottom:0}
+  .contact-band .cb-r{text-align:center}
+}
+@media(max-width:620px){.topics{grid-template-columns:1fr}.concepts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <nav id="nav">
   <a href="./index.html" class="nav-brand"><img class="nav-logo" src="./assets/logo.jpg" alt="MindSpend"><span class="nav-name">MindSpend</span></a>
   <div class="nav-links">
-    <a href="./index.html#how">ฟีเจอร์</a>
-    <a href="./index.html#premium">สติ+</a>
-    <a href="./blog/index.html">บทความ</a>
-    <a href="./about.html">เกี่ยวกับเรา</a>
-    <div class="nav-drop">
-      <span class="nav-drop-trigger">ช่วยเหลือ</span>
-      <div class="nav-drop-menu">
-        <a href="./faq.html">คำถามที่พบบ่อย</a>
-        <a href="./changelog.html">อัปเดต</a>
-        <a href="./support.html" class="active">ติดต่อเรา</a>
-        <a href="./privacy.html">ความเป็นส่วนตัว</a>
-      </div>
-    </div>
-    <a href="./index.html#dl" class="nav-cta">ดาวน์โหลด</a>
+    <a href="./index.html#feat">ฟีเจอร์</a><a href="./index.html#sati">สติ+</a><a href="./about.html">เกี่ยวกับเรา</a><a href="./blog/index.html">บทความ</a>
+    <div class="nav-drop"><span class="nav-drop-trigger">ช่วยเหลือ</span><div class="nav-drop-menu"><a href="./support.html" class="active">ศูนย์ช่วยเหลือ</a><a href="./faq.html">คำถามที่พบบ่อย</a><a href="./changelog.html">อัปเดต</a><a href="./privacy.html">ความเป็นส่วนตัว</a></div></div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="สลับธีมสว่าง/มืด">
+      <svg class="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+      <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a href="./index.html#dl" class="nav-cta">ดาวน์โหลดแอป</a>
   </div>
 </nav>
-<div class="page-wrapper">
 
-  <header class="fade-in">
-    <div class="brand-row">
-      <img class="brand-mark" src="./assets/logo.jpg" alt="MindSpend">
-      <div class="brand-name">MindSpend</div>
+<!-- HERO -->
+<header class="help-hero">
+  <div class="wrap help-grid">
+    <div class="reveal">
+      <div class="eyebrow">ศูนย์ช่วยเหลือ</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(32px,4.8vw,52px);line-height:1.16;color:var(--d-ink);margin:12px 0 16px">ติดตรงไหน <em style="font-style:normal;color:var(--d-sage-deep)">มาดูด้วยกัน</em></h1>
+      <p class="lead" style="font-size:17px;color:var(--d-stone);line-height:1.7;max-width:520px">เลือกหัวข้อที่อยากรู้ หรือเริ่มจากขั้นตอนแรกของการใช้งาน — ถ้ายังไม่เจอคำตอบ เขียนมาหาเราได้เสมอ</p>
     </div>
-    <h1>ศูนย์ช่วยเหลือ</h1>
-    <div class="subtitle">เริ่มต้นใช้งาน คำถามที่พบบ่อย และวิธีติดต่อเรา</div>
-    <img class="page-mascot mind-float" data-mind data-say="อยู่ตรงนี้เสมอน้า ทักมาได้เลย 💌" src="./assets/mascot/mind-hero.png" alt="น้องมายด์โบกมือ" loading="lazy" decoding="async">
-  </header>
-
-  <div class="content">
-
-    <!-- Quick tips -->
-    <div class="hero-tips fade-in">
-      <div class="hero-tip">
-        <span class="tip-icon">📸</span>
-        <span class="tip-label">สแกนสลิป<br>อัตโนมัติ</span>
-      </div>
-      <div class="hero-tip">
-        <span class="tip-icon">⚡</span>
-        <span class="tip-label">บันทึก<br>ไม่ถึง 3 วิ</span>
-      </div>
-      <div class="hero-tip">
-        <span class="tip-icon">🧠</span>
-        <span class="tip-label">เข้าใจ<br>ตัวเอง</span>
-      </div>
+    <div class="help-mascot-slot reveal">
+      <img class="help-mascot float" src="./assets/mascot/mind-think.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="น้องมายด์">
     </div>
+  </div>
+</header>
 
-    <!-- Getting started -->
-    <h2 class="section-title fade-in">เริ่มต้นใช้งาน</h2>
+<div class="hub">
 
-    <div class="steps fade-in">
+  <!-- TOPICS -->
+  <div class="hub-label reveal">หัวข้อช่วยเหลือ</div>
+  <div class="topics reveal">
+    <a class="topic t-card lift" href="./faq.html#start">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      <h3>เริ่มต้นใช้งาน</h3>
+      <p>MindSpend คืออะไร ต้องสมัครไหม ฟรีหรือเปล่า และอุปกรณ์ที่รองรับ</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="topic t-card lift" href="./faq.html#scan">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+      <h3>สแกนสลิป</h3>
+      <p>ธนาคารที่รองรับ ตั้งค่า Shortcuts และการแก้จำนวนเงินที่อ่านผิด</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="topic t-card lift" href="./faq.html#plan">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+      <h3>วางแผน vs ฉับพลัน</h3>
+      <p>สองคำหัวใจของ MindSpend ต่างกันยังไง และทำไมไม่มีถูกผิด</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="topic t-card lift" href="./faq.html#guru">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <h3>Guru &amp; งบรายวัน</h3>
+      <p>เลือกแนวจัดสรรเงิน เปลี่ยน Guru และปรับงบรายวัน</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="topic t-card lift" href="./faq.html#privacy">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></div>
+      <h3>ความเป็นส่วนตัว</h3>
+      <p>ข้อมูลอยู่ที่ไหน ปลอดภัยแค่ไหน และเราหาเงินจากอะไร</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+    <a class="topic t-card lift" href="./faq.html#trouble">
+      <div class="topic-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4L15 12l-3-3z"/></svg></div>
+      <h3>แก้ปัญหา</h3>
+      <p>Widget ไม่อัปเดต Shortcuts ไม่ทำงาน และวิธีเช็กทีละขั้น</p>
+      <span class="go">ดูคำตอบ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+
+  <!-- GETTING STARTED -->
+  <div class="hub-label reveal">เริ่มต้นใช้งานใน 4 ขั้นตอน</div>
+  <div class="steps-card t-card reveal">
+    <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>ตั้งค่ารายได้และค่าใช้จ่ายประจำ</h3>
-          <p>เปิดแอปครั้งแรก ระบบจะพาเธอตั้งค่ารายได้ ค่าใช้จ่ายประจำ และเลือก Guru — แอปจะคำนวณงบรายวันให้อัตโนมัติ</p>
-        </div>
+        <div><h3>ตั้งค่ารายได้และค่าใช้จ่ายประจำ</h3><p>เปิดแอปครั้งแรก ระบบจะพาเธอตั้งค่ารายได้ ค่าใช้จ่ายประจำ และเลือก Guru — แอปจะคำนวณงบรายวันให้อัตโนมัติ</p></div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-content">
-          <h3>ตั้งค่า Shortcuts อัตโนมัติ</h3>
-          <p>เข้า ตั้งค่า → ตั้งค่า Shortcuts → เลือกแอปธนาคาร → ทำตามขั้นตอน จากนั้นทุกครั้งที่จ่ายเงิน MindSpend จะเปิดขึ้นมาให้สแกนสลิปอัตโนมัติ</p>
-        </div>
+        <div><h3>ตั้งค่า Shortcuts อัตโนมัติ</h3><p>เข้า ตั้งค่า → ตั้งค่า Shortcuts → เลือกแอปธนาคาร → ทำตามขั้นตอน จากนั้นทุกครั้งที่จ่ายเงิน MindSpend จะเปิดขึ้นมาให้สแกนสลิปอัตโนมัติ</p></div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>สแกนสลิปหรือบันทึกเอง</h3>
-          <p>ถ่ายรูปสลิปจากแอปธนาคาร หรือกดบันทึกรายจ่ายเองผ่าน QuickLog — ทุกรายการเลือกว่า "วางแผน" หรือ "ฉับพลัน"</p>
-        </div>
+        <div><h3>สแกนสลิปหรือบันทึกเอง</h3><p>ถ่ายรูปสลิปจากแอปธนาคาร หรือกดบันทึกรายจ่ายเองผ่าน QuickLog — ทุกรายการเลือกว่า “วางแผน” หรือ “ฉับพลัน”</p></div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-content">
-          <h3>ดู Insights</h3>
-          <p>เข้าหน้า Insights เพื่อดูสัดส่วนวางแผน/ฉับพลัน งบรายหมวด และเปรียบเทียบพฤติกรรมจริงกับ Guru ที่เลือกไว้</p>
-        </div>
+        <div><h3>ดู Insights</h3><p>เข้าหน้า Insights เพื่อดูสัดส่วนวางแผน/ฉับพลัน งบรายหมวด และเปรียบเทียบพฤติกรรมจริงกับ Guru ที่เลือกไว้</p></div>
       </div>
     </div>
-
-    <!-- Concepts -->
-    <h2 class="section-title fade-in">วางแผน vs ฉับพลัน</h2>
-
-    <div class="concept-cards fade-in">
-      <div class="concept-card planned">
-        <span class="concept-tag">วางแผน</span>
-        <h3>Planned</h3>
-        <p>รายจ่ายที่ตั้งใจไว้แล้ว เช่น ค่าข้าว ค่าเดินทาง ค่าของใช้ที่ต้องซื้อ</p>
-      </div>
-      <div class="concept-card impulse">
-        <span class="concept-tag">ฉับพลัน</span>
-        <h3>Impulse</h3>
-        <p>รายจ่ายที่เกิดขึ้นโดยไม่ได้วางแผน เช่น ของที่ซื้อเพราะเห็นแล้วอยากได้</p>
-      </div>
-    </div>
-    <p class="concept-note">ไม่มีถูกผิด — เป็นกระจกให้เธอเห็นตัวเอง</p>
-
-    <!-- Guru -->
-    <div class="guru-card fade-in">
-      <h3>Guru คืออะไร?</h3>
-      <p>Guru คือแนวทางจัดสรรเงินที่เธอเลือกตอน onboarding เช่น กฎ 50/30/20, แนว Warren Buffett, Ray Dalio หรือสไตล์ Gen-Z ไทย แอปจะใช้แนวทางนี้คำนวณงบรายวัน แล้วแสดงให้เห็นว่าพฤติกรรมจริงของเธอห่างจากเป้าแค่ไหน เปลี่ยน Guru ได้ตลอดในตั้งค่า</p>
-    </div>
-
-    <!-- FAQ -->
-    <h2 class="section-title fade-in">คำถามที่พบบ่อย</h2>
-
-    <div class="faq-list fade-in">
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>สแกนสลิปไม่ขึ้นจำนวนเงิน หรือขึ้นผิด</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            ตรวจสอบว่าภาพสลิปชัดและไม่เบลอ แอปรองรับสลิปจาก K PLUS, SCB, กสิกร, กรุงไทย, กรุงเทพ, ทหารไทยธนชาต และ TrueMoney หากจำนวนเงินไม่ถูกต้อง สามารถแก้ไขได้ก่อนกดยืนยัน — ระบบจะเรียนรู้จากการแก้ไขของเธอ
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>ข้อมูลของฉันปลอดภัยไหม?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            ปลอดภัยที่สุด เพราะในเวอร์ชันปัจจุบัน ข้อมูลทั้งหมดจัดเก็บในเครื่องเธอเท่านั้น ไม่มีการส่งข้อมูลออกนอกเครื่อง ดูรายละเอียดเพิ่มเติมที่ <a href="./privacy.html" class="footer-link">นโยบายความเป็นส่วนตัว</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Widget ไม่อัปเดต</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            ลองลบ Widget แล้วเพิ่มใหม่ หรือเปิดแอปสักครั้งเพื่อให้ข้อมูลอัปเดต iOS จะกำหนดความถี่ในการ refresh Widget เอง — เปิดแอปบ่อยขึ้นจะช่วยให้ Widget อัปเดตเร็วขึ้น
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>อยากเปลี่ยนงบรายวัน</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            เข้า ตั้งค่า → จัดสรรเงิน → ปรับรายได้หรือค่าใช้จ่ายประจำ → งบรายวันจะคำนวณใหม่อัตโนมัติตาม Guru ที่เธอเลือกไว้
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>รองรับธนาคารอะไรบ้าง?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            สแกนสลิปรองรับ: K PLUS (กสิกร), SCB Easy, KTB NEXT (กรุงไทย), Bangkok Bank (กรุงเทพ), ttb touch (ทหารไทยธนชาต) และ TrueMoney Wallet ระบบจะตรวจจับธนาคารจากสลิปอัตโนมัติและผูกกับกระเป๋าเงินที่ตรงกัน
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>รองรับ iPad / Apple Watch ไหม?</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            ตอนนี้รองรับ iPhone เท่านั้น เวอร์ชัน iPad และ Apple Watch อยู่ในแผนพัฒนา
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span>Shortcuts ไม่ทำงาน / ไม่เปิดแอป</span>
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            ตรวจสอบว่า: (1) เปิด Shortcuts automation ไว้แล้ว (2) เลือก "Run Immediately" ไม่ใช่ "Ask Before Running" (3) แอป MindSpend ยังติดตั้งอยู่ หากยังไม่ได้ผล ลองลบ automation แล้วสร้างใหม่จากหน้า ตั้งค่า → ตั้งค่า Shortcuts
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Contact -->
-    <div class="contact-box fade-in">
-      <h2>ยังต้องการความช่วยเหลือ?</h2>
-      <p>ส่งอีเมลมาได้เลย เราจะตอบกลับภายใน 48 ชั่วโมง</p>
-      <a href="/cdn-cgi/l/email-protection#b9caccc9c9d6cbcdf9d4d0d7ddcac9dcd7dd97d8c9c9" class="contact-email"><span class="__cf_email__" data-cfemail="6a191f1a1a05181e2a0703040e191a0f040e440b1a1a">[email&#160;protected]</span></a>
-    </div>
-    <p class="response-note">ภาษาไทย & English</p>
-
-    <!-- App info -->
-    <div class="app-info fade-in">
-      <div class="app-info-item">
-        <div class="app-info-label">Version</div>
-        <div class="app-info-value">1.0</div>
-      </div>
-      <div class="app-info-item">
-        <div class="app-info-label">Requires</div>
-        <div class="app-info-value">iOS 17.0+</div>
-      </div>
-      <div class="app-info-item">
-        <div class="app-info-label">Language</div>
-        <div class="app-info-value">ไทย</div>
-      </div>
-    </div>
-
   </div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-brand">
-        <img class="footer-logo" src="./assets/logo.jpg" alt="MindSpend">
-        <span class="footer-copy">© 2026 MindSpend</span>
-      </div>
-      <a href="./index.html#premium" class="footer-link">สติ+</a> · <a href="./blog/index.html" class="footer-link">บทความ</a> · <a href="./faq.html" class="footer-link">FAQ</a> · <a href="./privacy.html" class="footer-link">ความเป็นส่วนตัว</a>
+  <!-- CONCEPTS -->
+  <div class="hub-label reveal">สองคำที่ต้องรู้จัก</div>
+  <div class="concepts reveal">
+    <div class="concept planned">
+      <span class="chip sage">วางแผน</span>
+      <h3>Planned</h3>
+      <p>รายจ่ายที่ตั้งใจไว้แล้ว เช่น ค่าข้าว ค่าเดินทาง ค่าของใช้ที่ต้องซื้อ</p>
     </div>
-  </footer>
+    <div class="concept impulse">
+      <span class="chip ember">ฉับพลัน</span>
+      <h3>Impulse</h3>
+      <p>รายจ่ายที่เกิดขึ้นโดยไม่ได้วางแผน เช่น ของที่ซื้อเพราะเห็นแล้วอยากได้</p>
+    </div>
+  </div>
+  <p class="concept-note reveal">ไม่มีถูกผิดเลยนะ — แค่เห็นก็พอแล้ว 🌱</p>
+
+  <!-- POPULAR -->
+  <div class="hub-label reveal">คำถามยอดนิยม</div>
+  <div class="pop-list reveal">
+    <a class="pop t-card" href="./faq.html#scan"><span>รองรับธนาคารอะไรบ้าง?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a class="pop t-card" href="./faq.html#start"><span>MindSpend ฟรีไหม แล้วสติ+ คืออะไร?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a class="pop t-card" href="./faq.html#privacy"><span>ข้อมูลของฉันปลอดภัยไหม?</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-band reveal" id="contact">
+    <img class="cb-mascot float" src="./assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='./assets/mind-wave.svg'" alt="น้องมายด์">
+    <div>
+      <h2>ยังต้องการความช่วยเหลือ?</h2>
+      <p>ส่งอีเมลมาได้เลย เราจะตอบกลับภายใน 48 ชั่วโมง — ภาษาไทย &amp; English</p>
+    </div>
+    <div class="cb-r">
+      <a class="btn-g" href="mailto:support@mindspend.app">support@mindspend.app</a>
+      <span class="note">อ่านทุกฉบับ ตอบเองทุกฉบับ</span>
+    </div>
+  </div>
+
+  <div class="meta-row reveal">
+    <span class="meta-chip">iOS 17.0+</span>
+    <span class="meta-chip">iPhone</span>
+    <span class="meta-chip">ภาษาไทย &amp; English</span>
+    <a class="meta-chip" href="./changelog.html" style="text-decoration:none">ดูอัปเดตล่าสุด →</a>
+  </div>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="./assets/mind.js" defer></script>
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="./index.html" class="nav-brand"><img class="nav-logo" src="./assets/logo.jpg" alt="MindSpend"><span class="nav-name">MindSpend</span></a>
+        <p>แอปการเงินที่เป็นกระจกสะท้อนพฤติกรรม ช่วยให้คุณเข้าใจตัวเอง ไม่ตัดสิน และมีความสัมพันธ์ที่ดีกับเงิน</p>
+        <div class="foot-soc">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h2.5l.5-3H14v-1.5c0-.6.4-1 1-1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7 8 8 10h-6l-5-6-5 6H2l8-9L2 3h6l4 5z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.7 4 4 4.3V11c-1.6 0-3-.5-4-1.2V16a6 6 0 1 1-6-6v3.3a2.7 2.7 0 1 0 2 2.6V3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h4>ฟีเจอร์</h4><a href="./index.html#how">ภาพรวม</a><a href="./index.html#feat">สรุปเชิงลึก</a><a href="./index.html#feat">อารมณ์ &amp; การเงิน</a><a href="./index.html#feat">เป้าหมายการเงิน</a><a href="./index.html#feat">รายงาน &amp; กราฟ</a></div>
+      <div class="foot-col"><h4>สติ+</h4><a href="./index.html#sati">สิทธิประโยชน์</a><a href="./index.html#sati">ราคา</a><a href="./faq.html">คำถามที่พบบ่อย</a></div>
+      <div class="foot-col"><h4>เกี่ยวกับเรา</h4><a href="./about.html">เรื่องราวของเรา</a><a href="./privacy.html">ความเป็นส่วนตัว</a><a href="./blog/index.html">บทความ</a></div>
+      <div class="foot-col"><h4>ช่วยเหลือ</h4><a href="./support.html">ศูนย์ช่วยเหลือ</a><a href="./support.html#contact">ติดต่อเรา</a><a href="./changelog.html">อัปเดต</a></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 MindSpend Co., Ltd. สงวนลิขสิทธิ์</span>
+      <span><a href="./privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="./privacy.html">ข้อกำหนดการใช้งาน</a></span>
+    </div>
+  </div>
+  <img class="foot-mascot" src="./assets/mascot/mind-peek.png" onerror="this.onerror=null;this.src='./assets/mind-face.svg'" alt="">
+</footer>
+
 <script>
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+nav.classList.toggle('scrolled',scrollY>30);
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function toggleTheme(){var h=document.documentElement;var n=h.getAttribute('data-theme')==='light'?'dark':'light';h.setAttribute('data-theme',n);try{localStorage.setItem('ms-theme',n)}catch(e){}}
 </script>
 </body>
 </html>
