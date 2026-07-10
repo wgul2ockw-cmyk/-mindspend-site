@@ -20,6 +20,10 @@
 
 <style>
 .cl-hero{padding:120px 24px 48px}
+.cl-hero .inner{position:relative}
+.cl-hero .page-mascot{top:-16px;right:-6px}
+.cl-entry:first-child .cl-dot{animation:clPulse 2.6s ease-in-out infinite}
+@keyframes clPulse{0%,100%{box-shadow:0 0 0 4px var(--sage-wash)}50%{box-shadow:0 0 0 10px rgba(123,175,118,.14)}}
 .cl-timeline{max-width:720px;margin:0 auto;padding:0 24px 80px}
 .cl-entry{position:relative;padding-left:32px;padding-bottom:40px;border-left:2px solid var(--border)}
 .cl-entry:last-child{border-left-color:transparent}
@@ -62,11 +66,12 @@
     <div class="label">อัปเดต</div>
     <div class="title">มีอะไร<em>ใหม่</em></div>
     <div class="desc">ประวัติการอัปเดตและฟีเจอร์ใหม่ทั้งหมดของ MindSpend</div>
+    <img class="page-mascot mind-float" data-mind data-say="เราโตขึ้นเรื่อยๆ เลยน้า 🌱" src="./assets/mascot/mind-celebrate.png" alt="น้องมายด์ชูนิ้วโป้ง" loading="lazy" decoding="async">
   </div>
 </div>
-<div class="cl-timeline reveal">
+<div class="cl-timeline">
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.7</div>
     <div class="cl-date">12 มิถุนายน 2026</div>
@@ -78,19 +83,19 @@
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.6</div>
     <div class="cl-date">21 พฤษภาคม 2026</div>
     <div class="cl-tags"><span class="cl-tag feat">ฟีเจอร์ใหม่</span></div>
     <ul class="cl-list">
       <li>เปิดตัว สติ+ สมาชิกพรีเมียม — กระจกทั้งหมด (สรุป · ย้อนหลัง · น้องมายด์) ยังใช้ฟรีตลอดไป เหมือนกันทุกคน</li>
-      <li>สติ+ เพิ่มเครื่องมือลดงานมือ — นำเข้าจากธนาคาร (statement), กระเป๋าเงิน/หมวดหมู่ไม่จำกัด, คลังโลโก้ร้านครบ 117 แบรนด์, ส่งออก PDF, ชุดไอคอน/ธีมทั้งหมด, Widget</li>
-      <li>฿119/เดือน (โปรเปิดตัว ฿89) · ฿690/ปี · ฿1,990 ตลอดชีพ · ทดลองฟรี 14 วัน</li>
+      <li>สติ+ เพิ่มเครื่องมือลดงานมือ — ลงสลิปอัตโนมัติ, นำเข้าจากธนาคาร (statement), อ่านสลิปจากอัลบัม, กระเป๋า/หมวดหมู่/ประวัติไม่จำกัด, ธีมและไอคอนพรีเมียม</li>
+      <li>฿79/เดือน · ฿499/ปี (คุ้มกว่า 47%) · ฿1,490 ตลอดชีพ · ทดลองฟรี 14 วัน</li>
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.5</div>
     <div class="cl-date">28 เมษายน 2026</div>
@@ -102,7 +107,7 @@
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.4</div>
     <div class="cl-date">9 เมษายน 2026</div>
@@ -115,7 +120,7 @@
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.3</div>
     <div class="cl-date">25 มีนาคม 2026</div>
@@ -127,7 +132,7 @@
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.2</div>
     <div class="cl-date">23 มีนาคม 2026</div>
@@ -139,7 +144,7 @@
     </ul>
   </div>
 
-  <div class="cl-entry">
+  <div class="cl-entry reveal">
     <div class="cl-dot"></div>
     <div class="cl-ver">v1.0</div>
     <div class="cl-date">16 มีนาคม 2026</div>
@@ -183,11 +188,7 @@
     </div>
   </div>
 </footer>
-<script>
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible')}})},{threshold:.1}).observe(el)
-});
-</script>
+<script src="./assets/mind.js" defer></script>
 
 </body>
 </html>

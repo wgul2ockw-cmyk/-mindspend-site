@@ -1,35 +1,45 @@
-# น้องมายด์ mascot art — sourced from the APP's real assets (2026-07-07)
+# น้องมายด์ mascot art — copied from the app's real assets
 
-Every slot below is now filled with art copied from the MindSpend app itself
-(`MindSpend/Assets.xcassets`) — **do not generate new mascot art for the site;
-when the app gains new poses, re-copy from the app.** The `onerror` → flat SVG
-fallback (`assets/mind-*.svg`) remains wired as a safety net only.
+All art here is copied from the MindSpend app (`MindSpend/Assets.xcassets`) — the
+shipping น้องมายด์. **Do not generate new mascot art for the site;** when the app
+gains a pose, re-copy it. The `onerror` → flat SVG fallback (`assets/mind-*.svg`)
+stays wired as a safety net only.
 
-The app currently ships 4 distinct poses, so several site slots intentionally
-reuse the same pose. If a dedicated pose is drawn later (celebrate arms-up,
-waving, crowned king, heart-hug, peeking), drop it over the matching filename —
-paths are stable, no code change needed.
+Two waves are merged here — the theme-aware sub-page set and the index/interaction
+set — so a few filenames overlap by concept. Current on-disk mapping:
 
-**Specs (unchanged):** transparent PNG · ~400–800px long edge · green-bodied
-น้องมายด์ per the app art.
+| File | App asset | Used in |
+|------|-----------|---------|
+| `mind-greet.png`     | `splash_hero` (greeting + calc/bolt clouds) | **index hero** · relationship section |
+| `mind-track.png`     | `pangolin_scanning_v2_1` (calc + bolt)      | index how-01 (frame A) |
+| `mind-scan-b.png`    | `pangolin_scanning_v2_2` (magnifier)        | index how-01 (frame B, scan loop) |
+| `mind-cheer.png`     | `pangolin_cheer` (happy wave)               | index how-03 · footer wake state |
+| `mind-insight.png`   | `pangolin_scanning_v1_1` (magnifier+receipt)| index feature 1 (สรุปเชิงลึก) |
+| `mind-warm.png`      | `pangolin_waving` (blush wave)              | index feature 2 (อารมณ์ & การเงิน) |
+| `mind-celebrate.png` | `pangolin_celebrate` (thumbs-up)            | index feature 3 (เป้าหมาย) · final CTA · changelog |
+| `mind-think.png`     | `mind_income_question` (? bubble)           | index feature 4 (รายงาน) · support · blog |
+| `mind-sleep.png`     | `mind_sleeping` (curled, zzz)               | index feature 5 (แจ้งเตือน) · footer |
+| `mind-king.png`      | `sati_member_mascot_standing`               | สติ+ premium section |
+| `mind-hero.png`      | `sati_member_mascot_standing`               | about hero |
+| `mind-heart.png`     | `sati_member_mascot_standing`               | about / relationship |
+| `mind-peek.png`      | `mind_sleeping`                             | sub-page footers (about/faq/support/blog) |
+| `mind-feat-1..5.png` | mixed app poses (400px)                     | blog cards |
 
-| File | Currently filled with (app asset) | Used in |
-|------|-----------------------------------|---------|
-| `mind-hero.png`      | `sati_member_mascot_standing` (800px) | Home hero, About hero bubble avatar |
-| `mind-track.png`     | `mind_income_question`               | Home how-01 |
-| `mind-think.png`     | `mind_thinking`                      | Home how-02, Help-centre hero, Blog featured |
-| `mind-celebrate.png` | `mind_thinking`                      | Home how-03 |
-| `mind-feat-1.png`    | `mind_thinking` (400px)              | Home feature card 1 (สรุปเชิงลึก), Blog card |
-| `mind-feat-2.png`    | `sati_member_mascot_standing` (400px)| Home feature card 2 (อารมณ์ & การเงิน) |
-| `mind-feat-3.png`    | `mind_income_question` (400px)       | Home feature card 3 (เป้าหมาย), Blog card |
-| `mind-feat-4.png`    | `mind_thinking` (400px)              | Home feature card 4 (รายงาน) |
-| `mind-feat-5.png`    | `mind_sleeping` (400px)              | Home feature card 5 (แจ้งเตือนอ่อนโยน) |
-| `mind-king.png`      | `sati_member_mascot_standing`        | สติ+ premium section |
-| `mind-heart.png`     | `sati_member_mascot_standing`        | Relationship section, About hero |
-| `mind-peek.png`      | `mind_sleeping` (700px)              | Final CTA + footer corner (ทุกหน้า) |
+Interaction: any mascot with `data-mind` talks on tap (Itim speech bubble via
+`assets/mind.js`) — observational voice, register-high / valence-zero.
 
-`assets/logo.jpg` is the real app icon (`AppLogo.imageset/Mindspend Logo final.png`,
-converted to JPG 512px) — nav, footer, favicon on every page.
+`assets/crown-gold.svg` — gold-tinted copy of the app's `sati_crown_glyph`.
+`assets/packs/*.svg` — premium icon-pack samples from the app's Travel/Grocery packs.
+`assets/logo.jpg` — the real app icon.
 
-Optional still owed: `assets/qr.png` — a real QR code pointing to the App Store
-link, shown in the final CTA. Falls back to a placeholder box if absent.
+> ⚠️ Naming trap: the app asset literally named `mind_mirror` is the calc+bolt art,
+> **not** a magnifier. The real magnifier "examining" pose is `pangolin_scanning_v1_1`
+> (→ `mind-insight.png`).
+
+To re-export after app art changes:
+```bash
+sips -Z 640 "<app>/MindSpend/Assets.xcassets/<set>.imageset/<file>.png" --out assets/mascot/<name>.png
+```
+
+Optional still owed: `assets/qr.png` — real QR to the App Store link (final CTA falls
+back to a placeholder box if absent).
