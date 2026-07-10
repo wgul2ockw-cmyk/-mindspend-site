@@ -1,0 +1,10 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="crownG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0D894"/>
+      <stop offset="1" stop-color="#C9A050"/>
+    </linearGradient>
+  </defs>
+  <path d="m18.5 20.5h-13a1 1 0 0 1 0-2h13a1 1 0 0 1 0 2z" fill="#C9A050"/>
+  <path d="m21.13 6.25a2 2 0 0 0 -2.24-.08l-2.42 1.4-2.76-4.15a2.06 2.06 0 0 0 -3.42 0l-2.83 4.16-2.36-1.41a2 2 0 0 0 -3.1 2.16l1.47 7.32a2 2 0 0 0 2 1.65h13a2 2 0 0 0 2-1.65l1.53-7.32a2 2 0 0 0 -.87-2.08z" fill="url(#crownG)"/>
+</svg>

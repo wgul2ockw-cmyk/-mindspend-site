@@ -1,27 +1,38 @@
-# น้องมายด์ mascot art — drop PNGs here
+# น้องมายด์ mascot art — REAL app assets (synced 2026-07-10)
 
-The dark home (`index.html`) references these files. Until a PNG exists, the page
-auto-falls back to a flat placeholder SVG (`assets/mind-*.svg`), so the site never
-breaks. Drop the real transparent PNGs at these exact paths and they appear with no
-code change.
+These PNGs are exported from the iOS app's `MindSpend/Assets.xcassets` (the shipping
+mascot art), resized with `sips` to ≤800px on the long edge, transparent background.
+The site references them directly; if a file is missing the page auto-falls back to a
+flat placeholder SVG (`assets/mind-*.svg`), so the site never breaks.
 
-**Specs:** transparent background · PNG · ~600–900px on the long edge · green-bodied
-น้องมายด์ with glasses (per the home mockup) · espresso outline `#422D00` · flat/clean.
+Interaction: any mascot with `data-mind` talks on click/tap (Itim speech bubble via
+`assets/mind.js`). Voice rules: observational, register-high / valence-zero —
+น้องมายด์ never tells the user what to do.
 
-| File | Pose (from mockup) | Used in |
-|------|--------------------|---------|
-| `mind-hero.png`      | waving, glasses, friendly        | Hero, beside the phones |
-| `mind-track.png`     | writing / tracking on a list     | How step 01 |
-| `mind-think.png`     | thinking, finger up, `?`          | How step 02 |
-| `mind-celebrate.png` | celebrating, arms up              | How step 03 |
-| `mind-feat-1.png`    | small — curious / magnifier       | Feature card 1 (สรุปเชิงลึก) |
-| `mind-feat-2.png`    | small — holding heart             | Feature card 2 (อารมณ์ & การเงิน) |
-| `mind-feat-3.png`    | small — pointing at a goal        | Feature card 3 (เป้าหมาย) |
-| `mind-feat-4.png`    | small — with a chart              | Feature card 4 (รายงาน) |
-| `mind-feat-5.png`    | small — with a bell               | Feature card 5 (แจ้งเตือน) |
-| `mind-king.png`      | crowned king + cape, on pedestal | สติ+ premium section |
-| `mind-heart.png`     | hugging / holding a heart         | Relationship section |
-| `mind-peek.png`      | peeking over an edge              | Final CTA + footer |
+| File | App source (imageset) | Pose | Used in |
+|------|----------------------|------|---------|
+| `mind-hero.png`      | `splash_hero`                    | greeting + calc/bolt clouds | Home hero · support header |
+| `mind-track.png`     | `Pangolin/pangolin_scanning_v2_1`| calculator + bolt     | How 01 (frame A) |
+| `mind-scan-b.png`    | `Pangolin/pangolin_scanning_v2_2`| magnifier over slip   | How 01 (frame B of scan loop) |
+| `mind-cheer.png`     | `Pangolin/pangolin_cheer`        | happy ^^ wave         | How 03 · footer wake state |
+| `mind-greet.png`     | `splash_hero`                    | greeting + calc/bolt clouds | Relationship section |
+| **Feature row — 5 distinct poses (one per card):** | | | |
+| `mind-insight.png`   | `Pangolin/pangolin_scanning_v1_1`| magnifier + receipt (examining) | Feature 1 · สรุปเชิงลึก |
+| `mind-warm.png`      | `Pangolin/pangolin_waving`       | waving, happy eyes, blush | Feature 2 · อารมณ์ & การเงิน |
+| `mind-celebrate.png` | `Pangolin/pangolin_celebrate`    | double thumbs-up + sparkle eyes | Feature 3 · เป้าหมาย · final CTA · changelog |
+| `mind-think.png`     | `mind_income_question`           | ? bubble, curious     | Feature 4 · รายงาน · How 02 · FAQ |
+| `mind-sleep.png`     | `mind_sleeping`                  | curled, zzz           | Feature 5 · แจ้งเตือน · footer (tap to wake) |
 
-Optional: `assets/qr.png` — a real QR code (transparent or white) pointing to the App
-Store / download link, shown in the final CTA. Falls back to a placeholder box if absent.
+> ⚠️ The app asset named `mind_mirror` is actually the calc+bolt greeting art (misleading name) — the real magnifier "examining" pose lives in `pangolin_scanning_v1_1`, exported here as `mind-insight.png`.
+| `mind-stand.png`     | `Pangolin/pangolin_standing`     | neutral standing      | Blog index · post template |
+| `mind-king.png`      | `sati_member_mascot_standing`    | premium member pose   | สติ+ section (crown overlaid via `assets/crown-gold.svg`, same glyph as the app's `sati_crown_glyph`) |
+
+`assets/crown-gold.svg` — gold-tinted copy of the app's `sati_crown_glyph/crown.svg`.
+
+To re-export after app art changes:
+```bash
+sips -Z 640 "<app>/MindSpend/Assets.xcassets/<set>.imageset/<file>.png" --out assets/mascot/<name>.png
+```
+
+Optional: `assets/qr.png` — a real QR code pointing to the App Store link, shown in
+the final CTA. Falls back to a placeholder box if absent.

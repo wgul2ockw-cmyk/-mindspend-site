@@ -31,7 +31,9 @@
     padding: 104px 0 40px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 48px;
+    position: relative;
   }
+  header .page-mascot { top: 96px; right: 0; }
 
   .brand-row {
     display: flex;
@@ -516,6 +518,7 @@
     </div>
     <h1>ศูนย์ช่วยเหลือ</h1>
     <div class="subtitle">เริ่มต้นใช้งาน คำถามที่พบบ่อย และวิธีติดต่อเรา</div>
+    <img class="page-mascot mind-float" data-mind data-say="อยู่ตรงนี้เสมอน้า ทักมาได้เลย 💌" src="./assets/mascot/mind-hero.png" alt="น้องมายด์โบกมือ" loading="lazy" decoding="async">
   </header>
 
   <div class="content">
@@ -723,13 +726,8 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="./assets/mind.js" defer></script>
 <script>
-const nav = document.getElementById('nav');
-if (nav) {
-  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 30);
-  window.addEventListener('scroll', onScroll);
-  onScroll();
-}
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const wasOpen = item.classList.contains('open');

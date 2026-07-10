@@ -89,6 +89,9 @@ article li{font-size:15px;color:var(--ink-soft);line-height:1.6}
     <li>Bullet point 3</li>
   </ul>
 
+  <div style="text-align:center;margin:44px 0 4px">
+    <img class="mind-float" data-mind src="../assets/mascot/mind-stand.png" alt="น้องมายด์" width="120" loading="lazy" decoding="async" style="display:inline-block;filter:drop-shadow(0 10px 18px rgba(66,45,0,.16))">
+  </div>
   <div class="post-cta reveal">
     <h3>ลอง MindSpend ฟรี</h3>
     <p>สแกนสลิป เลือกแท็ก เห็นตัวเอง — ภายใน 3 วินาที</p>
@@ -129,12 +132,7 @@ article li{font-size:15px;color:var(--ink-soft);line-height:1.6}
     </div>
   </div>
 </footer>
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)}})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
+<script src="../assets/mind.js" defer></script>
 
 </body>
 </html>

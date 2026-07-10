@@ -18,7 +18,8 @@
 .inner{max-width:1100px;margin:0 auto;padding:0 24px}
 
 .about-hero{padding:120px 24px 60px}
-.about-hero .inner{max-width:720px}
+.about-hero .inner{max-width:720px;position:relative}
+.about-hero .page-mascot{top:-18px;right:-28px}
 .about-quote{font-family:var(--font-display);font-size:clamp(20px,3vw,28px);color:var(--sage-deep);line-height:1.4;margin:40px 0;padding:28px 32px;background:var(--sage-wash);border-radius:20px;border-left:4px solid var(--sage);position:relative}
 .about-section{max-width:720px;margin:0 auto;padding:0 24px 32px}
 .about-section h2{font-family:var(--font-display);font-size:24px;font-weight:400;margin-bottom:16px;letter-spacing:0}
@@ -58,6 +59,7 @@
     <div class="label">เกี่ยวกับเรา</div>
     <div class="title">เงินคือ<em>อินเทอร์เฟซ</em><br>ตัวตนคือผลลัพธ์</div>
     <div class="desc">MindSpend ไม่ใช่แอปบัญชี แต่เป็นระบบที่ช่วยให้เธอเข้าใจตัวเองผ่านพฤติกรรมการใช้เงิน</div>
+    <img class="page-mascot mind-float" data-mind data-say="เราเป็นกระจก ไม่ใช่กรรมการน้า 🪞" src="./assets/mascot/mind-insight.png" alt="น้องมายด์ส่องแว่นขยายดูใบเสร็จ" loading="lazy" decoding="async">
   </div>
 </div>
 <div class="about-section reveal">
@@ -72,7 +74,7 @@
   <p>MindSpend เกิดจากความเชื่อที่ว่า: <strong>แค่เริ่มรู้ตัว พฤติกรรมก็เริ่มเปลี่ยน</strong></p>
 
   <h2>สิ่งที่เราเชื่อ</h2>
-  <div class="about-values">
+  <div class="about-values reveal stagger">
     <div class="about-val">
       <h3>👁️ รู้ตัว ไม่ตัดสิน</h3>
       <p>ไม่มี "ใช้เงินผิด" มีแค่ "รู้" กับ "ไม่รู้" ว่าตัวเองทำอะไร</p>
@@ -133,11 +135,7 @@
     </div>
   </div>
 </footer>
-<script>
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible')}})},{threshold:.1}).observe(el)
-});
-</script>
+<script src="./assets/mind.js" defer></script>
 
 </body>
 </html>

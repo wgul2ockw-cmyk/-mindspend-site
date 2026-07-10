@@ -171,3 +171,48 @@ footer{padding:40px 24px 48px;border-top:1.5px solid var(--border);background:va
   .f-inner{flex-direction:column}
   .f-cols{gap:32px}
 }
+
+/* =========================================================================
+   น้องมายด์ interaction layer (shared with assets/mind.js)
+   ========================================================================= */
+
+/* reading progress bar */
+.ms-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;pointer-events:none}
+.ms-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sage),var(--sage-deep));border-radius:0 2px 2px 0}
+
+/* clickable mascots */
+[data-mind]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+[data-mind]:focus-visible{outline:2.5px solid var(--sage);outline-offset:5px;border-radius:14px}
+.boing{animation:ms-boing .62s cubic-bezier(.34,1.56,.64,1)!important}
+@keyframes ms-boing{0%{transform:scale(1)}30%{transform:scale(1.1,.9)}55%{transform:scale(.94,1.06)}78%{transform:scale(1.03,.98)}100%{transform:scale(1)}}
+
+/* speech bubble — น้องมายด์ voice (Itim only, observational) */
+.ms-bub{position:fixed;z-index:999;max-width:250px;background:#fff;border:1.5px solid var(--border);border-radius:16px 16px 16px 4px;padding:10px 16px;font-family:var(--font-mascot);font-size:15px;line-height:1.5;color:var(--ink-soft);box-shadow:0 10px 30px rgba(0,0,0,.16);opacity:0;transform:translateY(8px) scale(.92);transition:opacity .2s ease,transform .26s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.ms-bub.show{opacity:1;transform:none}
+
+/* staggered child reveals — .stagger on the .reveal element itself, or nested inside one */
+.stagger>*{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.stagger.visible>*,.reveal.visible .stagger>*{opacity:1;transform:none}
+.stagger.visible>*:nth-child(1),.reveal.visible .stagger>*:nth-child(1){transition-delay:.05s}
+.stagger.visible>*:nth-child(2),.reveal.visible .stagger>*:nth-child(2){transition-delay:.14s}
+.stagger.visible>*:nth-child(3),.reveal.visible .stagger>*:nth-child(3){transition-delay:.23s}
+.stagger.visible>*:nth-child(4),.reveal.visible .stagger>*:nth-child(4){transition-delay:.32s}
+.stagger.visible>*:nth-child(5),.reveal.visible .stagger>*:nth-child(5){transition-delay:.41s}
+.stagger.visible>*:nth-child(6),.reveal.visible .stagger>*:nth-child(6){transition-delay:.5s}
+
+/* sub-page hero mascot */
+.page-mascot{position:absolute;right:24px;top:24px;width:150px;filter:drop-shadow(0 12px 22px rgba(66,45,0,.16))}
+@media(max-width:760px){.page-mascot{display:none}}
+
+/* sleeping mascot + wake */
+.zzz{position:relative;display:inline-block}
+.zzz::after{content:'z';position:absolute;top:-14px;right:6px;font-family:var(--font-mascot);font-size:18px;color:var(--sage-deep);opacity:0;animation:ms-zzz 2.6s ease-in-out infinite}
+.zzz::before{content:'z';position:absolute;top:-2px;right:-8px;font-family:var(--font-mascot);font-size:12px;color:var(--sage-deep);opacity:0;animation:ms-zzz 2.6s ease-in-out infinite 1.3s}
+.zzz.awake::after,.zzz.awake::before{display:none}
+@keyframes ms-zzz{0%{opacity:0;transform:translateY(4px)}30%{opacity:.9}70%{opacity:.4}100%{opacity:0;transform:translateY(-14px)}}
+
+/* motion safety for the new layer */
+@media (prefers-reduced-motion:reduce){
+  .stagger>*{opacity:1;transform:none}
+  .ms-bub{transition:none}
+}

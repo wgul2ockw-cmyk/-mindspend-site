@@ -17,6 +17,8 @@
 .page-top{padding-top:80px}
 .inner{padding:0 24px}
 .faq-hero{padding:120px 24px 48px}
+.faq-hero .inner{position:relative}
+.faq-hero .page-mascot{top:-14px;right:-6px}
 .faq-sections{max-width:720px;margin:0 auto;padding:0 24px 80px}
 .faq-group{margin-bottom:40px}
 .faq-group-title{font-family:var(--font-display);font-size:20px;font-weight:400;margin-bottom:16px;padding-bottom:10px;border-bottom:1.5px solid var(--border)}
@@ -58,11 +60,12 @@
     <div class="label">คำถามที่พบบ่อย</div>
     <div class="title">ต้องการ<em>ความช่วยเหลือ</em>?</div>
     <div class="desc">รวมคำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับ MindSpend</div>
+    <img class="page-mascot mind-float" data-mind data-say="คำตอบอยู่ข้างล่างนี้น้า 👇" src="./assets/mascot/mind-think.png" alt="น้องมายด์กำลังคิด" loading="lazy" decoding="async">
   </div>
 </div>
-<div class="faq-sections reveal">
+<div class="faq-sections">
 
-  <div class="faq-group">
+  <div class="faq-group reveal">
     <div class="faq-group-title">🚀 เริ่มต้นใช้งาน</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>MindSpend คืออะไร?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">MindSpend เป็นแอปบันทึกรายจ่ายที่ออกแบบมาให้เร็วที่สุด แค่สแกนสลิปหรือกดบันทึก แล้วเลือกว่า "วางแผน" หรือ "ฉับพลัน" — เพื่อให้เธอเห็นพฤติกรรมการเงินของตัวเอง</div></div></div>
@@ -71,7 +74,7 @@
     </div>
   </div>
 
-  <div class="faq-group">
+  <div class="faq-group reveal">
     <div class="faq-group-title">📸 สแกนสลิป</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>รองรับธนาคารอะไรบ้าง?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">สแกนสลิปรองรับ: K PLUS (กสิกร), SCB Easy, KTB NEXT (กรุงไทย), Bangkok Bank (กรุงเทพ), ttb touch (ทหารไทยธนชาต) และ TrueMoney Wallet ระบบจะตรวจจับธนาคารจากสลิปอัตโนมัติ</div></div></div>
@@ -80,14 +83,14 @@
     </div>
   </div>
 
-  <div class="faq-group">
+  <div class="faq-group reveal">
     <div class="faq-group-title">🏷️ วางแผน vs ฉับพลัน</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>"วางแผน" กับ "ฉับพลัน" ต่างกันยังไง?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner"><strong>วางแผน</strong> = รายจ่ายที่เธอตั้งใจไว้แล้ว เช่น ค่าข้าว ค่าเดินทาง ค่าของใช้ที่ต้องซื้อ<br><br><strong>ฉับพลัน</strong> = รายจ่ายที่เกิดขึ้นโดยไม่ได้วางแผน เช่น ของที่ซื้อเพราะเห็นแล้วอยากได้<br><br>ไม่มีถูกผิด — เป็นเครื่องมือให้เธอเห็นสัดส่วนของตัวเอง</div></div></div>
     </div>
   </div>
 
-  <div class="faq-group">
+  <div class="faq-group reveal">
     <div class="faq-group-title">🧠 Guru</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>Guru คืออะไร?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">Guru คือแนวทางจัดสรรเงินที่เธอเลือก เช่น กฎ 50/30/20, แนว Warren Buffett หรือ Ray Dalio แอปจะใช้แนวทางนี้คำนวณงบรายวัน แล้วแสดงให้เห็นว่าพฤติกรรมจริงของเธอห่างจากเป้าแค่ไหน เปลี่ยน Guru ได้ตลอดในตั้งค่า</div></div></div>
@@ -95,7 +98,15 @@
     </div>
   </div>
 
-  <div class="faq-group">
+  <div class="faq-group reveal">
+    <div class="faq-group-title">💜 สติ+</div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>สติ+ คืออะไร ต่างจากแบบฟรียังไง?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">กระจกทั้งหมดของ MindSpend (สรุป · ฉับพลัน vs วางแผน · น้องมายด์) ใช้ฟรีเสมอ เหมือนกันทุกคน<br><br><strong>สติ+</strong> คือเครื่องมือช่วยลดงานมือ: ลงสลิปอัตโนมัติ, นำเข้าจากธนาคาร (PDF → รายการ), อ่านสลิปจากอัลบัม, กระเป๋า/หมวดหมู่/ประวัติไม่จำกัด และธีม/ไอคอนพรีเมียม</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>สติ+ ราคาเท่าไหร่?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">฿79/เดือน หรือ ฿499/ปี (คุ้มกว่า 47% ≈ ฿42/เดือน) หรือ ฿1,490 จ่ายครั้งเดียวเป็นเจ้าของถาวร — แบบรายเดือน/รายปีทดลองฟรี 14 วัน ยกเลิกได้ทุกเมื่อใน App Store</div></div></div>
+    </div>
+  </div>
+
+  <div class="faq-group reveal">
     <div class="faq-group-title">🔐 ความเป็นส่วนตัว</div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span>ข้อมูลปลอดภัยไหม?</span><span class="faq-chev">▼</span></button><div class="faq-a"><div class="faq-a-inner">ข้อมูลทั้งหมดจัดเก็บในเครื่องเธอเท่านั้น ไม่มี tracking ไม่มีโฆษณา ดูรายละเอียดที่ <a href="./privacy.html">นโยบายความเป็นส่วนตัว</a></div></div></div>
@@ -132,14 +143,7 @@
     </div>
   </div>
 </footer>
-<script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
-nav.classList.toggle('scrolled',scrollY>30);
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible')}})},{threshold:.1}).observe(el)
-});
-</script>
+<script src="./assets/mind.js" defer></script>
 <script>
 function toggleFaq(btn){const item=btn.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open')}
 </script>

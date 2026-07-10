@@ -20,6 +20,8 @@
 
 <style>
 .blog-hero{padding:120px 24px 60px;text-align:center}
+.blog-hero .inner{position:relative}
+.blog-hero .page-mascot{top:-8px;right:0}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
 .blog-card{background:white;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;transition:all .35s;cursor:pointer;text-decoration:none;color:inherit;display:block}
 .blog-card:hover{border-color:var(--sage-mid);transform:translateY(-6px);box-shadow:0 16px 40px rgba(123,175,118,.08)}
@@ -66,11 +68,12 @@
     <div class="label">บทความ</div>
     <div class="title">เรื่องเงิน เรื่อง<em>เข้าใจตัวเอง</em></div>
     <div class="desc" style="margin:0 auto">เคล็ดลับ พฤติกรรมการเงิน และวิธีคิดที่ช่วยให้เธอใช้เงินอย่างรู้ตัวมากขึ้น</div>
+    <img class="page-mascot mind-float" data-mind data-say="มีเรื่องเล่าให้อ่านด้วยน้า 📖" src="../assets/mascot/mind-stand.png" alt="น้องมายด์" loading="lazy" decoding="async">
   </div>
 </div>
 <section style="padding-top:0">
   <div class="inner reveal">
-    <div class="blog-grid">
+    <div class="blog-grid reveal stagger">
 
       <a href="planned-vs-impulse.html" class="blog-card">
         <div class="blog-thumb"><span>🎯⚡</span></div>
@@ -117,11 +120,7 @@
     <div class="f-links"><a href="../index.html#premium">สติ+</a><a href="../blog/index.html">บทความ</a><a href="../about.html">เกี่ยวกับเรา</a><a href="../faq.html">FAQ</a><a href="../changelog.html">อัปเดต</a><a href="../privacy.html">ความเป็นส่วนตัว</a></div>
   </div>
 </footer>
-<script>
-document.querySelectorAll('.reveal').forEach(el=>{
-  new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible')}})},{threshold:.1}).observe(el)
-});
-</script>
+<script src="../assets/mind.js" defer></script>
 
 </body>
 </html>
