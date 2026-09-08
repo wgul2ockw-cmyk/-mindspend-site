@@ -43,14 +43,50 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* Supporting pages: make the full navigation available on small screens. */
+  var links = nav && nav.querySelector('.nav-links');
+  if (links) {
+    var mobileMenu = document.createElement('details');
+    mobileMenu.className = 'ms-mobile-menu';
+    var menuSummary = document.createElement('summary');
+    menuSummary.textContent = 'เมนู';
+    var menuBody = document.createElement('div');
+    links.querySelectorAll('a').forEach(function (a) { menuBody.appendChild(a.cloneNode(true)); });
+    var themeControl = links.querySelector('.theme-toggle');
+    if (themeControl) menuBody.appendChild(themeControl.cloneNode(true));
+    mobileMenu.appendChild(menuSummary); mobileMenu.appendChild(menuBody);
+    nav.appendChild(mobileMenu);
+    menuBody.addEventListener('click', function (event) {
+      if (event.target.closest('a')) mobileMenu.open = false;
+    });
+    mobileMenu.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') { mobileMenu.open = false; menuSummary.focus(); }
+    });
+    nav.querySelectorAll('.nav-drop-trigger').forEach(function (trigger) {
+      trigger.tabIndex = 0; trigger.setAttribute('role', 'button');
+      trigger.setAttribute('aria-expanded', 'false');
+      function toggleDrop() {
+        var opened = trigger.parentElement.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', String(opened));
+      }
+      trigger.addEventListener('click', toggleDrop);
+      trigger.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleDrop(); }
+        if (event.key === 'Escape') {
+          trigger.parentElement.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  }
+
   /* ---- น้องมายด์ speech bubbles ---------------------------------------- */
   var LINES = [
     'สวัสดีน้า เราชื่อน้องมายด์ 🌱',
     '“ตั้งใจซื้อหรือเปล่า?” — เราถามแค่นี้เองน้า',
     'ไม่มีถูกผิด มีแค่ได้เห็นตัวเองน้า',
-    'จดปุ๊บ 3 วิ เสร็จเลย ⚡',
+    'วันนี้มีอะไรให้เราดูด้วยกันบ้างน้า',
     'เราอยู่ข้างเธอเสมอเลยน้า 💚',
-    'ข้อมูลอยู่ในเครื่องเธอทั้งหมดน้า 🔒',
+    'เธอเลือกการซิงก์และการใช้ AI ได้ในตั้งค่าน้า',
     'มาดูเดือนนี้ด้วยกันมั้ย 👀'
   ];
   var li = 0, bubEl = null, bubTimer = null;

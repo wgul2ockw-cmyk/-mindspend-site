@@ -191,30 +191,35 @@
   }
   footer a { color: #0a58ca; }
 </style>
+<link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./assets/site-refresh.css">
+<script>(function(){try{var t=localStorage.getItem('ms-theme');document.documentElement.dataset.theme=t==='dark'?'dark':'light';}catch(e){document.documentElement.dataset.theme='light';}})();</script>
+<style>.wrap{max-width:800px;padding:48px 24px 80px}h1{font-family:var(--font-display);font-size:30px;font-weight:400;line-height:1.5;margin:24px 0 16px}h2{font-family:var(--font-display);font-weight:400;font-size:22px;margin:36px 0 16px}.meta,.meta strong,footer{color:var(--d-stone)}a,footer a{color:var(--d-sage-deep)}hr,footer{border-color:var(--d-rim)}footer{background:transparent;padding:24px 0}.lang-toggle{background:var(--d-bg2);border-radius:999px;padding:4px;width:max-content}.lang-btn{min-height:44px;border-radius:999px;border:0;background:transparent;color:var(--d-ink);padding:8px 20px}.lang-btn.active{background:var(--d-surface);color:var(--d-ink)}.website-note{margin-top:48px;border-top:1px solid var(--d-rim)}.wrap>p:first-child a{display:inline-flex;min-height:44px;align-items:center}</style>
+<noscript><style>.lang-section{display:block}</style></noscript>
 </head>
 <body>
 <div class="wrap">
+<p><a href="./">← MindSpend</a></p>
 
   <h1>Privacy Policy — MindSpend</h1>
-  <div class="meta">Effective date: <strong>28 June 2026</strong></div>
+  <div class="meta">Effective date: <strong>8 September 2026</strong></div>
   <div class="meta">Developer: <strong>Thitipong Nonnoi</strong> (sole proprietor), operating as <strong>Jovey.co</strong> · Contact: <a href="mailto:support@mindspend.app">support@mindspend.app</a></div>
 
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="switchLang('th',event)">ไทย</button>
-    <button class="lang-btn" onclick="switchLang('en',event)">English</button>
+    <button class="lang-btn active" aria-pressed="true" onclick="switchLang('th',event)">ไทย</button>
+    <button class="lang-btn" aria-pressed="false" onclick="switchLang('en',event)">English</button>
   </div>
 
   <hr>
 
   <!-- ==================== THAI ==================== -->
-  <div id="lang-th" class="lang-section active">
+  <div lang="th" id="lang-th" class="lang-section active">
 
     <h2>1. ภาพรวม</h2>
     <p>MindSpend (“แอป”) พัฒนาและดำเนินการโดย Thitipong Nonnoi ในฐานะผู้ประกอบการรายบุคคล ภายใต้ชื่อ Jovey.co (“เรา”) นโยบายนี้อธิบายว่าแอปจัดการข้อมูลของคุณอย่างไร</p>
-    <p>MindSpend เป็นแอปการเงินส่วนบุคคลแบบ local-first — ข้อมูลการเงินของคุณถูกจัดเก็บไว้ในเครื่องของคุณเอง (ผ่าน SwiftData) ไม่มีระบบบัญชีผู้ใช้ ไม่มีการลงทะเบียน และเราไม่มีเซิร์ฟเวอร์ที่จัดเก็บข้อมูลของคุณ มีเพียงบางฟีเจอร์ที่จำเป็นต้องเชื่อมต่อบริการภายนอกเพื่อให้ทำงานได้ ซึ่งระบุไว้ครบถ้วนในข้อ 3</p>
+    <p>MindSpend เป็นแอปการเงินส่วนบุคคลแบบ local-first — ข้อมูลการเงินของคุณถูกจัดเก็บไว้ในเครื่องของคุณเอง (ผ่าน SwiftData) เริ่มใช้งานบนเครื่องได้โดยไม่ต้องสร้างบัญชี MindSpend และเราไม่มีเซิร์ฟเวอร์ส่วนกลางที่เก็บข้อมูลการเงินของคุณ เลือกเชื่อมต่อบัญชี Apple และเปิดการซิงก์ข้อมูลที่รองรับผ่าน iCloud ส่วนตัวได้ มีเพียงบางฟีเจอร์ที่จำเป็นต้องเชื่อมต่อบริการภายนอกเพื่อให้ทำงานได้ ซึ่งระบุไว้ครบถ้วนในข้อ 3</p>
 
     <h2>2. ข้อมูลที่จัดเก็บในเครื่องของคุณ</h2>
-    <p>ข้อมูลต่อไปนี้อยู่ในเครื่องของคุณเท่านั้น คุณเป็นผู้ป้อนและควบคุมเองทั้งหมด:</p>
+    <p>ข้อมูลต่อไปนี้เริ่มจัดเก็บบนเครื่องของคุณ การเปิด iCloud จะซิงก์ข้อมูลที่รองรับตามข้อ 3:</p>
     <ul>
       <li>รายการรายจ่าย/รายรับ — จำนวนเงิน ร้านค้า หมวดหมู่ โน้ต และแท็กวางแผน/ฉับพลัน</li>
       <li>กระเป๋าเงิน บัตรเครดิต และหนี้สิน — บัญชี บัตร และยอดที่คุณเพิ่มเอง</li>
@@ -224,14 +229,20 @@
     </ul>
 
     <h2>3. ข้อมูลที่ออกจากเครื่อง และบริการภายนอก</h2>
-    <p>เพื่อความโปร่งใส นี่คือทุกกรณีที่ข้อมูลออกจากเครื่องของคุณ — เกิดขึ้นเฉพาะเมื่อคุณใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น ทั้งหมดส่งผ่านการเชื่อมต่อแบบเข้ารหัส (HTTPS) ไม่ผูกกับบัญชีหรือตัวตนของคุณ และไม่ใช้เพื่อโฆษณาหรือติดตามพฤติกรรม:</p>
+    <p>เพื่อความโปร่งใส นี่คือเส้นทางข้อมูลที่ฟีเจอร์ปัจจุบันใช้ — เกิดขึ้นเฉพาะเมื่อคุณใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น การเชื่อมต่อบริการใช้ HTTPS บางฟีเจอร์ เช่น iCloud ผูกกับบัญชี Apple ของคุณ การเลือกแชร์ข้อมูลส่งต่อไปยังบริการหรือผู้รับที่คุณเลือก:</p>
     <ul>
       <li><strong>AI ช่วยอ่านใบเสร็จ (ตัวเลือก — ต้องยินยอมในแอปก่อน):</strong> เมื่อเธอเปิดใช้และกดยินยอม แอปจะอ่านตัวอักษรจากรูปใบเสร็จในเครื่องด้วย Apple Vision แล้วส่งเฉพาะ “ข้อความ” ที่อ่านได้ (ชื่อร้าน รายการสินค้า ราคา) ไปยัง Typhoon AI (โดย SCB 10X ผ่าน api.opentyphoon.ai) เพื่อจัดให้เป็นรายการ — <strong>ไม่ส่งรูปภาพ</strong> ตาม<a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">ข้อกำหนดของ Typhoon</a> ผู้ให้บริการ <strong>อาจจัดเก็บข้อความที่ส่งและนำไปใช้เพื่อปรับปรุงและฝึกโมเดล AI ของตน</strong> ดังนั้นโปรดหลีกเลี่ยงการสแกนใบเสร็จที่มีข้อมูลอ่อนไหว แอปจะขอความยินยอมจากเธอก่อนส่งครั้งแรก และเธอปิดฟีเจอร์นี้ได้ตลอดเวลาที่ ตั้งค่า → AI สแกนใบเสร็จ (เมื่อปิด จะใช้ตัวอ่านในเครื่องเท่านั้น)</li>
       <li><strong>AI จับคู่คอลัมน์ไฟล์ statement (CSV) (ตัวเลือก — ต้องยินยอมในแอปก่อน):</strong> เมื่อเธอนำเข้าไฟล์ statement แล้วเลือกให้ AI ช่วย แอปส่งเฉพาะ “หัวคอลัมน์” และตัวอย่างแถวข้อมูลสูงสุด 3 แถว (วันที่ จำนวนเงิน ชื่อร้านค้า) ไปยัง Typhoon AI (SCB 10X) เพื่อจับคู่คอลัมน์ — ใช้ความยินยอมเดียวกับ AI สแกนใบเสร็จ หากไม่ยินยอม แอปจะใช้ตัวจับคู่ในเครื่องแทน</li>
+
+      <li><strong>iCloud (เลือกเปิดได้):</strong> ปิดไว้เป็นค่าเริ่มต้น เมื่อเปิด แอปซิงก์ข้อมูล SwiftData ที่รองรับ เช่น รายการ กระเป๋า หมวดหมู่ และการลงทุน ผ่าน CloudKit ฐานข้อมูลส่วนตัวในบัญชี Apple ของคุณ ไม่ใช่ข้อมูลทั้งหมดในแอป: กลุ่ม บิลแบ่ง บันทึก Milestones การตั้งค่าบางส่วน และประวัติสนทนายังเก็บบนเครื่อง การเปลี่ยนตัวเลือกซิงก์อาจมีผลเมื่อเปิดแอปครั้งถัดไป</li>
+      <li><strong>AI อ่านใบแจ้งหนี้ (ยินยอมแยก):</strong> เมื่อเลือกใช้ ส่งบรรทัดรายการ เช่น วันที่ ชื่อร้าน และจำนวนเงินให้ Typhoon หลังพยายามปิดเลขบัตร เลขบัญชี ชื่อ อีเมล และเบอร์โทร ไม่ส่งรูปภาพในเส้นทางนี้ การปิดข้อมูลช่วยลดการระบุตัวตน แต่ไม่ได้รับประกันว่าระบุตัวตนไม่ได้ ปิดได้ในตั้งค่า → AI อ่านใบแจ้งหนี้</li>
+      <li><strong>คุยกับน้องมายด์ (ยินยอมแยก):</strong> ส่งคำถาม บริบทสนทนาที่จำเป็น และข้อมูลการเงินที่แอปเตรียมสำหรับคำถาม เช่น ยอดรวม สัดส่วน และบริบทจากประวัติ ให้ Typhoon เพื่อสร้างคำตอบ ไม่ควรใส่ข้อมูลอ่อนไหวที่ไม่จำเป็นในข้อความ ประวัติสนทนาในแอปเก็บบนเครื่องและลบได้จากหน้าประวัติแชท ปิดความยินยอมได้ในตั้งค่า</li>
+      <li><strong>กลุ่ม บิลแบ่ง และการแชร์:</strong> กลุ่มกับบิลเก็บบนเครื่อง ไม่มีระบบสมาชิกกลุ่มออนไลน์ การกดแชร์เปิดแผ่นแชร์ iOS ให้คุณเลือกบริการและผู้รับ สรุปหรือลิงก์บิลอาจมีชื่อ จำนวนเงิน ร้านค้า รายการอาหาร และข้อมูล PromptPay หากคุณตั้งไว้ ตรวจสอบข้อมูลก่อนส่ง การบันทึกสถานะรับเงินไม่ใช่การโอนเงินจริง</li>
+      <li><strong>การซื้อสติ+:</strong> การเรียกดูผลิตภัณฑ์ ซื้อ และกู้คืนสิทธิ์ดำเนินการผ่าน Apple StoreKit/App Store แอปใช้ผลสิทธิ์การซื้อเพื่อเปิดฟีเจอร์ คุณจัดการการสมัครสมาชิกผ่านบัญชี Apple ได้</li>
       <li><strong>ราคาตลาด หุ้น/กองทุน/คริปโต:</strong> เมื่อคุณเพิ่มการลงทุน แอปส่งเฉพาะ “สัญลักษณ์/รหัส” ของสินทรัพย์ ไปยัง Yahoo Finance, CoinGecko และสำนักงาน ก.ล.ต. (SEC) เพื่อดึงราคาล่าสุด — ไม่ส่งจำนวนเงิน จำนวนหน่วย หรือข้อมูลระบุตัวตน</li>
       <li><strong>โลโก้ร้านค้า/แบรนด์:</strong> เพื่อแสดงไอคอนร้านค้า แอปอาจร้องขอรูปโลโก้โดยอ้างอิงชื่อหรือโดเมนของร้าน — ไม่มีข้อมูลการเงินแนบไปด้วย</li>
     </ul>
-    <p>Typhoon AI (โดย SCB 10X) ทำหน้าที่เป็น “ผู้ประมวลผลข้อมูล” (data processor) ในนามของเรา เราส่งข้อมูลให้น้อยที่สุดเท่าที่จำเป็น เฉพาะเมื่อเธอยินยอมในแอปก่อนเท่านั้น และเรากำหนดให้ผู้ให้บริการประมวลผลข้อมูลเพื่อฟีเจอร์นี้และคุ้มครองข้อมูลตามกฎหมายที่ใช้บังคับ — อย่างไรก็ตาม ตามข้อกำหนดของผู้ให้บริการ ข้อความที่ส่งอาจถูกจัดเก็บและนำไปใช้ปรับปรุง/ฝึกโมเดล จึงเป็นเหตุผลที่เราขอความยินยอมแบบ opt-in ก่อนส่งทุกครั้ง และเธอถอนความยินยอมได้ตลอดเวลา ส่วนบริการดึงราคา (Yahoo Finance, CoinGecko, ก.ล.ต.) เป็นผู้ให้บริการภายนอกที่มีนโยบายของตนเอง เราไม่ขายข้อมูลของเธอและไม่ใช้เพื่อโฆษณา</p>
+    <p>ฟีเจอร์ AI ส่งข้อมูลหลังได้รับความยินยอมของฟีเจอร์นั้น การยินยอมครอบคลุมการส่งครั้งต่อไปจนกว่าจะถอนความยินยอมหรือมีการเปลี่ยนรุ่นคำชี้แจง ผู้ให้บริการอาจเก็บข้อความและใช้พัฒนาโมเดลตามเงื่อนไขของตน การปิด AI หยุดการส่งในอนาคต แต่ไม่ได้ลบข้อความที่ส่งไปแล้ว บริการภายนอกมีนโยบายการจัดการข้อมูลของตนเอง</p>
 
     <h2>4. การเข้าถึงกล้องและคลังภาพ</h2>
     <p>แอปขอเข้าถึงกล้องและคลังภาพเพื่อสแกนสลิป/ใบเสร็จเท่านั้น ภาพถูกประมวลผลในเครื่องด้วย Apple Vision แล้วลบทิ้ง — แอปไม่จัดเก็บรูปภาพ และไม่อัปโหลดรูปภาพออกนอกเครื่อง</p>
@@ -244,7 +255,7 @@
 
     <h2>7. สิ่งที่เราไม่ทำ</h2>
     <ul>
-      <li>ไม่มีบัญชีผู้ใช้ ไม่มีการลงทะเบียน ไม่มีเซิร์ฟเวอร์ของเราที่เก็บข้อมูลคุณ</li>
+      <li>ไม่บังคับสร้างบัญชี MindSpend เพื่อใช้บนเครื่อง และไม่มีเซิร์ฟเวอร์ส่วนกลางของเราเก็บข้อมูลการเงิน</li>
       <li>ไม่มีระบบวิเคราะห์พฤติกรรม (analytics) ไม่มี tracking ไม่มี IDFA และไม่มี SDK โฆษณา/ติดตามของบุคคลที่สาม</li>
       <li>ไม่มีโฆษณา</li>
       <li>ไม่ขายข้อมูลของคุณ และไม่แชร์เพื่อการตลาด</li>
@@ -252,11 +263,9 @@
       <li>ไม่เก็บรูปภาพใบเสร็จ/สลิป (ประมวลผลในเครื่องแล้วทิ้ง)</li>
     </ul>
 
-    <h2>8. ความปลอดภัยของข้อมูล</h2>
-    <p>การเชื่อมต่อทั้งหมดเข้ารหัสด้วย HTTPS (App Transport Security) ข้อมูลที่อ่อนไหวซึ่งคุณกรอกเอง (หากมี เช่น รหัสผ่าน) จะถูกเก็บไว้ใน iOS Keychain บนเครื่องเท่านั้น (เข้าถึงได้เมื่อปลดล็อกเครื่อง) ไม่ถูกส่งออกและไม่ซิงค์ไปที่ใด</p>
+    <h2>8. ความปลอดภัยของข้อมูล</h2><p>การเชื่อมต่อบริการใช้ HTTPS ข้อมูลลับที่ต้องเก็บ เช่น รหัสผ่านไฟล์นำเข้าและรหัส PromptPay ใช้ iOS Keychain ตามประเภทข้อมูล การแชร์บิลที่คุณเลือกอาจรวมข้อมูล PromptPay จึงควรตรวจสอบข้อมูลในสรุปก่อนส่ง การปิดซิงก์หรือ AI ไม่ได้ถอนสำเนาที่ส่งให้ปลายทางไปแล้ว</p>
 
-    <h2>9. การเก็บรักษาและการลบข้อมูล</h2>
-    <p>ข้อมูลถูกเก็บในเครื่องจนกว่าคุณจะลบเอง — ลบรายการในแอป หรือ ลบแอปออกจากเครื่อง = ข้อมูลทั้งหมดถูกลบ (ปัจจุบันยังไม่มีระบบ sync ข้ามอุปกรณ์) บริการดึงราคาตลาด (Yahoo Finance, CoinGecko, ก.ล.ต.) ใช้คำขอเพื่อตอบกลับเท่านั้น ส่วน Typhoon AI อาจจัดเก็บข้อความใบเสร็จที่ส่งและนำไปใช้ปรับปรุง/ฝึกโมเดลตามนโยบายของผู้ให้บริการ (ดู <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">opentyphoon.ai</a>) — เธอควบคุมได้โดยเปิด/ปิดฟีเจอร์ AI สแกนใบเสร็จในแอป</p>
+    <h2>9. การเก็บรักษาและการลบข้อมูล</h2><p>จัดการรายการและการล้างข้อมูลในแอปได้ การลบแอปไม่ควรถูกถือว่าลบข้อมูลทุกสำเนา หากเคยเปิด iCloud อาจมีข้อมูลอยู่ใน iCloud ส่วนตัว และข้อมูลที่เคยส่งให้ผู้รับหรือบริการภายนอกอยู่ภายใต้นโยบายของปลายทางนั้น กลุ่ม บิลแบ่ง และบันทึก Milestones มีข้อมูลในเครื่องแยกจากข้อมูลที่ซิงก์ ประวัติที่เกินช่วงเปิดดูของส่วนฟรีถูกซ่อน ไม่ได้ถูกลบ การถอนความยินยอม AI หยุดคำขอใหม่ แต่ไม่ได้เรียกคืนข้อความที่ส่งไปแล้ว</p>
 
     <h2>10. สิทธิ์ของคุณ (PDPA)</h2>
     <p>เนื่องจากข้อมูลอยู่ในเครื่องของคุณเอง คุณจึงเข้าถึง แก้ไข และลบข้อมูลทั้งหมดได้เองตลอดเวลาในแอป คุณถอนความยินยอมการส่งข้อมูลใบเสร็จได้โดยปิดฟีเจอร์ AI สแกนใบเสร็จ การออกแบบนี้สอดคล้องกับ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล (PDPA) ของประเทศไทย หากมีคำถามหรือคำขอเกี่ยวกับสิทธิ์ของคุณ ติดต่อ <a href="mailto:support@mindspend.app">support@mindspend.app</a> เราจะตอบกลับภายใน 30 วัน</p>
@@ -265,7 +274,7 @@
     <p>MindSpend ไม่ได้มุ่งเป้าไปที่เด็กอายุต่ำกว่า 13 ปี และเราไม่เก็บข้อมูลจากเด็กโดยเจตนา (เรตอายุ 4+)</p>
 
     <h2>12. การเปลี่ยนแปลงนโยบาย</h2>
-    <p>หากนโยบายนี้เปลี่ยนแปลง (เช่น เพิ่มฟีเจอร์ sync ข้ามอุปกรณ์) เราจะอัปเดตหน้านี้พร้อมระบุวันที่มีผลใหม่ และแจ้งผ่านการอัปเดตแอป</p>
+    <p>หากนโยบายนี้เปลี่ยนแปลง  เราจะอัปเดตหน้านี้พร้อมระบุวันที่มีผลใหม่ และแจ้งผ่านการอัปเดตแอป</p>
 
     <h2>13. ติดต่อ</h2>
     <p>คำถามเรื่องความเป็นส่วนตัว ติดต่อ Thitipong Nonnoi (Jovey.co) ที่ <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
@@ -276,14 +285,14 @@
   </div>
 
   <!-- ==================== ENGLISH ==================== -->
-  <div id="lang-en" class="lang-section">
+  <div lang="en" id="lang-en" class="lang-section">
 
     <h2>1. Overview</h2>
     <p>MindSpend (the “App”) is developed and operated by Thitipong Nonnoi, a sole proprietor, operating as Jovey.co (“we”, “us”). This policy explains how the App handles your information.</p>
-    <p>MindSpend is a local-first personal finance app — your financial data is stored on your own device (via SwiftData). There are no user accounts, no registration, and we run no server that holds your data. Only a few features connect to external services to function; all of them are listed in Section 3.</p>
+    <p>MindSpend is a local-first personal finance app — your financial data is stored on your own device (via SwiftData). You can start locally without creating a MindSpend account. We run no central server holding your financial records. You may connect your Apple account and opt in to sync supported data through private iCloud. Only a few features connect to external services to function; all of them are listed in Section 3.</p>
 
     <h2>2. Information Stored On Your Device</h2>
-    <p>The following stays on your device only; you enter and control all of it:</p>
+    <p>The following is stored locally by default. If you enable iCloud, supported records may sync as described in Section 3:</p>
     <ul>
       <li>Expense and income records — amounts, merchants, categories, notes, and planned/impulse tags</li>
       <li>Wallets, credit cards, and debts — accounts, cards, and balances you add yourself</li>
@@ -293,14 +302,20 @@
     </ul>
 
     <h2>3. Data That Leaves Your Device, and Third-Party Services</h2>
-    <p>For transparency, here is every case in which data leaves your device — only when you use the related feature. All of it is sent over an encrypted connection (HTTPS), is not linked to any account or your identity, and is never used for advertising or tracking:</p>
+    <p>For transparency, these are the data paths used by the current features — only when you use the related feature. Service connections use HTTPS. Some features, such as iCloud, are associated with your Apple account. Sharing sends information to the service or recipient you choose:</p>
     <ul>
       <li><strong>AI receipt reading (optional — requires in-app consent):</strong> When you enable it and tap agree, the App reads the text from a receipt photo on-device with Apple Vision, then sends only that <strong>text</strong> (store name, items, prices) to Typhoon AI (by SCB 10X, via api.opentyphoon.ai) to structure it — <strong>no images are sent</strong>. Under <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">Typhoon's terms</a>, the provider <strong>may retain the submitted text and use it to improve and train its AI models</strong>, so avoid scanning receipts that contain sensitive information. The App asks for your permission before the first send, and you can turn the feature off at any time in Settings → AI Receipt Scanning (on-device parsing is used when it's off).</li>
       <li><strong>AI statement-column mapping (CSV) (optional — requires in-app consent):</strong> When you import a statement file and choose AI assistance, the App sends only the column headers and up to 3 sample rows (date, amount, merchant) to Typhoon AI (SCB 10X) to map the columns — this uses the same consent as AI receipt reading. If you decline, an on-device mapper is used instead.</li>
+
+      <li><strong>iCloud (optional):</strong> Off by default. When enabled, supported SwiftData records, including transactions, wallets, categories and holdings, sync through your private CloudKit database in your Apple account. This does not cover all app data: groups, shared bills, the Milestones journal, some preferences and chat history remain local. Changing the sync setting may take effect on the next launch.</li>
+      <li><strong>AI statement reading (separate consent):</strong> If selected, transaction lines such as dates, merchants and amounts are sent to Typhoon after the app attempts to mask card/account numbers, names, email addresses and phone numbers. This path sends no images. Redaction reduces identifiability but does not guarantee anonymity. Disable it in Settings → AI Statement Reading.</li>
+      <li><strong>Chat with Mind (separate consent):</strong> Your question, necessary conversation context and financial information prepared for the question, such as totals, ratios and relevant historical context, are sent to Typhoon to generate a reply. Avoid entering unnecessary sensitive information in your message. The app’s chat history stays local and can be deleted from chat history. Consent can be withdrawn in Settings.</li>
+      <li><strong>Groups, shared bills and sharing:</strong> Groups and bills are stored locally, without online group membership. Sharing opens the iOS share sheet for you to choose a service and recipient. A summary or bill link may contain names, amounts, merchants, items and PromptPay information if configured. Review it before sending. Marking a share received does not transfer money.</li>
+      <li><strong>Sati Plus purchases:</strong> Product lookup, purchase and restoration use Apple StoreKit/App Store. The app uses the resulting purchase entitlement to enable features. Manage subscriptions through your Apple account.</li>
       <li><strong>Stock/fund/crypto prices:</strong> When you add an investment, the App sends only the asset’s symbol/identifier to Yahoo Finance, CoinGecko, and Thailand’s SEC to fetch the latest price — never the amount, quantity, or any identity data.</li>
       <li><strong>Merchant/brand logos:</strong> To display merchant icons, the App may request a logo image by the merchant’s name or domain — no financial data is attached.</li>
     </ul>
-    <p>Typhoon AI (by SCB 10X) acts as our data processor. We send only the minimum needed, only after your explicit in-app consent, and we require the provider to process the data for this feature and protect it consistent with applicable law. However, under the provider's own terms the submitted text may be retained and used to improve/train its models — which is exactly why we obtain opt-in consent before every send and let you withdraw it at any time. The price-lookup services (Yahoo Finance, CoinGecko, SEC) are third parties with their own policies. We never sell your data or use it for advertising.</p>
+    <p>AI requests are sent only while consent for the relevant feature is valid. Consent covers subsequent sends until revoked or a disclosure update requires renewed consent. The provider may retain submitted text and use it to improve models under its own terms. Disabling AI stops future sends; it does not erase information already sent. External services have their own data policies.</p>
 
     <h2>4. Camera and Photo Library Access</h2>
     <p>The App requests camera and photo access only to scan slips/receipts. Images are processed on-device with Apple Vision and then discarded — the App stores no photos and uploads no images.</p>
@@ -313,7 +328,7 @@
 
     <h2>7. What We Do NOT Do</h2>
     <ul>
-      <li>No user accounts, no registration, no server of ours holding your data</li>
+      <li>No MindSpend account is required for local use; we run no central server holding your financial records</li>
       <li>No analytics, no behavioral tracking, no IDFA, no third-party ad/attribution SDKs</li>
       <li>No advertisements</li>
       <li>We never sell your data or share it for marketing</li>
@@ -321,11 +336,9 @@
       <li>We do not store receipt/slip images (processed on-device, then discarded)</li>
     </ul>
 
-    <h2>8. Data Security</h2>
-    <p>All connections are encrypted with HTTPS (App Transport Security). Any sensitive credentials you might enter are stored only in the iOS Keychain on your device (accessible when the device is unlocked) — never transmitted or synced.</p>
+    <h2>8. Data Security</h2><p>Service connections use HTTPS. Sensitive values such as import-file passwords and PromptPay identifiers use iOS Keychain according to their purpose. A bill share you choose may include PromptPay information; review it before sending. Disabling sync or AI does not recall copies already sent to a destination.</p>
 
-    <h2>9. Data Retention and Deletion</h2>
-    <p>Data stays on your device until you delete it — delete items in the App, or delete the App and all data is gone (there is no cross-device sync yet). The price-lookup services (Yahoo Finance, CoinGecko, SEC) use a request only to respond. Typhoon AI, however, may retain the submitted receipt text and use it to improve/train its models per its own terms (see <a href="https://opentyphoon.ai/tac" target="_blank" rel="noopener">opentyphoon.ai</a>) — you control this by enabling/disabling AI Receipt Scanning in the App.</p>
+    <h2>9. Data Retention and Deletion</h2><p>Manage entries and data reset inside the app. Uninstalling the app should not be treated as erasing every copy. If iCloud was enabled, data may remain in private iCloud, and information sent to recipients or external services is governed by those destinations. Groups, bills and the Milestones journal have local storage separate from synced records. History beyond the free browsing window is hidden, not deleted. Withdrawing AI consent stops new requests but does not recall text already sent.</p>
 
     <h2>10. Your Rights (PDPA)</h2>
     <p>Because the data lives on your own device, you can access, edit, and delete all of it at any time inside the App. You can withdraw consent for receipt data by disabling AI Receipt Scanning. This design aligns with Thailand’s Personal Data Protection Act (PDPA). For any question or request about your rights, contact <a href="mailto:support@mindspend.app">support@mindspend.app</a>; we will respond within 30 days.</p>
@@ -334,7 +347,7 @@
     <p>MindSpend is not directed at children under 13, and we do not knowingly collect data from children (age rating 4+).</p>
 
     <h2>12. Changes to This Policy</h2>
-    <p>If this policy changes (e.g., introducing cross-device sync), we will update this page with a new effective date and notify users through an app update.</p>
+    <p>If this policy changes , we will update this page with a new effective date and notify users through an app update.</p>
 
     <h2>13. Contact</h2>
     <p>For privacy questions, contact Thitipong Nonnoi (Jovey.co) at <a href="mailto:support@mindspend.app">support@mindspend.app</a></p>
@@ -344,6 +357,7 @@
     <p>You are responsible for the accuracy of the data you record and for your own financial decisions. Trademarks, brand names, and other intellectual property belong to their respective owners. Use of the App is governed by the laws of Thailand.</p>
   </div>
 
+  <div class="website-note"><h2>เว็บไซต์นี้ / This website</h2><p>เว็บไซต์แสดงข้อมูลผลิตภัณฑ์และตัวอย่างที่เป็นข้อมูลสมมติ ไม่ได้รับข้อมูลการเงินจากแอป การเลือกธีมเก็บใน localStorage ของเบราว์เซอร์ เว็บไซต์โหลดฟอนต์จาก Google Fonts และให้บริการผ่าน GitHub Pages ซึ่งอาจได้รับข้อมูลคำขอเครือข่าย เช่น IP address ตามการทำงานของบริการ</p><p>This site presents product information and fictional examples; it does not receive financial records from the app. Your theme choice is stored in browser localStorage. Fonts load from Google Fonts, and GitHub Pages serves the site. Those providers may receive network request information such as an IP address.</p><p><a href="./">กลับหน้าแรก / Back to MindSpend</a></p></div>
   <footer>
     © 2026 MindSpend · Thitipong Nonnoi (Jovey.co) · <a href="mailto:support@mindspend.app">support@mindspend.app</a>
   </footer>
@@ -354,8 +368,8 @@
 function switchLang(lang, ev){
   document.querySelectorAll('.lang-section').forEach(s=>s.classList.remove('active'));
   document.getElementById('lang-'+lang).classList.add('active');
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  if(ev&&ev.currentTarget) ev.currentTarget.classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  if(ev&&ev.currentTarget){ev.currentTarget.classList.add('active');ev.currentTarget.setAttribute('aria-pressed','true');}
   document.documentElement.lang = lang;
 }
 </script>

@@ -14,3 +14,5 @@ jobs:
         with:
           python-version: '3.12'
       - run: python3 scripts/site.py build
+      - run: python3 scripts/render_home.py --check
+      - run: node --check assets/site-v2.js && node --check assets/mind.js

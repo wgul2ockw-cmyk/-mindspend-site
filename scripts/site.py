@@ -68,7 +68,7 @@ def metadata(path, data, source):
         'isPartOf':{'@id':website['@id']},
         'primaryImageOfPage':{'@type':'ImageObject','url':SOCIAL,'width':1200,'height':630}}
     graph = [publisher, website, page]
-    if path != 'index.html':
+    if path not in ('index.html', 'en.html'):
         items = [('MindSpend', ORIGIN+'/')]
         if path.startswith('blog/') and article: items.append(('บทความ', ORIGIN+'/blog/'))
         items.append((title, url))
@@ -77,10 +77,10 @@ def metadata(path, data, source):
                                for i,(name,link) in enumerate(items)]}
         page['breadcrumb'] = {'@id':crumbs['@id']}
         graph.append(crumbs)
-    if path == 'index.html':
+    if path in ('index.html', 'en.html'):
         app = {'@type':'MobileApplication','@id':ORIGIN+'/#app', 'name':'MindSpend',
             'url':ORIGIN+'/', 'description':desc,'applicationCategory':'FinanceApplication',
-            'operatingSystem':'iOS', 'inLanguage':'th', 'publisher':{'@id':publisher['@id']},
+            'operatingSystem':'iOS 17.6 or later', 'inLanguage':['th','en'], 'publisher':{'@id':publisher['@id']},
             'image':ORIGIN+'/assets/icons/icon-512.png', 'sameAs':'https://jovey.co/mindspend/'}
         # No fabricated app-store URL, ratings, prices, or Android availability.
         page['about'] = {'@id':app['@id']}
