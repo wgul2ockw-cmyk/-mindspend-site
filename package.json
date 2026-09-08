@@ -1,0 +1,9 @@
+{
+  "name": "mindspend-site",
+  "private": true,
+  "scripts": {
+    "build": "python3 scripts/site.py build",
+    "audit:seo": "python3 scripts/site.py check",
+    "seo:write": "python3 scripts/site.py write"
+  }
+}
