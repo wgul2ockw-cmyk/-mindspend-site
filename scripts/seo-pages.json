@@ -1,8 +1,14 @@
 {
   "index.html": {
-    "title": "MindSpend — แอปบันทึกรายรับรายจ่ายฟรี เข้าใจการใช้เงิน",
-    "description": "MindSpend แอปบันทึกรายรับรายจ่ายสำหรับ iPhone มีส่วนพื้นฐานฟรี ช่วยมองวางแผนกับฉับพลัน เริ่มเข้าใจพฤติกรรมการใช้เงิน พร้อมตารางรายจ่ายฟรีและคู่มือวางแผนเงิน",
-    "type": "WebPage"
+    "title": "MindSpend — น้องมายด์ เพื่อนคู่ใจเรื่องเงิน | บันทึกรายจ่ายฟรี",
+    "description": "รู้จัก MindSpend โฉมใหม่สำหรับ iPhone: บันทึกรายรับรายจ่าย Home รายสัปดาห์ MindScore สินทรัพย์ และแบ่งบิลกับเพื่อน พร้อมน้องมายด์ ไทยและ English มีส่วนพื้นฐานฟรี",
+    "type": "WebPage",
+    "lang": "th",
+    "alternates": {
+      "th": "index.html",
+      "en": "en.html",
+      "x-default": "index.html"
+    }
   },
   "about.html": {
     "title": "เกี่ยวกับ MindSpend และน้องมายด์ — เพื่อนคู่ใจเรื่องเงิน",
@@ -11,7 +17,7 @@
   },
   "faq.html": {
     "title": "คำถามที่พบบ่อย — การใช้งานและฟีเจอร์ MindSpend",
-    "description": "คำตอบเรื่องการใช้งาน MindSpend ตั้งแต่เริ่มบันทึกรายจ่าย สแกนสลิป แยกวางแผนกับฉับพลัน เลือก Guru ใช้สติ+ ไปจนถึงความเป็นส่วนตัวและการแก้ปัญหา",
+    "description": "คำตอบเรื่อง MindSpend โฉมใหม่: Home, MindScore รายสัปดาห์, กลุ่มและแบ่งบิล, Milestones, ภาษา, iCloud, สติ+ และการยินยอมใช้ AI",
     "type": "WebPage"
   },
   "support.html": {
@@ -121,5 +127,16 @@
       "x-default": "spending-habits.html"
     },
     "published": "2026-09-08"
+  },
+  "en.html": {
+    "title": "MindSpend — Your Companion for Mindful Spending",
+    "description": "Meet Mind, your everyday money companion. Explore free expense tracking, the new Home, weekly MindScore, assets, local shared bills and optional iCloud. Thai and English.",
+    "type": "WebPage",
+    "lang": "en",
+    "alternates": {
+      "th": "index.html",
+      "en": "en.html",
+      "x-default": "index.html"
+    }
   }
 }
