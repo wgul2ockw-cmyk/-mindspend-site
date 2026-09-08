@@ -1,7 +1,7 @@
 {
   "index.html": {
-    "title": "MindSpend — แอปบันทึกรายรับรายจ่าย เข้าใจการใช้เงิน",
-    "description": "เข้าใจพฤติกรรมการใช้เงินกับ MindSpend แอปบันทึกรายรับรายจ่ายสำหรับ iPhone สแกนสลิป แยกการใช้จ่ายวางแผนกับฉับพลัน และเห็นภาพรวมของตัวเองอย่างไม่ตัดสิน",
+    "title": "MindSpend — แอปบันทึกรายรับรายจ่ายฟรี เข้าใจการใช้เงิน",
+    "description": "MindSpend แอปบันทึกรายรับรายจ่ายสำหรับ iPhone มีส่วนพื้นฐานฟรี ช่วยมองวางแผนกับฉับพลัน เริ่มเข้าใจพฤติกรรมการใช้เงิน พร้อมตารางรายจ่ายฟรีและคู่มือวางแผนเงิน",
     "type": "WebPage"
   },
   "about.html": {
@@ -51,5 +51,75 @@
     "description": "รู้จักแนวจัดสรรเงิน 4 แบบใน MindSpend: 50/30/20, Warren Buffett, Ray Dalio และ Gen-Z ไทย พร้อมมองว่าแนวไหนเข้ากับชีวิตเธอตอนนี้",
     "type": "BlogPosting",
     "published": "2026-07-07"
+  },
+  "free-budget-tracker.html": {
+    "title": "Free Budget Tracker & Expense Template | MindSpend",
+    "description": "Start free budget tracking with MindSpend. Download a daily expense CSV, compare planned and impulse spending, and learn what the free app tier includes.",
+    "type": "WebPage",
+    "lang": "en",
+    "alternates": {
+      "en": "free-budget-tracker.html",
+      "th": "budget-tracker-free-th.html",
+      "x-default": "free-budget-tracker.html"
+    }
+  },
+  "budget-tracker-free-th.html": {
+    "title": "แอปบันทึกรายรับรายจ่ายฟรีและตารางรายจ่าย | MindSpend",
+    "description": "เริ่มบันทึกรายรับรายจ่ายฟรีกับ MindSpend ดาวน์โหลดตารางรายจ่าย CSV แยกวางแผนกับฉับพลัน พร้อมดูขอบเขตฟีเจอร์ฟรีและสติ+ ให้ชัดก่อนเลือกใช้",
+    "type": "WebPage",
+    "lang": "th",
+    "alternates": {
+      "en": "free-budget-tracker.html",
+      "th": "budget-tracker-free-th.html",
+      "x-default": "free-budget-tracker.html"
+    }
+  },
+  "financial-freedom.html": {
+    "title": "Financial Freedom: Start With a Budget You Can Use | MindSpend",
+    "description": "Build a practical starting point for financial freedom: map cash flow, plan irregular bills, set a savings goal, and review progress without promises of wealth.",
+    "type": "Article",
+    "lang": "en",
+    "alternates": {
+      "en": "financial-freedom.html",
+      "th": "financial-freedom-th.html",
+      "x-default": "financial-freedom.html"
+    },
+    "published": "2026-09-08"
+  },
+  "financial-freedom-th.html": {
+    "title": "อิสรภาพทางการเงิน เริ่มจากแผนรายรับรายจ่าย | MindSpend",
+    "description": "เริ่มวางแผนอิสรภาพทางการเงินจากรายรับจริง ค่าใช้จ่ายไม่ประจำ เป้าหมายเงินสำรอง และการทบทวนรายเดือน พร้อมตัวอย่างที่ไม่รับประกันความร่ำรวย",
+    "type": "Article",
+    "lang": "th",
+    "alternates": {
+      "en": "financial-freedom.html",
+      "th": "financial-freedom-th.html",
+      "x-default": "financial-freedom.html"
+    },
+    "published": "2026-09-08"
+  },
+  "spending-habits.html": {
+    "title": "Improve Spending Habits With Mindful Tracking | MindSpend",
+    "description": "Explore how to improve spending habits: record planned and impulse purchases, notice triggers, and try one small change with a practical weekly review.",
+    "type": "Article",
+    "lang": "en",
+    "alternates": {
+      "en": "spending-habits.html",
+      "th": "spending-habits-th.html",
+      "x-default": "spending-habits.html"
+    },
+    "published": "2026-09-08"
+  },
+  "spending-habits-th.html": {
+    "title": "ปรับพฤติกรรมการใช้เงินและลดซื้อของตามอารมณ์ | MindSpend",
+    "description": "สำรวจวิธีปรับพฤติกรรมการใช้เงิน เริ่มจากแยกวางแผนกับฉับพลัน สังเกตสิ่งกระตุ้น และทดลองเปลี่ยนหนึ่งอย่าง พร้อมตัวอย่างทบทวนรายจ่ายรายสัปดาห์",
+    "type": "Article",
+    "lang": "th",
+    "alternates": {
+      "en": "spending-habits.html",
+      "th": "spending-habits-th.html",
+      "x-default": "spending-habits.html"
+    },
+    "published": "2026-09-08"
   }
 }
