@@ -28,26 +28,30 @@ def plain(value):
 def metadata(path, data, source):
     url = canonical(path)
     title, desc = data['title'], data['description']
-    article = data['type'] == 'BlogPosting'
+    article = data['type'] in ('BlogPosting', 'Article')
+    language = data.get('lang', 'th')
+    image_alt = ALT if language == 'th' else 'MindSpend — understand your spending without judgment, with Mind'
     tags = [f'<title>{html.escape(title)}</title>']
     def meta(key, value, prop=False):
         tags.append(f'<meta {"property" if prop else "name"}="{key}" content="{html.escape(value, quote=True)}">')
     meta('description', desc)
     meta('robots', 'index, follow, max-image-preview:large')
     tags.append(f'<link rel="canonical" href="{url}">')
+    for lang, target in data.get('alternates', {}).items():
+        tags.append(f'<link rel="alternate" hreflang="{lang}" href="{canonical(target)}">')
     for key, value in {
-        'og:site_name':'MindSpend', 'og:locale':'th_TH',
+        'og:site_name':'MindSpend', 'og:locale':'th_TH' if language == 'th' else 'en_US',
         'og:type':'article' if article else 'website', 'og:url':url,
         'og:title':title, 'og:description':desc, 'og:image':SOCIAL,
         'og:image:secure_url':SOCIAL, 'og:image:type':'image/png',
-        'og:image:width':'1200', 'og:image:height':'630', 'og:image:alt':ALT,
+        'og:image:width':'1200', 'og:image:height':'630', 'og:image:alt':image_alt,
     }.items(): meta(key, value, True)
     for key, value in {'twitter:card':'summary_large_image', 'twitter:title':title,
-        'twitter:description':desc, 'twitter:image':SOCIAL, 'twitter:image:alt':ALT}.items(): meta(key, value)
+        'twitter:description':desc, 'twitter:image':SOCIAL, 'twitter:image:alt':image_alt}.items(): meta(key, value)
     meta('theme-color', '#F7F3ED')
     meta('application-name', 'MindSpend')
     # Relative assets keep the existing GitHub project-path preview usable too.
-    prefix = '../' if path.startswith('blog/') else './'
+    prefix = '../' * (len(Path(path).parts) - 1) or './'
     tags.extend([
         f'<link rel="icon" href="{prefix}favicon.ico" sizes="any">',
         f'<link rel="icon" type="image/png" sizes="48x48" href="{prefix}assets/icons/favicon-48.png">',
@@ -58,15 +62,15 @@ def metadata(path, data, source):
         'name':'MindSpend', 'url':ORIGIN+'/',
         'logo':{'@type':'ImageObject', 'url':ORIGIN+'/assets/icons/icon-512.png', 'width':512, 'height':512}}
     website = {'@type':'WebSite', '@id':ORIGIN+'/#website', 'name':'MindSpend',
-        'url':ORIGIN+'/', 'inLanguage':'th', 'publisher':{'@id':publisher['@id']}}
+        'url':ORIGIN+'/', 'inLanguage':['th', 'en'], 'publisher':{'@id':publisher['@id']}}
     page = {'@type':'WebPage' if article else data['type'], '@id':url+'#webpage',
-        'url':url, 'name':title, 'description':desc, 'inLanguage':'th',
+        'url':url, 'name':title, 'description':desc, 'inLanguage':language,
         'isPartOf':{'@id':website['@id']},
         'primaryImageOfPage':{'@type':'ImageObject','url':SOCIAL,'width':1200,'height':630}}
     graph = [publisher, website, page]
     if path != 'index.html':
         items = [('MindSpend', ORIGIN+'/')]
-        if article: items.append(('บทความ', ORIGIN+'/blog/'))
+        if path.startswith('blog/') and article: items.append(('บทความ', ORIGIN+'/blog/'))
         items.append((title, url))
         crumbs = {'@type':'BreadcrumbList', '@id':url+'#breadcrumbs',
             'itemListElement':[{'@type':'ListItem','position':i+1,'name':name,'item':link}
@@ -77,7 +81,7 @@ def metadata(path, data, source):
         app = {'@type':'MobileApplication','@id':ORIGIN+'/#app', 'name':'MindSpend',
             'url':ORIGIN+'/', 'description':desc,'applicationCategory':'FinanceApplication',
             'operatingSystem':'iOS', 'inLanguage':'th', 'publisher':{'@id':publisher['@id']},
-            'image':ORIGIN+'/assets/icons/icon-512.png'}
+            'image':ORIGIN+'/assets/icons/icon-512.png', 'sameAs':'https://jovey.co/mindspend/'}
         # No fabricated app-store URL, ratings, prices, or Android availability.
         page['about'] = {'@id':app['@id']}
         graph.append(app)
@@ -85,8 +89,8 @@ def metadata(path, data, source):
         headline = plain(re.search(r'<h1\b[^>]*>(.*?)</h1>', source, re.S)[1])
         meta('article:published_time', data['published'], True)
         author = {'@type':'Organization','@id':ORIGIN+'/about.html#team','name':'MindSpend Team','url':ORIGIN+'/about.html'}
-        graph.extend([author, {'@type':'BlogPosting', '@id':url+'#article',
-            'headline':headline,'description':desc,'url':url,'inLanguage':'th',
+        graph.extend([author, {'@type':data['type'], '@id':url+'#article',
+            'headline':headline,'description':desc,'url':url,'inLanguage':language,
             'datePublished':data['published'], 'author':{'@id':author['@id']},
             'publisher':{'@id':publisher['@id']}, 'image':SOCIAL,
             'mainEntityOfPage':{'@id':page['@id']},'isPartOf':{'@id':website['@id']}}])
@@ -161,6 +165,16 @@ def check():
         if path in EXCLUDED:
             require(any(t=='meta' and a.get('name')=='robots' and 'noindex' in a.get('content','') for t,a in doc.tags),f'{path}: missing noindex')
             continue
+        language=PAGES[path].get('lang', 'th')
+        require(any(t=='html' and a.get('lang')==language for t,a in doc.tags),f'{path}: HTML language mismatch')
+        alternates=PAGES[path].get('alternates', {})
+        if alternates:
+            require(alternates.get(language)==path,f'{path}: missing self-referencing hreflang')
+            for lang,target in alternates.items():
+                require(target in PAGES,f'{path}: unknown hreflang target {target}')
+                if target in PAGES:
+                    require(PAGES[target].get('alternates')==alternates,f'{path}: nonreciprocal hreflang')
+                    if lang!='x-default': require(PAGES[target].get('lang','th')==lang,f'{path}: hreflang target language mismatch')
         expected=metadata(path,PAGES[path],source)
         require(expected in source,f'{path}: metadata drift; run npm run seo:write')
         require(len(re.findall(r'<title>',source))==1,f'{path}: duplicate title')
@@ -172,6 +186,20 @@ def check():
         blocks=re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S)
         require(len(blocks)==1,f'{path}: expected one structured-data graph')
         for block in blocks: json.loads(block)
+    # Indexable pages must be discoverable through ordinary HTML links from home.
+    reached={'index.html'}
+    pending=['index.html']
+    while pending:
+        path=pending.pop()
+        for tag,a in docs[path].tags:
+            if tag!='a' or not a.get('href'): continue
+            u=urlsplit(urljoin(canonical(path),a['href']))
+            if u.netloc!='mindspend.co': continue
+            target=unquote(u.path).lstrip('/')
+            if not target or target.endswith('/'): target+='index.html'
+            if target in PAGES and target not in reached:
+                reached.add(target); pending.append(target)
+    require(reached==set(PAGES),'Orphan indexable pages: '+str(set(PAGES)-reached))
     require(len({d['title'] for d in PAGES.values()})==len(PAGES),'Duplicate page titles')
     require(len({d['description'] for d in PAGES.values()})==len(PAGES),'Duplicate descriptions')
     for path,expected in generated(): require((ROOT/path).read_text()==expected,f'{path}: generated file drift')
