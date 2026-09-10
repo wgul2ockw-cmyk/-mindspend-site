@@ -15,4 +15,7 @@ jobs:
           python-version: '3.12'
       - run: python3 scripts/site.py build
       - run: python3 scripts/render_home.py --check
+      - run: python3 scripts/render_search_pages.py --check
+      - run: node --test scripts/test-money-tools.cjs
+      - run: node --check assets/money-tools.js
       - run: node --check assets/site-v2.js && node --check assets/mind.js

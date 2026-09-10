@@ -4,6 +4,8 @@
   "scripts": {
     "build": "python3 scripts/site.py build",
     "audit:seo": "python3 scripts/site.py check",
-    "seo:write": "python3 scripts/site.py write"
+    "seo:write": "python3 scripts/site.py write",
+    "test:tools": "node --test scripts/test-money-tools.cjs",
+    "check:render": "python3 scripts/render_home.py --check && python3 scripts/render_search_pages.py --check"
   }
 }
