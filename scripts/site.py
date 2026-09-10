@@ -7,6 +7,7 @@ import re
 import shutil
 import struct
 import sys
+from datetime import date
 from html.parser import HTMLParser
 from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
@@ -67,7 +68,18 @@ def metadata(path, data, source):
         'url':url, 'name':title, 'description':desc, 'inLanguage':language,
         'isPartOf':{'@id':website['@id']},
         'primaryImageOfPage':{'@type':'ImageObject','url':SOCIAL,'width':1200,'height':630}}
+    if data.get('modified'): page['dateModified'] = data['modified']
     graph = [publisher, website, page]
+    if data.get('tool'):
+        tool = {'@type':'WebApplication', '@id':url+'#calculator',
+            'name':plain(re.search(r'<h1\b[^>]*>(.*?)</h1>', source, re.S)[1]),
+            'url':url, 'applicationCategory':'FinanceApplication',
+            'operatingSystem':'Any', 'browserRequirements':'Requires JavaScript',
+            'inLanguage':language, 'isAccessibleForFree':True,
+            'offers':{'@type':'Offer','price':'0','priceCurrency':'THB'},
+            'publisher':{'@id':publisher['@id']}}
+        page['mainEntity'] = {'@id':tool['@id']}
+        graph.append(tool)
     if path not in ('index.html', 'en.html'):
         items = [('MindSpend', ORIGIN+'/')]
         if path.startswith('blog/') and article: items.append(('บทความ', ORIGIN+'/blog/'))
@@ -91,7 +103,7 @@ def metadata(path, data, source):
         author = {'@type':'Organization','@id':ORIGIN+'/about.html#team','name':'MindSpend Team','url':ORIGIN+'/about.html'}
         graph.extend([author, {'@type':data['type'], '@id':url+'#article',
             'headline':headline,'description':desc,'url':url,'inLanguage':language,
-            'datePublished':data['published'], 'author':{'@id':author['@id']},
+            'datePublished':data['published'], **({'dateModified':data['modified']} if data.get('modified') else {}), 'author':{'@id':author['@id']},
             'publisher':{'@id':publisher['@id']}, 'image':SOCIAL,
             'mainEntityOfPage':{'@id':page['@id']},'isPartOf':{'@id':website['@id']}}])
     payload = json.dumps({'@context':'https://schema.org','@graph':graph}, ensure_ascii=False, indent=2).replace('<','\\u003c')
@@ -102,8 +114,13 @@ def generated():
     yield 'CNAME', 'mindspend.co\n'
     yield 'robots.txt', 'User-agent: *\nAllow: /\n\nSitemap: https://mindspend.co/sitemap.xml\n'
     # Let crawlers fetch noindex pages. Blocking them here would hide the noindex directive.
-    urls = '\n'.join(f'  <url><loc>{canonical(p)}</loc></url>' for p in PAGES)
-    yield 'sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls+'\n</urlset>\n'
+    entries = []
+    for path, data in PAGES.items():
+        modified = f'<lastmod>{data["modified"]}</lastmod>' if data.get('modified') else ''
+        alternates = ''.join(f'<xhtml:link rel="alternate" hreflang="{lang}" href="{canonical(target)}" />' for lang, target in data.get('alternates', {}).items())
+        entries.append(f'  <url><loc>{canonical(path)}</loc>{modified}{alternates}</url>')
+    urls = '\n'.join(entries)
+    yield 'sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+urls+'\n</urlset>\n'
     manifest = {'id':'./', 'name':'MindSpend', 'short_name':'MindSpend', 'lang':'th',
         'description':'เข้าใจการใช้เงิน ได้อย่างไม่ตัดสิน', 'start_url':'./','scope':'./',
         'display':'browser','background_color':'#F7F3ED','theme_color':'#F7F3ED',
@@ -113,11 +130,13 @@ def generated():
 class Document(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
-        self.tags=[]; self.ids=set(); self.h1=0
+        self.tags=[]; self.ids=set(); self.duplicate_ids=set(); self.h1=0
         self.feed(source)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs); self.tags.append((tag,a))
-        if 'id' in a: self.ids.add(a['id'])
+        if 'id' in a:
+            if a['id'] in self.ids: self.duplicate_ids.add(a['id'])
+            self.ids.add(a['id'])
         if tag=='h1': self.h1+=1
 
 def write():
@@ -149,6 +168,7 @@ def check():
     for path in paths:
         source=(ROOT/path).read_text(); doc=docs[path]
         require(doc.h1==1,f'{path}: expected one H1')
+        require(not doc.duplicate_ids,f'{path}: duplicate IDs {doc.duplicate_ids}')
         require(any(t=='meta' and a.get('name')=='viewport' for t,a in doc.tags),f'{path}: missing viewport')
         for tag,a in doc.tags:
             if tag=='img': require('alt' in a,f'{path}: image missing alt')
@@ -166,6 +186,8 @@ def check():
             require(any(t=='meta' and a.get('name')=='robots' and 'noindex' in a.get('content','') for t,a in doc.tags),f'{path}: missing noindex')
             continue
         language=PAGES[path].get('lang', 'th')
+        if PAGES[path].get('modified'):
+            date.fromisoformat(PAGES[path]['modified'])
         require(any(t=='html' and a.get('lang')==language for t,a in doc.tags),f'{path}: HTML language mismatch')
         alternates=PAGES[path].get('alternates', {})
         if alternates:

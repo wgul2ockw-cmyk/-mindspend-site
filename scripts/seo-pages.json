@@ -1,14 +1,15 @@
 {
   "index.html": {
-    "title": "MindSpend — น้องมายด์ เพื่อนคู่ใจเรื่องเงิน | บันทึกรายจ่ายฟรี",
-    "description": "รู้จัก MindSpend โฉมใหม่สำหรับ iPhone: บันทึกรายรับรายจ่าย Home รายสัปดาห์ MindScore สินทรัพย์ และแบ่งบิลกับเพื่อน พร้อมน้องมายด์ ไทยและ English มีส่วนพื้นฐานฟรี",
+    "title": "MindSpend | แอปบันทึกรายรับรายจ่ายฟรีสำหรับ iPhone",
+    "description": "MindSpend แอปบันทึกรายรับรายจ่ายสำหรับ iPhone มีส่วนพื้นฐานฟรี แยกวางแผนกับฉับพลัน ดูงบรายเดือน เป้าหมายเงินออม และบิลแบ่ง พร้อมเครื่องคำนวณใช้ฟรี",
     "type": "WebPage",
     "lang": "th",
     "alternates": {
       "th": "index.html",
       "en": "en.html",
       "x-default": "index.html"
-    }
+    },
+    "modified": "2026-09-10"
   },
   "about.html": {
     "title": "เกี่ยวกับ MindSpend และน้องมายด์ — เพื่อนคู่ใจเรื่องเงิน",
@@ -59,26 +60,28 @@
     "published": "2026-07-07"
   },
   "free-budget-tracker.html": {
-    "title": "Free Budget Tracker & Expense Template | MindSpend",
-    "description": "Start free budget tracking with MindSpend. Download a daily expense CSV, compare planned and impulse spending, and learn what the free app tier includes.",
+    "title": "Free Budget Tracker & Expense Tracker for iPhone | MindSpend",
+    "description": "Looking for a budget tracker free to start? Explore MindSpend for iPhone, download free expense templates, and try monthly budget, savings and split-bill tools.",
     "type": "WebPage",
     "lang": "en",
     "alternates": {
       "en": "free-budget-tracker.html",
       "th": "budget-tracker-free-th.html",
       "x-default": "free-budget-tracker.html"
-    }
+    },
+    "modified": "2026-09-10"
   },
   "budget-tracker-free-th.html": {
-    "title": "แอปบันทึกรายรับรายจ่ายฟรีและตารางรายจ่าย | MindSpend",
-    "description": "เริ่มบันทึกรายรับรายจ่ายฟรีกับ MindSpend ดาวน์โหลดตารางรายจ่าย CSV แยกวางแผนกับฉับพลัน พร้อมดูขอบเขตฟีเจอร์ฟรีและสติ+ ให้ชัดก่อนเลือกใช้",
+    "title": "แอปบันทึกรายรับรายจ่ายฟรี iPhone และตารางรายจ่าย | MindSpend",
+    "description": "เริ่มบันทึกรายรับรายจ่ายฟรีบน iPhone กับ MindSpend ดูขอบเขตแบบฟรีและสติ+ ดาวน์โหลดตารางรายจ่าย พร้อมเครื่องคำนวณงบ เงินออม และหารบิลที่ใช้ได้ทันที",
     "type": "WebPage",
     "lang": "th",
     "alternates": {
       "en": "free-budget-tracker.html",
       "th": "budget-tracker-free-th.html",
       "x-default": "free-budget-tracker.html"
-    }
+    },
+    "modified": "2026-09-10"
   },
   "financial-freedom.html": {
     "title": "Financial Freedom: Start With a Budget You Can Use | MindSpend",
@@ -129,14 +132,119 @@
     "published": "2026-09-08"
   },
   "en.html": {
-    "title": "MindSpend — Your Companion for Mindful Spending",
-    "description": "Meet Mind, your everyday money companion. Explore free expense tracking, the new Home, weekly MindScore, assets, local shared bills and optional iCloud. Thai and English.",
+    "title": "MindSpend | Free Budget Tracker & Expense Tracker App",
+    "description": "Explore MindSpend, an iPhone budget and expense tracker with free core features. Track spending habits and try free budget, savings and bill-splitting tools.",
     "type": "WebPage",
     "lang": "en",
     "alternates": {
       "th": "index.html",
       "en": "en.html",
       "x-default": "index.html"
-    }
+    },
+    "modified": "2026-09-10"
+  },
+  "monthly-budget-planner.html": {
+    "title": "Free Monthly Budget Planner & 50/30/20 Calculator | MindSpend",
+    "description": "Use this free monthly budget planner to compare take-home income, bills, spending and savings. Try a 50/30/20 reference with no sign-up or bank connection.",
+    "type": "WebPage",
+    "lang": "en",
+    "alternates": {
+      "en": "monthly-budget-planner.html",
+      "th": "monthly-budget-planner-th.html",
+      "x-default": "monthly-budget-planner.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "budget"
+  },
+  "monthly-budget-planner-th.html": {
+    "title": "เครื่องคำนวณงบรายเดือนฟรี และสูตร 50/30/20 | MindSpend",
+    "description": "วางแผนงบรายเดือนจากรายรับจริง ค่าใช้จ่าย และเงินออม ดูเงินที่ยังไม่ได้จัดสรรพร้อมตัวอย่าง 50/30/20 คำนวณฟรีในเบราว์เซอร์ ไม่ต้องสมัครบัญชี",
+    "type": "WebPage",
+    "lang": "th",
+    "alternates": {
+      "en": "monthly-budget-planner.html",
+      "th": "monthly-budget-planner-th.html",
+      "x-default": "monthly-budget-planner.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "budget"
+  },
+  "savings-goal-calculator.html": {
+    "title": "Free Savings Goal Calculator & Monthly Plan | MindSpend",
+    "description": "Calculate how much to save each month for a target. Enter your existing savings and timeline, see the final contribution, and compare the result with your budget.",
+    "type": "WebPage",
+    "lang": "en",
+    "alternates": {
+      "en": "savings-goal-calculator.html",
+      "th": "savings-goal-calculator-th.html",
+      "x-default": "savings-goal-calculator.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "savings"
+  },
+  "savings-goal-calculator-th.html": {
+    "title": "เครื่องคำนวณเงินออมรายเดือน ตามเป้าหมายฟรี | MindSpend",
+    "description": "คำนวณว่าเป้าหมายเงินออมต้องเติมเดือนละเท่าไร ใส่ยอดที่มีแล้วและจำนวนเดือน เห็นยอดงวดสุดท้าย ใช้ฟรีโดยไม่สมมติดอกเบี้ยหรือผลตอบแทนลงทุน",
+    "type": "WebPage",
+    "lang": "th",
+    "alternates": {
+      "en": "savings-goal-calculator.html",
+      "th": "savings-goal-calculator-th.html",
+      "x-default": "savings-goal-calculator.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "savings"
+  },
+  "split-bill-calculator.html": {
+    "title": "Free Split Bill & Tip Calculator — Exact Shares | MindSpend",
+    "description": "Split a bill equally, add an optional tip, and see exact per-person amounts with no missing cents. Free calculator for meals and shared expenses, no sign-up.",
+    "type": "WebPage",
+    "lang": "en",
+    "alternates": {
+      "en": "split-bill-calculator.html",
+      "th": "split-bill-calculator-th.html",
+      "x-default": "split-bill-calculator.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "split"
+  },
+  "split-bill-calculator-th.html": {
+    "title": "เครื่องหารบิลและคำนวณทิปฟรี แบ่งเงินลงตัว | MindSpend",
+    "description": "หารบิลค่าอาหารและค่าใช้จ่ายเท่ากัน พร้อมคำนวณทิปเพิ่ม ระบบแบ่งเศษสตางค์ให้ยอดรวมตรงบิล ใช้ฟรี ไม่ต้องสมัครหรือส่งข้อมูลให้ใคร",
+    "type": "WebPage",
+    "lang": "th",
+    "alternates": {
+      "en": "split-bill-calculator.html",
+      "th": "split-bill-calculator-th.html",
+      "x-default": "split-bill-calculator.html"
+    },
+    "modified": "2026-09-10",
+    "tool": "split"
+  },
+  "receipt-scanner.html": {
+    "title": "Receipt Scanner & Thai Payment Slip Guide | MindSpend",
+    "description": "See how MindSpend turns receipts and Thai payment slips into reviewable expense drafts. Check amounts, avoid duplicate spending, and understand AI consent.",
+    "type": "Article",
+    "lang": "en",
+    "alternates": {
+      "en": "receipt-scanner.html",
+      "th": "receipt-scanner-th.html",
+      "x-default": "receipt-scanner.html"
+    },
+    "modified": "2026-09-10",
+    "published": "2026-09-10"
+  },
+  "receipt-scanner-th.html": {
+    "title": "สแกนสลิปและใบเสร็จ บันทึกรายจ่ายบน iPhone | MindSpend",
+    "description": "รู้จักการอ่านสลิปและใบเสร็จใน MindSpend สำหรับ iPhone ตรวจยอด วัน และร้านก่อนบันทึก ป้องกันรายจ่ายซ้ำ และเข้าใจการยินยอมใช้ AI กับข้อมูลในภาพ",
+    "type": "Article",
+    "lang": "th",
+    "alternates": {
+      "en": "receipt-scanner.html",
+      "th": "receipt-scanner-th.html",
+      "x-default": "receipt-scanner.html"
+    },
+    "modified": "2026-09-10",
+    "published": "2026-09-10"
   }
 }
